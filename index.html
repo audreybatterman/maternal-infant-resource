@@ -1,1082 +1,783 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>Maternal Infant Nursing Resource</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --lav-light: #f3e8ff;
-      --lav-soft:  #e9d5ff;
-      --lav-mid:   #c084fc;
-      --lav-dark:  #7e22ce;
-      --lav-deep:  #581c87;
-      --mint-light:#ecfdf5;
-      --mint-soft: #a7f3d0;
-      --mint-mid:  #34d399;
-      --mint-dark: #065f46;
-      --blush:     #fdf2f8;
-      --blush-mid: #f9a8d4;
-      --warn-bg:   #fff7ed;
-      --warn:      #c2410c;
-      --white:     #ffffff;
-      --gray-50:   #f9fafb;
-      --gray-100:  #f3f4f6;
-      --gray-200:  #e5e7eb;
-      --gray-500:  #6b7280;
-      --gray-700:  #374151;
-      --gray-900:  #111827;
-      --radius:    14px;
-      --radius-sm: 8px;
-      --shadow:    0 2px 12px rgba(124,58,237,.10);
-      --shadow-lg: 0 8px 32px rgba(124,58,237,.14);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Maternal Infant Nursing Resource for Audrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:        #fce4ec;
+  --pink-mid:    #f8bbd0;
+  --pink-dark:   #ad1457;
+  --pink-med:    #c2185b;
+  --mint:        #e0f7ef;
+  --mint-mid:    #b2dfdb;
+  --mint-dark:   #00695c;
+  --lavender:    #ede7f6;
+  --lav-mid:     #d1c4e9;
+  --lav-dark:    #4527a0;
+  --peach:       #fff3e0;
+  --peach-mid:   #ffe0b2;
+  --peach-dark:  #e65100;
+  --sky:         #e3f2fd;
+  --sky-dark:    #0d47a1;
+  --cream:       #fffdf8;
+  --white:       #ffffff;
+  --text-main:   #2d2235;
+  --text-sub:    #5a4a6a;
+  --text-muted:  #8a7a9a;
+  --border:      rgba(0,0,0,0.08);
+  --shadow:      rgba(180,140,180,0.18);
+  --tab-h: 74px;
+  --font-head: 'Nunito', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+  --r: 16px;
+  --r-sm: 10px;
+}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Nunito Sans', sans-serif;
-      background: linear-gradient(135deg, #faf5ff 0%, #f0fdf4 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 12px 40px;
-    }
-
-    /* ── PHONE SHELL ── */
-    .phone {
-      width: 100%;
-      max-width: 420px;
-      background: var(--white);
-      border-radius: 32px;
-      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(124,58,237,.08);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 85vh;
-      position: relative;
-    }
-
-    /* ── HEADER ── */
-    .app-header {
-      background: linear-gradient(135deg, var(--lav-deep) 0%, var(--lav-dark) 60%, #a855f7 100%);
-      padding: 22px 20px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      position: relative;
-      overflow: hidden;
-    }
-    .app-header::after {
-      content: '';
-      position: absolute;
-      right: -20px; top: -20px;
-      width: 120px; height: 120px;
-      background: rgba(255,255,255,.06);
-      border-radius: 50%;
-    }
-    .header-icon {
-      width: 46px; height: 46px;
-      background: rgba(255,255,255,.18);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .header-text h1 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -.3px;
-    }
-    .header-text p {
-      font-size: 12px;
-      color: rgba(255,255,255,.75);
-      margin-top: 2px;
-    }
-
-    /* ── SCROLL AREA ── */
-    #main-content {
-      flex: 1;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* ── PANELS ── */
-    .panel { display: none; padding: 0 0 24px; }
-    .panel.active { display: block; }
-
-    /* ── SECTION HERO BANNER ── */
-    .section-hero {
-      padding: 20px 18px 16px;
-      background: linear-gradient(135deg, var(--lav-light) 0%, var(--blush) 100%);
-      border-bottom: 1px solid var(--lav-soft);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .section-hero.mint {
-      background: linear-gradient(135deg, var(--mint-light) 0%, #f0fdf4 100%);
-      border-bottom-color: var(--mint-soft);
-    }
-    .section-hero.lav {
-      background: linear-gradient(135deg, var(--lav-light) 0%, #faf5ff 100%);
-      border-bottom-color: var(--lav-soft);
-    }
-    .hero-icon {
-      width: 52px; height: 52px;
-      border-radius: 16px;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
-    }
-    .hero-text h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--lav-deep);
-    }
-    .hero-text p { font-size: 12.5px; color: var(--gray-500); margin-top: 3px; }
-    .section-hero.mint .hero-text h2 { color: var(--mint-dark); }
-    .section-hero.lav .hero-text h2 { color: var(--lav-dark); }
-
-    /* ── SECTION INNER HEADING ── */
-    .section-cat-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 18px 6px;
-    }
-    .section-cat-header h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--gray-900);
-    }
-    .cat-badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 20px;
-      letter-spacing: .2px;
-    }
-
-    /* ── ACCORDION ── */
-    .accordion {
-      margin: 8px 14px 4px;
-      border-radius: var(--radius);
-      border: 1.5px solid var(--lav-soft);
-      overflow: hidden;
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-    .accordion.mint-acc {
-      border-color: var(--mint-soft);
-    }
-    .accordion-header {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 14px;
-      text-align: left;
-      font-family: 'Nunito', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--gray-900);
-    }
-    .accordion-header .acc-icon {
-      width: 32px; height: 32px;
-      border-radius: 10px;
-      background: var(--lav-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-    .accordion.mint-acc .accordion-header .acc-icon { background: var(--mint-light); }
-    .accordion-header .acc-chevron {
-      margin-left: auto;
-      width: 20px; height: 20px;
-      color: var(--lav-mid);
-      transition: transform .25s;
-      flex-shrink: 0;
-    }
-    .accordion.mint-acc .accordion-header .acc-chevron { color: var(--mint-mid); }
-    .accordion.open .acc-chevron { transform: rotate(180deg); }
-    .accordion-body {
-      display: none;
-      padding: 0 14px 14px;
-      font-size: 13px;
-      color: var(--gray-700);
-      line-height: 1.65;
-    }
-    .accordion.open .accordion-body { display: block; padding-top: 4px; }
-
-    /* ── LIST STYLES INSIDE ACCORDIONS ── */
-    .acc-list { list-style: none; padding: 0; }
-    .acc-list li {
-      display: flex;
-      gap: 8px;
-      padding: 5px 0;
-      border-bottom: 1px solid var(--gray-100);
-      align-items: flex-start;
-    }
-    .acc-list li:last-child { border-bottom: none; }
-    .acc-list li::before {
-      content: '•';
-      color: var(--lav-mid);
-      font-size: 16px;
-      line-height: 1.3;
-      flex-shrink: 0;
-    }
-    .accordion.mint-acc .acc-list li::before { color: var(--mint-mid); }
-
-    /* ── ALERT CHIP ── */
-    .alert-chip {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      background: var(--warn-bg);
-      border: 1px solid #fed7aa;
-      border-radius: var(--radius-sm);
-      padding: 8px 10px;
-      margin-top: 8px;
-      font-size: 12.5px;
-      color: var(--warn);
-      font-weight: 600;
-    }
-    .alert-chip .chip-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-
-    /* ── MNEMONIC CARD ── */
-    .mnemonic-card {
-      margin: 8px 14px 4px;
-      background: linear-gradient(135deg, var(--lav-light), var(--blush));
-      border: 1.5px solid var(--lav-soft);
-      border-radius: var(--radius);
-      padding: 14px;
-      box-shadow: var(--shadow);
-    }
-    .mnemonic-card.mint { background: linear-gradient(135deg, var(--mint-light), #f0fdf4); border-color: var(--mint-soft); }
-    .mnemonic-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--lav-deep);
-      margin-bottom: 10px;
-      letter-spacing: .2px;
-    }
-    .mnemonic-card.mint .mnemonic-title { color: var(--mint-dark); }
-    .mnemonic-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
-    .mnemonic-item {
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      padding: 7px 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .mnemonic-letter {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--lav-dark);
-      width: 20px;
-      flex-shrink: 0;
-    }
-    .mnemonic-card.mint .mnemonic-letter { color: var(--mint-dark); }
-    .mnemonic-word { font-size: 12px; font-weight: 600; color: var(--gray-700); }
-
-    /* ── TABLE ── */
-    .acc-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      margin-top: 6px;
-    }
-    .acc-table th {
-      background: var(--lav-light);
-      color: var(--lav-deep);
-      font-weight: 700;
-      padding: 7px 8px;
-      text-align: left;
-      border-bottom: 2px solid var(--lav-soft);
-    }
-    .accordion.mint-acc .acc-table th {
-      background: var(--mint-light);
-      color: var(--mint-dark);
-      border-bottom-color: var(--mint-soft);
-    }
-    .acc-table td {
-      padding: 6px 8px;
-      border-bottom: 1px solid var(--gray-100);
-      vertical-align: top;
-      line-height: 1.4;
-    }
-    .acc-table tr:last-child td { border-bottom: none; }
-    .score-0 { color: var(--warn); font-weight: 700; }
-    .score-1 { color: #d97706; font-weight: 600; }
-    .score-2 { color: var(--mint-dark); font-weight: 700; }
-
-    /* ── VITALS CARD ── */
-    .vitals-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7px;
-      margin-top: 6px;
-    }
-    .vital-item {
-      background: var(--gray-50);
-      border-radius: var(--radius-sm);
-      padding: 8px 10px;
-    }
-    .vital-label { font-size: 10.5px; color: var(--gray-500); font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
-    .vital-value { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-top: 2px; }
-    .vital-note { font-size: 11px; color: var(--gray-500); margin-top: 1px; }
-
-    /* ── PILL CHIPS ── */
-    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-    .pill {
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: var(--lav-light);
-      color: var(--lav-deep);
-    }
-    .accordion.mint-acc .pill { background: var(--mint-light); color: var(--mint-dark); }
-
-    /* ── DIRECTORY STYLES ── */
-    .dir-intro {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 10px 14px 6px;
-      background: var(--lav-light);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-    .dir-intro-text { font-size: 13px; color: var(--lav-deep); line-height: 1.5; }
-    .dir-card {
-      margin: 8px 14px 4px;
-      border: 1.5px solid var(--lav-soft);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-    .dir-card-head {
-      background: var(--lav-light);
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--lav-soft);
-    }
-    .dir-card-head-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--lav-deep);
-    }
-    .dir-entry {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--gray-100);
-      gap: 8px;
-    }
-    .dir-entry:last-child { border-bottom: none; }
-    .dir-entry-name { font-size: 13px; font-weight: 700; color: var(--gray-900); }
-    .dir-entry-role { font-size: 11.5px; color: var(--gray-500); margin-top: 1px; }
-    .dir-entry-num {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: var(--lav-light);
-      color: var(--lav-dark);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .dir-placeholder { color: var(--gray-500); background: var(--gray-100); }
-
-    /* ── CAT SVG SECTION ── */
-    .cat-section {
-      display: flex;
-      justify-content: center;
-      padding: 10px 0 0;
-    }
-
-    /* ── TAB BAR ── */
-    .tab-bar {
-      display: flex;
-      background: var(--white);
-      border-top: 1.5px solid var(--gray-200);
-      padding: 6px 8px 10px;
-      gap: 4px;
-    }
-    .tab-btn {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      padding: 7px 4px;
-      border: none;
-      background: none;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      color: var(--gray-500);
-      transition: background .18s, color .18s;
-      font-family: 'Nunito', sans-serif;
-    }
-    .tab-btn:hover { background: var(--lav-light); color: var(--lav-dark); }
-    .tab-btn.active { background: var(--lav-light); color: var(--lav-dark); }
-    .tab-btn.mint-tab.active { background: var(--mint-light); color: var(--mint-dark); }
-    .tab-btn.lav-tab.active { background: var(--lav-soft); color: var(--lav-deep); }
-    .tab-icon-wrap { width: 26px; height: 26px; }
-    .tab-label { font-size: 11px; font-weight: 700; letter-spacing: .2px; }
-
-    /* ── SUBSECTION HEADING ── */
-    .sub-heading {
-      padding: 14px 18px 4px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 13.5px;
-      font-weight: 800;
-      color: var(--gray-700);
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-    /* scrollbar */
-    #main-content::-webkit-scrollbar { width: 4px; }
-    #main-content::-webkit-scrollbar-thumb { background: var(--lav-soft); border-radius: 4px; }
-  </style>
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { height: 100%; background: #e8d5e8; }
+body {
+  min-height: 100%;
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: 24px 16px 40px;
+  background:
+    radial-gradient(ellipse at 20% 0%, #fce4ec 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 10%, #e0f7ef 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #ede7f6 0%, transparent 60%),
+    #f5eaf5;
+  font-family: var(--font-body);
+  color: var(--text-main);
+}
+.phone {
+  width: 100%; max-width: 420px; min-height: 860px;
+  background: var(--cream); border-radius: 36px; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(200,160,210,0.4), 0 24px 80px rgba(160,100,180,0.25), 0 8px 24px rgba(0,0,0,0.08);
+  position: relative;
+}
+.app-header {
+  background: linear-gradient(135deg, #fce4ec 0%, #ede7f6 50%, #e0f7ef 100%);
+  border-bottom: 2px solid var(--pink-mid);
+  padding: 18px 20px 14px; display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+}
+.header-cat { flex-shrink: 0; }
+.header-title { font-family: var(--font-head); font-size: 14px; font-weight: 900; color: var(--pink-dark); line-height: 1.2; letter-spacing: -0.2px; }
+.header-subtitle { font-size: 11px; color: var(--text-sub); font-weight: 600; margin-top: 2px; letter-spacing: 0.3px; }
+.content { flex: 1; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; scrollbar-color: var(--pink-mid) transparent; position: relative; }
+.content::-webkit-scrollbar { width: 4px; }
+.content::-webkit-scrollbar-thumb { background: var(--pink-mid); border-radius: 4px; }
+.tab-panel { display: none; padding: 16px 16px 24px; }
+.tab-panel.active { display: block; animation: fadeUp 0.28s cubic-bezier(.22,.68,0,1.2); }
+@keyframes fadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+.tab-bar { height: var(--tab-h); background: var(--white); border-top: 2px solid var(--pink-mid); display: flex; flex-shrink: 0; padding: 0 4px; }
+.tab-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; background: none; border: none; cursor: pointer; font-family: var(--font-body); color: var(--text-muted); transition: color 0.2s; padding: 6px 2px; position: relative; border-radius: var(--r-sm); min-height: 44px; }
+.tab-btn:focus-visible { outline: 3px solid var(--pink-dark); outline-offset: 2px; }
+.tab-btn.active { color: var(--pink-dark); }
+.tab-btn.active.mint-tab { color: var(--mint-dark); }
+.tab-btn.active.lav-tab  { color: var(--lav-dark); }
+.tab-btn.active::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 2px; background: var(--pink-dark); }
+.tab-btn.active.mint-tab::after { background: var(--mint-dark); }
+.tab-btn.active.lav-tab::after  { background: var(--lav-dark); }
+.tab-icon-wrap { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+.tab-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3px; line-height: 1; }
+.section-cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.section-cat-header h2 { font-family: var(--font-head); font-size: 18px; font-weight: 900; color: var(--text-main); letter-spacing: -0.3px; }
+.section-cat-header .cat-badge { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+.accordion { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 12px var(--shadow); }
+.accordion-header { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 16px; font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--text-main); text-align: left; transition: background 0.15s; min-height: 56px; }
+.accordion-header:focus-visible { outline: 3px solid var(--pink-dark); outline-offset: -3px; }
+.accordion-header:hover { background: var(--pink); }
+.accordion-header.mint:hover { background: var(--mint); }
+.accordion-header.lav:hover  { background: var(--lavender); }
+.acc-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+.acc-chevron { margin-left: auto; width: 20px; height: 20px; transition: transform 0.25s; color: var(--text-muted); flex-shrink: 0; }
+.accordion.open .acc-chevron { transform: rotate(180deg); }
+.accordion-body { display: none; padding: 0 16px 16px; border-top: 1.5px solid var(--border); }
+.accordion.open .accordion-body { display: block; }
+.info-block { margin-top: 12px; }
+.info-block h3 { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-block h3 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.checklist { list-style: none; }
+.checklist li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-main); line-height: 1.5; padding: 5px 0; border-bottom: 1px solid var(--border); font-weight: 600; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: ''; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 2px; border: 2px solid currentColor; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
+.normal-range { background: var(--mint); border: 1.5px solid var(--mint-mid); border-radius: var(--r-sm); padding: 10px 12px; margin-top: 6px; }
+.normal-range-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--mint-dark); margin-bottom: 4px; }
+.normal-range-value { font-size: 13px; font-weight: 600; color: var(--text-main); font-family: var(--font-head); }
+.lab-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.lab-table th { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-sub); text-align: left; padding: 6px 8px; background: var(--peach); }
+.lab-table th:first-child { border-radius: 8px 0 0 0; }
+.lab-table th:last-child  { border-radius: 0 8px 0 0; }
+.lab-table td { font-size: 12px; font-weight: 600; color: var(--text-main); padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.lab-table tr:last-child td { border-bottom: none; }
+.lab-table tr:nth-child(even) td { background: #fff9f0; }
+.tip-box { background: var(--sky); border-left: 4px solid var(--sky-dark); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 10px 12px; margin-top: 10px; font-size: 12px; font-weight: 600; color: var(--sky-dark); line-height: 1.5; }
+.tip-box strong { font-weight: 800; }
+.alert-box { background: #fff3e0; border-left: 4px solid var(--peach-dark); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 10px 12px; margin-top: 10px; font-size: 12px; font-weight: 600; color: #bf360c; line-height: 1.5; }
+.alert-box strong { font-weight: 800; }
+.dir-intro { background: var(--lavender); border: 1.5px solid var(--lav-mid); border-radius: var(--r); padding: 14px 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.dir-intro-text { font-size: 13px; font-weight: 600; color: var(--lav-dark); line-height: 1.5; }
+.dir-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); margin-bottom: 10px; overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.dir-card-head { background: var(--lavender); padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+.dir-card-head-title { font-family: var(--font-head); font-size: 13px; font-weight: 800; color: var(--lav-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+.dir-entry { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; border-bottom: 1px solid var(--border); gap: 12px; }
+.dir-entry:last-child { border-bottom: none; }
+.dir-entry-name { font-size: 13px; font-weight: 700; color: var(--text-main); }
+.dir-entry-role { font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 1px; }
+.dir-entry-num { font-family: var(--font-head); font-size: 14px; font-weight: 800; color: var(--lav-dark); background: var(--lavender); padding: 5px 12px; border-radius: 20px; flex-shrink: 0; letter-spacing: 0.5px; }
+.dir-placeholder { font-size: 12px; font-weight: 600; color: var(--text-muted); font-style: italic; }
+.cat-float { display: flex; justify-content: center; margin-bottom: 10px; }
+svg.cat { overflow: visible; }
+</style>
 </head>
 <body>
-<div class="phone">
+<div class="phone" role="application" aria-label="Maternal Infant Nursing Resource for Audrey">
 
-  <!-- HEADER -->
   <header class="app-header">
-    <div class="header-icon">🩺</div>
+    <div class="header-cat" aria-hidden="true">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" class="cat">
+        <ellipse cx="26" cy="36" rx="14" ry="12" fill="#fce4ec"/>
+        <ellipse cx="26" cy="36" rx="12" ry="10" fill="#b2dfdb"/>
+        <rect x="23.5" y="32" width="5" height="2" rx="1" fill="#c62828"/>
+        <rect x="24.5" y="31" width="3" height="4" rx="1" fill="#c62828"/>
+        <ellipse cx="26" cy="22" rx="11" ry="10" fill="#fce4ec"/>
+        <polygon points="15,14 18,7 22,14" fill="#fce4ec"/>
+        <polygon points="16.5,13 18.5,8.5 21,13" fill="#f8bbd0"/>
+        <polygon points="30,14 34,7 37,14" fill="#fce4ec"/>
+        <polygon points="31,13 33.5,8.5 36,13" fill="#f8bbd0"/>
+        <rect x="19" y="13" width="14" height="6" rx="3" fill="white"/>
+        <rect x="24.5" y="12" width="3" height="2" rx="1" fill="white"/>
+        <rect x="23" y="15" width="6" height="2" rx="0" fill="#e53935"/>
+        <rect x="25.5" y="14" width="1" height="4" rx="0" fill="#e53935"/>
+        <ellipse cx="22.5" cy="23" rx="2.5" ry="2.5" fill="white"/>
+        <ellipse cx="29.5" cy="23" rx="2.5" ry="2.5" fill="white"/>
+        <circle cx="23" cy="23.2" r="1.5" fill="#4a2c6a"/>
+        <circle cx="30" cy="23.2" r="1.5" fill="#4a2c6a"/>
+        <circle cx="23.5" cy="22.8" r="0.5" fill="white"/>
+        <circle cx="30.5" cy="22.8" r="0.5" fill="white"/>
+        <ellipse cx="26" cy="26.5" rx="1.5" ry="1" fill="#f48fb1"/>
+        <path d="M24 28 Q26 30 28 28" stroke="#f48fb1" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <line x1="15" y1="25" x2="21" y2="26" stroke="#c0a0b0" stroke-width="0.8"/>
+        <line x1="15" y1="27" x2="21" y2="27" stroke="#c0a0b0" stroke-width="0.8"/>
+        <line x1="31" y1="26" x2="37" y2="25" stroke="#c0a0b0" stroke-width="0.8"/>
+        <line x1="31" y1="27" x2="37" y2="27" stroke="#c0a0b0" stroke-width="0.8"/>
+        <path d="M20 38 Q18 42 20 45 Q22 47 26 47 Q30 47 32 45 Q34 42 32 38" stroke="#80cbc4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="26" cy="47.5" r="3" fill="#80cbc4"/>
+        <circle cx="26" cy="47.5" r="1.5" fill="#4db6ac"/>
+        <ellipse cx="14" cy="40" rx="4" ry="3" fill="#fce4ec"/>
+        <ellipse cx="38" cy="40" rx="4" ry="3" fill="#fce4ec"/>
+        <path d="M38 43 Q46 40 44 34 Q43 30 40 31" stroke="#f8bbd0" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
     <div class="header-text">
-      <h1>Maternal Infant Nursing</h1>
-      <p>Clinical companion · L&amp;D / Mother-Baby</p>
+      <div class="header-title">Maternal Infant Nursing<br>Resource for Audrey 🌸</div>
+      <div class="header-subtitle">Your clinical companion · L&amp;D / Mother-Baby</div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main id="main-content">
+  <main class="content" id="main-content" tabindex="-1">
 
-    <!-- ═══════════════ MATERNAL PANEL ═══════════════ -->
-    <section id="panel-maternal" class="panel active" role="tabpanel" aria-labelledby="tab-maternal">
-
-      <div class="section-hero">
-        <div class="hero-icon">🤰</div>
-        <div class="hero-text">
-          <h2>Maternal Health</h2>
-          <p>Postpartum assessment, care &amp; complications</p>
-        </div>
+    <section class="tab-panel active" id="panel-maternal" role="tabpanel" aria-labelledby="tab-maternal">
+      <div class="cat-float" aria-hidden="true">
+        <svg width="110" height="110" viewBox="0 0 110 110" fill="none" class="cat">
+          <ellipse cx="55" cy="78" rx="28" ry="24" fill="#fafafa"/>
+          <ellipse cx="55" cy="78" rx="24" ry="20" fill="#e8f5e9"/>
+          <path d="M42 60 L55 70 L68 60 L65 58 L55 68 L45 58 Z" fill="white"/>
+          <rect x="59" y="65" width="8" height="6" rx="2" fill="white" stroke="#c8e6c9" stroke-width="1"/>
+          <line x1="60" y1="67" x2="66" y2="67" stroke="#4caf50" stroke-width="0.8"/>
+          <line x1="60" y1="69" x2="66" y2="69" stroke="#4caf50" stroke-width="0.8"/>
+          <rect x="62" y="63" width="1.5" height="5" rx="0.75" fill="#ff8a65"/>
+          <ellipse cx="55" cy="46" rx="22" ry="20" fill="#fce4ec"/>
+          <polygon points="34,30 38,18 44,30" fill="#fce4ec"/>
+          <polygon points="35.5,29 38.5,20 43,29" fill="#f8bbd0"/>
+          <polygon points="66,30 72,18 76,30" fill="#fce4ec"/>
+          <polygon points="67,29 72,20 74.5,29" fill="#f8bbd0"/>
+          <rect x="43" y="30" width="24" height="10" rx="5" fill="white"/>
+          <rect x="43" y="37" width="24" height="3" rx="1" fill="#ef9a9a"/>
+          <rect x="53" y="29" width="4" height="4" rx="1" fill="white"/>
+          <ellipse cx="47" cy="48" rx="4.5" ry="4.5" fill="white"/>
+          <ellipse cx="63" cy="48" rx="4.5" ry="4.5" fill="white"/>
+          <circle cx="47.8" cy="48.5" r="2.8" fill="#5c3d8f"/>
+          <circle cx="63.8" cy="48.5" r="2.8" fill="#5c3d8f"/>
+          <circle cx="48.5" cy="47.5" r="1" fill="white"/>
+          <circle cx="64.5" cy="47.5" r="1" fill="white"/>
+          <ellipse cx="41" cy="53" rx="4" ry="2.5" fill="#f8bbd0" opacity="0.7"/>
+          <ellipse cx="69" cy="53" rx="4" ry="2.5" fill="#f8bbd0" opacity="0.7"/>
+          <ellipse cx="55" cy="54" rx="2.5" ry="1.6" fill="#f48fb1"/>
+          <path d="M51 57 Q55 61 59 57" stroke="#f48fb1" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="30" y1="52" x2="44" y2="53.5" stroke="#d0b0c0" stroke-width="1"/>
+          <line x1="30" y1="55" x2="44" y2="55" stroke="#d0b0c0" stroke-width="1"/>
+          <line x1="66" y1="53.5" x2="80" y2="52" stroke="#d0b0c0" stroke-width="1"/>
+          <line x1="66" y1="55" x2="80" y2="55" stroke="#d0b0c0" stroke-width="1"/>
+          <rect x="26" y="70" width="18" height="22" rx="3" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+          <rect x="31" y="66" width="8" height="5" rx="2" fill="#f9a825"/>
+          <line x1="29" y1="77" x2="41" y2="77" stroke="#f9a825" stroke-width="1"/>
+          <line x1="29" y1="80" x2="41" y2="80" stroke="#f9a825" stroke-width="1"/>
+          <line x1="29" y1="83" x2="37" y2="83" stroke="#f9a825" stroke-width="1"/>
+          <path d="M65 65 Q60 72 62 80 Q64 87 70 87 Q76 87 78 80 Q80 73 75 65" stroke="#a5d6a7" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="70" cy="88" r="5" fill="#66bb6a"/>
+          <circle cx="70" cy="88" r="2.5" fill="#43a047"/>
+          <ellipse cx="28" cy="86" rx="8" ry="6" fill="#fce4ec"/>
+          <ellipse cx="82" cy="86" rx="8" ry="6" fill="#fce4ec"/>
+          <path d="M80 90 Q96 84 94 72 Q92 62 86 64" stroke="#f8bbd0" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="86" cy="64" rx="3.5" ry="3" fill="#f8bbd0"/>
+        </svg>
       </div>
-
-      <!-- BUBBLE-HE Mnemonic -->
-      <div class="mnemonic-card">
-        <div class="mnemonic-title">📋 Postpartum Assessment — BUBBLE-HE</div>
-        <div class="mnemonic-grid">
-          <div class="mnemonic-item"><span class="mnemonic-letter">B</span><span class="mnemonic-word">Breasts</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">U</span><span class="mnemonic-word">Uterus</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">B</span><span class="mnemonic-word">Bowel</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">B</span><span class="mnemonic-word">Bladder</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">L</span><span class="mnemonic-word">Lochia</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">E</span><span class="mnemonic-word">Episiotomy</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">H</span><span class="mnemonic-word">Homans Sign</span></div>
-          <div class="mnemonic-item"><span class="mnemonic-letter">E</span><span class="mnemonic-word">Emotions</span></div>
-        </div>
+      <div class="section-cat-header">
+        <h2>Maternal Health</h2>
+        <span class="cat-badge" style="background:var(--pink-mid);color:var(--pink-dark);">🌸 Mom</span>
       </div>
-
-      <!-- Breasts -->
-      <div class="accordion" id="acc-breasts">
-        <button class="accordion-header" onclick="toggleAcc('acc-breasts')" aria-expanded="false">
-          <span class="acc-icon">🍼</span>
-          B — Breasts
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-maternal-assess">
+        <button class="accordion-header" onclick="toggleAcc('acc-maternal-assess')" aria-expanded="false" aria-controls="acc-maternal-assess-body">
+          <span class="acc-icon" style="background:var(--pink);">🩺</span>
+          <span>Maternal Assessment (BUBBLE-HE)</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Softness, engorgement, symmetry</li>
-            <li>Nipple condition: cracks, flat, inverted</li>
-            <li>Colostrum/milk presence &amp; let-down</li>
-            <li>Breast/latching education offered</li>
-            <li>Engorgement: frequent feeds, warm compress before, cold after</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Uterus -->
-      <div class="accordion" id="acc-uterus">
-        <button class="accordion-header" onclick="toggleAcc('acc-uterus')" aria-expanded="false">
-          <span class="acc-icon">📍</span>
-          U — Uterus
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Fundal height in fingerbreadths below umbilicus</li>
-            <li>Firmness: boggy → massage until firm</li>
-            <li>Midline position; displaced = full bladder</li>
-            <li>Day 1: at umbilicus; involutes ~1 cm/day</li>
-          </ul>
-          <div class="alert-chip"><span class="chip-icon">⚠️</span>Boggy uterus → assess bladder first, then fundal massage. Report excessive bleeding immediately.</div>
-        </div>
-      </div>
-
-      <!-- Bowel -->
-      <div class="accordion" id="acc-bowel">
-        <button class="accordion-header" onclick="toggleAcc('acc-bowel')" aria-expanded="false">
-          <span class="acc-icon">🫀</span>
-          B — Bowel
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Bowel sounds in all four quadrants</li>
-            <li>Last bowel movement documented</li>
-            <li>Stool softeners ordered and given?</li>
-            <li>Passing flatus; no distension</li>
-            <li>Encourage ambulation to promote motility</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Bladder -->
-      <div class="accordion" id="acc-bladder">
-        <button class="accordion-header" onclick="toggleAcc('acc-bladder')" aria-expanded="false">
-          <span class="acc-icon">💧</span>
-          B — Bladder
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Void within 6 hours of delivery</li>
-            <li>Urine output ≥ 30 mL/hr</li>
-            <li>Urinary retention risk: epidural, prolonged labor, perineal trauma</li>
-            <li>Straight cath if unable to void &gt; 300 mL residual</li>
-          </ul>
-          <div class="alert-chip"><span class="chip-icon">⚠️</span>Full bladder displaces uterus and causes boggy fundus → void before re-assessing fundal position.</div>
-        </div>
-      </div>
-
-      <!-- Lochia -->
-      <div class="accordion" id="acc-lochia">
-        <button class="accordion-header" onclick="toggleAcc('acc-lochia')" aria-expanded="false">
-          <span class="acc-icon">🩸</span>
-          L — Lochia
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <div class="vitals-grid">
-            <div class="vital-item"><div class="vital-label">Rubra</div><div class="vital-value">Days 1–3</div><div class="vital-note">Bright red, clots okay if small</div></div>
-            <div class="vital-item"><div class="vital-label">Serosa</div><div class="vital-value">Days 4–10</div><div class="vital-note">Pink/brown, serosanguinous</div></div>
-            <div class="vital-item"><div class="vital-label">Alba</div><div class="vital-value">Days 10–6wk</div><div class="vital-note">Yellow/white, decreasing</div></div>
-            <div class="vital-item"><div class="vital-label">Alert</div><div class="vital-value" style="font-size:12px;color:var(--warn)">Soaking &gt;1 pad/hr</div><div class="vital-note">Report to provider</div></div>
+        <div class="accordion-body" id="acc-maternal-assess-body" role="region">
+          <div class="tip-box"><strong>Mnemonic:</strong> B-U-B-B-L-E-H-E — systematic head-to-toe postpartum assessment</div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--pink-dark)"></span>B — Breasts</h3>
+            <ul class="checklist" style="color:var(--pink-dark)">
+              <li>Softness, engorgement, symmetry</li>
+              <li>Nipple condition: cracks, flat, inverted</li>
+              <li>Colostrum/milk presence</li>
+              <li>Breast/latching education offered</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--peach-dark)"></span>U — Uterus</h3>
+            <ul class="checklist" style="color:var(--peach-dark)">
+              <li>Fundal height (fingerbreadths below umbilicus)</li>
+              <li>Firmness: boggy → massage needed</li>
+              <li>Midline position</li>
+              <li>Day 1: at umbilicus; involutes ~1 cm/day</li>
+            </ul>
+            <div class="alert-box"><strong>⚠ Alert:</strong> Boggy uterus → assess bladder, then fundal massage. Report excessive bleeding immediately.</div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>B — Bowel</h3>
+            <ul class="checklist" style="color:var(--mint-dark)">
+              <li>Bowel sounds in all 4 quadrants</li>
+              <li>Last BM documented</li>
+              <li>Stool softeners ordered/given?</li>
+              <li>Passing flatus; no distension</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>B — Bladder</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Voiding adequately (≥150 mL per void)</li>
+              <li>Bladder not distended above symphysis</li>
+              <li>U/O ≥30 mL/hr (post-Foley)</li>
+              <li>Pain/burning with urination</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--lav-dark)"></span>L — Lochia</h3>
+            <ul class="checklist" style="color:var(--lav-dark)">
+              <li>Color: Rubra (red, 1–3d) → Serosa (pink/brown, 4–10d) → Alba (cream, 10–14d)</li>
+              <li>Amount: scant / light / moderate / heavy / excessive</li>
+              <li>Odor: foul odor = infection concern</li>
+              <li>Clots: &gt;golf ball size = report</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:#e65100"></span>E — Episiotomy / Perineum</h3>
+            <ul class="checklist" style="color:#e65100">
+              <li>REEDA: Redness, Edema, Ecchymosis, Discharge, Approximation</li>
+              <li>Ice pack first 24 hrs, sitz bath after</li>
+              <li>Intact sutures (if present)</li>
+              <li>Hemorrhoids noted</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--pink-dark)"></span>H — Homans / Lower Extremities</h3>
+            <ul class="checklist" style="color:var(--pink-dark)">
+              <li>Calf pain on dorsiflexion (Homans sign — limited sensitivity)</li>
+              <li>Leg edema, warmth, erythema</li>
+              <li>DVT risk: early ambulation, SCDs</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>E — Emotional / Education</h3>
+            <ul class="checklist" style="color:var(--mint-dark)">
+              <li>Edinburgh Postnatal Depression Scale (EPDS) if applicable</li>
+              <li>Baby blues vs. PPD distinction</li>
+              <li>Support system, bonding observed</li>
+              <li>Discharge education completed</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Episiotomy / Perineum -->
-      <div class="accordion" id="acc-epis">
-        <button class="accordion-header" onclick="toggleAcc('acc-epis')" aria-expanded="false">
-          <span class="acc-icon">🔍</span>
-          E — Episiotomy / Perineum
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-pp-care">
+        <button class="accordion-header" onclick="toggleAcc('acc-pp-care')" aria-expanded="false" aria-controls="acc-pp-care-body">
+          <span class="acc-icon" style="background:var(--peach);">💊</span>
+          <span>Postpartum Care</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <div class="mnemonic-title" style="margin-bottom:6px">REEDA Scale</div>
-          <ul class="acc-list">
-            <li><strong>R</strong>edness — Erythema</li>
-            <li><strong>E</strong>dema — Swelling</li>
-            <li><strong>E</strong>cchymosis — Bruising</li>
-            <li><strong>D</strong>ischarge — Amount &amp; character</li>
-            <li><strong>A</strong>pproximation — Wound edges together</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Ice 1st 24h</span>
-            <span class="pill">Sitz bath after</span>
-            <span class="pill">Tucks pads</span>
-            <span class="pill">Dermoplast</span>
+        <div class="accordion-body" id="acc-pp-care-body" role="region">
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--peach-dark)"></span>Pain Management</h3>
+            <ul class="checklist" style="color:var(--peach-dark)">
+              <li>Ibuprofen 600 mg PO q6h (preferred — anti-inflammatory)</li>
+              <li>Acetaminophen 650–1000 mg PO q6h PRN</li>
+              <li>Ice perineum first 24h; sitz bath after</li>
+              <li>Tucks pads / Dermoplast spray for perineal comfort</li>
+              <li>Afterpains: worse with multiparas + breastfeeding; reassure</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Routine Medications</h3>
+            <div class="tag-list">
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">💊 Prenatal vitamin</span>
+              <span class="tag" style="background:var(--pink);color:var(--pink-dark);">🩸 Iron supplement</span>
+              <span class="tag" style="background:var(--lavender);color:var(--lav-dark);">💉 Pitocin IV (if ordered)</span>
+              <span class="tag" style="background:var(--peach);color:var(--peach-dark);">🟡 Stool softener</span>
+              <span class="tag" style="background:var(--sky);color:var(--sky-dark);">🛡 Rhogam (Rh neg only)</span>
+              <span class="tag" style="background:var(--pink);color:var(--pink-dark);">💉 Rubella vaccine (if non-immune)</span>
+            </div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Hemorrhage Prevention</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Fundal massage if boggy</li>
+              <li>Oxytocin (Pitocin) — standard uterotonic</li>
+              <li>Methergine (ergotamine) — NOT with HTN</li>
+              <li>Hemabate — NOT with asthma</li>
+              <li>Monitor CBC, report Hgb &lt; 8 g/dL</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--lav-dark)"></span>Early Discharge Teaching</h3>
+            <ul class="checklist" style="color:var(--lav-dark)">
+              <li>Pelvic rest × 6 weeks</li>
+              <li>No heavy lifting (&gt;10 lb) × 4–6 weeks</li>
+              <li>Signs of infection: fever &gt;100.4°F, foul lochia, wound opening</li>
+              <li>Signs of PPD; 24/7 support line provided</li>
+              <li>OB follow-up: 3 weeks C/S or 6 weeks vaginal</li>
+              <li>Contraception counseling</li>
+            </ul>
+            <div class="tip-box"><strong>Tip:</strong> Teach back the warning signs — lochia changes, fever, chest pain, SOB, and call-when-to-worry.</div>
           </div>
         </div>
       </div>
-
-      <!-- Homans -->
-      <div class="accordion" id="acc-homans">
-        <button class="accordion-header" onclick="toggleAcc('acc-homans')" aria-expanded="false">
-          <span class="acc-icon">🦵</span>
-          H — Homans Sign / DVT
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-labs">
+        <button class="accordion-header" onclick="toggleAcc('acc-labs')" aria-expanded="false" aria-controls="acc-labs-body">
+          <span class="acc-icon" style="background:var(--mint);">🧪</span>
+          <span>Frequent Labs</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Assess calves for warmth, redness, swelling, tenderness</li>
-            <li>Homans sign: dorsiflexion pain (not specific but used)</li>
-            <li>Postpartum is high-risk for DVT/PE</li>
-            <li>Encourage early ambulation and SCDs</li>
-          </ul>
-          <div class="alert-chip"><span class="chip-icon">⚠️</span>Sudden chest pain, SOB, tachycardia → suspect PE. Call provider STAT.</div>
+        <div class="accordion-body" id="acc-labs-body" role="region">
+          <table class="lab-table">
+            <thead><tr><th scope="col">Lab</th><th scope="col">Normal Range</th><th scope="col">Note</th></tr></thead>
+            <tbody>
+              <tr><td>Hemoglobin</td><td>12–16 g/dL</td><td>↓ expected postpartum; &lt;8 = transfusion discuss</td></tr>
+              <tr><td>Hematocrit</td><td>37–47%</td><td>Drops ~3–4 pts per 500 mL blood loss</td></tr>
+              <tr><td>WBC</td><td>5–15 K/µL (PP up to 30)</td><td>Physiologically elevated post-delivery</td></tr>
+              <tr><td>Platelets</td><td>150–400 K/µL</td><td>Monitor in PIH/HELLP</td></tr>
+              <tr><td>Blood type / Rh</td><td>—</td><td>Rhogam if Rh(-) within 72h of delivery</td></tr>
+              <tr><td>Rubella titer</td><td>≥1:8 immune</td><td>Vaccinate non-immune before discharge</td></tr>
+              <tr><td>GBS status</td><td>—</td><td>Collected at 35–37 wks; guides intrapartum ABX</td></tr>
+              <tr><td>BMP (Cr, BUN)</td><td>Cr 0.5–1.1</td><td>Especially post-preeclampsia or epidural</td></tr>
+              <tr><td>Urine culture</td><td>—</td><td>If sx of UTI; ASB tx in pregnancy</td></tr>
+              <tr><td>Mag level</td><td>4–7 mEq/L (therapeutic)</td><td>Monitor resp rate, DTRs, UO if on MgSO₄</td></tr>
+              <tr><td>LFTs / LDH</td><td>ALT 7–45; AST 10–40</td><td>HELLP syndrome surveillance</td></tr>
+            </tbody>
+          </table>
+          <div class="alert-box"><strong>⚠ MgSO₄ Toxicity Watch:</strong> RR &lt;12, UO &lt;25 mL/hr, absent DTRs, O₂ sat dropping → hold Mag, give Calcium gluconate antidote.</div>
         </div>
       </div>
-
-      <!-- Emotions -->
-      <div class="accordion" id="acc-emotions">
-        <button class="accordion-header" onclick="toggleAcc('acc-emotions')" aria-expanded="false">
-          <span class="acc-icon">💜</span>
-          E — Emotions / Mental Health
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-bf">
+        <button class="accordion-header" onclick="toggleAcc('acc-bf')" aria-expanded="false" aria-controls="acc-bf-body">
+          <span class="acc-icon" style="background:var(--lavender);">🤱</span>
+          <span>Breastfeeding Resources</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <div class="vitals-grid">
-            <div class="vital-item"><div class="vital-label">Baby Blues</div><div class="vital-value" style="font-size:12px">Days 3–5</div><div class="vital-note">Mild, self-resolving</div></div>
-            <div class="vital-item"><div class="vital-label">PPD</div><div class="vital-value" style="font-size:12px">Weeks–months</div><div class="vital-note">Persistent; needs tx</div></div>
-            <div class="vital-item"><div class="vital-label">Screening</div><div class="vital-value" style="font-size:12px">Edinburgh Scale</div><div class="vital-note">Score ≥10 → refer</div></div>
-            <div class="vital-item"><div class="vital-label">PP Psychosis</div><div class="vital-value" style="font-size:12px;color:var(--warn)">EMERGENCY</div><div class="vital-note">Hallucinations/delusions</div></div>
+        <div class="accordion-body" id="acc-bf-body" role="region">
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--lav-dark)"></span>Latch Assessment (LATCH Score)</h3>
+            <table class="lab-table">
+              <thead><tr><th>Letter</th><th>Criteria</th><th>Score 0–2</th></tr></thead>
+              <tbody>
+                <tr><td><strong>L</strong></td><td>Latch</td><td>0=too sleepy; 1=tries w/help; 2=latches &amp; sucks</td></tr>
+                <tr><td><strong>A</strong></td><td>Audible swallowing</td><td>0=none; 1=a few; 2=spontaneous</td></tr>
+                <tr><td><strong>T</strong></td><td>Type of nipple</td><td>0=inverted; 1=flat; 2=protruding</td></tr>
+                <tr><td><strong>C</strong></td><td>Comfort</td><td>0=engorged; 1=cracked; 2=comfortable</td></tr>
+                <tr><td><strong>H</strong></td><td>Hold/positioning</td><td>0=full assist; 1=min assist; 2=no assist</td></tr>
+              </tbody>
+            </table>
+            <div class="normal-range"><div class="normal-range-label">Target LATCH Score</div><div class="normal-range-value">≥ 7/10 — Good latch; &lt;5 = consult lactation</div></div>
           </div>
-        </div>
-      </div>
-
-      <!-- Pain Management -->
-      <div class="sub-heading">💊 Pain Management</div>
-      <div class="accordion" id="acc-pain">
-        <button class="accordion-header" onclick="toggleAcc('acc-pain')" aria-expanded="false">
-          <span class="acc-icon">💊</span>
-          Postpartum Analgesia
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Ibuprofen 600 mg PO q6h (preferred — anti-inflammatory)</li>
-            <li>Acetaminophen 650–1000 mg PO q4–6h PRN</li>
-            <li>Alternating APAP + ibuprofen for multimodal control</li>
-            <li>Ice perineum first 24 h; sitz bath after 24 h</li>
-            <li>Tucks pads / Dermoplast spray for perineal comfort</li>
-            <li>Afterpains: worse with multiparas &amp; breastfeeding; educate &amp; reassure</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Preeclampsia -->
-      <div class="sub-heading">🚨 Complications</div>
-      <div class="accordion" id="acc-preeclamp">
-        <button class="accordion-header" onclick="toggleAcc('acc-preeclamp')" aria-expanded="false">
-          <span class="acc-icon">⚡</span>
-          Preeclampsia / HTN
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <div class="vitals-grid">
-            <div class="vital-item"><div class="vital-label">Criteria</div><div class="vital-value" style="font-size:12px">BP ≥140/90</div><div class="vital-note">≥20 wks gestation</div></div>
-            <div class="vital-item"><div class="vital-label">Severe</div><div class="vital-value" style="font-size:12px">BP ≥160/110</div><div class="vital-note">+ proteinuria</div></div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--pink-dark)"></span>Key Teaching Points</h3>
+            <ul class="checklist" style="color:var(--pink-dark)">
+              <li>Feed every 1.5–3 hours, 8–12x/day newborn</li>
+              <li>Alternate breasts; fully empty one side first</li>
+              <li>Signs of effective feeding: audible swallowing, satisfied infant, weight gain</li>
+              <li>Nipple pain is NOT normal; reassess latch</li>
+              <li>Engorgement: nurse frequently, warm compress before, cool after</li>
+              <li>Mastitis signs: flu-like symptoms + unilateral breast warmth/redness</li>
+            </ul>
           </div>
-          <ul class="acc-list" style="margin-top:8px">
-            <li>Magnesium sulfate: seizure prophylaxis; monitor toxicity</li>
-            <li>Mg toxicity: loss of DTRs, respiratory depression, oliguria</li>
-            <li>Antidote: Calcium gluconate 1 g IV at bedside always</li>
-            <li>HELLP: Hemolysis, Elevated LFTs, Low Platelets</li>
-            <li>S/S: RUQ pain, severe HA, visual changes, epigastric pain</li>
-          </ul>
-          <div class="alert-chip"><span class="chip-icon">🚨</span>Severe range BP → administer antihypertensive within 30–60 min per protocol. Notify provider immediately.</div>
-        </div>
-      </div>
-
-      <!-- PPH -->
-      <div class="accordion" id="acc-pph">
-        <button class="accordion-header" onclick="toggleAcc('acc-pph')" aria-expanded="false">
-          <span class="acc-icon">🩸</span>
-          Postpartum Hemorrhage (PPH)
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <div class="mnemonic-title" style="margin-bottom:6px">4 T's of PPH</div>
-          <div class="mnemonic-grid" style="margin-bottom:8px">
-            <div class="mnemonic-item"><span class="mnemonic-letter">T</span><span class="mnemonic-word">Tone (uterine atony)</span></div>
-            <div class="mnemonic-item"><span class="mnemonic-letter">T</span><span class="mnemonic-word">Trauma (lacerations)</span></div>
-            <div class="mnemonic-item"><span class="mnemonic-letter">T</span><span class="mnemonic-word">Tissue (retained)</span></div>
-            <div class="mnemonic-item"><span class="mnemonic-letter">T</span><span class="mnemonic-word">Thrombin (coagulopathy)</span></div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Colostrum → Milk Transition</h3>
+            <div class="tag-list">
+              <span class="tag" style="background:#fff3e0;color:#e65100;">Day 1–3: Colostrum 🌕</span>
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">Day 3–5: Transitional milk</span>
+              <span class="tag" style="background:var(--sky);color:var(--sky-dark);">Day 7–10: Mature milk 🍼</span>
+            </div>
           </div>
-          <ul class="acc-list">
-            <li>Definition: &gt;500 mL vaginal, &gt;1000 mL C-section blood loss</li>
-            <li>Oxytocin (Pitocin) first-line uterotonic</li>
-            <li>Methylergonovine (Methergine): CI in HTN</li>
-            <li>Carboprost (Hemabate): CI in asthma</li>
-            <li>Misoprostol PR/SL if others unavailable</li>
-          </ul>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Resources to Refer</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Lactation consultant (IBCLC) — inpatient consult</li>
+              <li>WIC breastfeeding support program</li>
+              <li>La Leche League: lllusa.org</li>
+              <li>CDC breastfeeding resources: cdc.gov/breastfeeding</li>
+              <li>KellyMom.com — evidence-based BF support</li>
+            </ul>
+          </div>
+          <div class="tip-box"><strong>Tip:</strong> Document LATCH score each shift. Refer to lactation if score &lt;5 or mother requests.</div>
         </div>
       </div>
-
     </section>
 
-    <!-- ═══════════════ INFANT PANEL ═══════════════ -->
-    <section id="panel-infant" class="panel" role="tabpanel" aria-labelledby="tab-infant">
-
-      <div class="section-hero mint">
-        <div class="hero-icon">👶</div>
-        <div class="hero-text">
-          <h2>Infant Health</h2>
-          <p>Newborn assessment, feeding &amp; care</p>
-        </div>
+    <section class="tab-panel" id="panel-infant" role="tabpanel" aria-labelledby="tab-infant">
+      <div class="cat-float" aria-hidden="true">
+        <svg width="110" height="100" viewBox="0 0 110 100" fill="none" class="cat">
+          <ellipse cx="55" cy="78" rx="30" ry="18" fill="#b2dfdb"/>
+          <path d="M28 70 Q55 58 82 70 L82 90 Q55 98 28 90 Z" fill="#e0f2f1"/>
+          <path d="M35 68 Q55 62 75 68 L78 75 Q55 68 32 75 Z" fill="#80cbc4"/>
+          <ellipse cx="55" cy="48" rx="22" ry="20" fill="#fff8e1"/>
+          <polygon points="34,32 38,20 44,32" fill="#fff8e1"/>
+          <polygon points="35.5,31 38.5,22 43,31" fill="#ffe0b2"/>
+          <polygon points="66,32 72,20 76,32" fill="#fff8e1"/>
+          <polygon points="67,31 72,22 74.5,31" fill="#ffe0b2"/>
+          <ellipse cx="55" cy="32" rx="19" ry="8" fill="#b2dfdb"/>
+          <rect x="36" y="28" width="38" height="7" rx="3.5" fill="#80cbc4"/>
+          <circle cx="55" cy="24" r="5" fill="#4db6ac"/>
+          <circle cx="53" cy="23" r="2" fill="#80cbc4" opacity="0.6"/>
+          <path d="M44 48 Q47 45 50 48" stroke="#5c3d2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M60 48 Q63 45 66 48" stroke="#5c3d2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="42" cy="53" rx="4" ry="2.5" fill="#ffcc80" opacity="0.8"/>
+          <ellipse cx="68" cy="53" rx="4" ry="2.5" fill="#ffcc80" opacity="0.8"/>
+          <ellipse cx="55" cy="55" rx="2" ry="1.3" fill="#ffb74d"/>
+          <path d="M52 57.5 Q55 60.5 58 57.5" stroke="#ffb74d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <line x1="32" y1="53" x2="46" y2="54" stroke="#d0b880" stroke-width="0.8"/>
+          <line x1="32" y1="56" x2="46" y2="56" stroke="#d0b880" stroke-width="0.8"/>
+          <line x1="64" y1="54" x2="78" y2="53" stroke="#d0b880" stroke-width="0.8"/>
+          <line x1="64" y1="56" x2="78" y2="56" stroke="#d0b880" stroke-width="0.8"/>
+          <ellipse cx="30" cy="80" rx="8" ry="5" fill="#fff8e1" transform="rotate(-15,30,80)"/>
+          <ellipse cx="80" cy="80" rx="8" ry="5" fill="#fff8e1" transform="rotate(15,80,80)"/>
+        </svg>
       </div>
-
-      <!-- APGAR -->
-      <div class="sub-heading">📊 Newborn Assessment</div>
-      <div class="accordion mint-acc" id="acc-apgar">
-        <button class="accordion-header" onclick="toggleAcc('acc-apgar')" aria-expanded="false">
-          <span class="acc-icon">📊</span>
-          APGAR Score
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="section-cat-header">
+        <h2>Infant Health</h2>
+        <span class="cat-badge" style="background:var(--mint-mid);color:var(--mint-dark);">🍼 Baby</span>
+      </div>
+      <div class="accordion" id="acc-infant-assess">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-infant-assess')" aria-expanded="false" aria-controls="acc-infant-assess-body">
+          <span class="acc-icon" style="background:var(--mint);">👶</span>
+          <span>Newborn Assessment</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <div style="font-size:12px;color:var(--gray-500);margin-bottom:6px">Assessed at 1 &amp; 5 minutes after birth</div>
-          <table class="acc-table">
-            <tr><th>Sign</th><th class="score-0">0</th><th class="score-1">1</th><th class="score-2">2</th></tr>
-            <tr><td><strong>Appearance</strong></td><td class="score-0">Blue/pale all</td><td class="score-1">Blue extremities</td><td class="score-2">Pink all over</td></tr>
-            <tr><td><strong>Pulse</strong></td><td class="score-0">Absent</td><td class="score-1">&lt;100 bpm</td><td class="score-2">≥100 bpm</td></tr>
-            <tr><td><strong>Grimace</strong></td><td class="score-0">No response</td><td class="score-1">Grimace</td><td class="score-2">Cry/sneeze</td></tr>
-            <tr><td><strong>Activity</strong></td><td class="score-0">Limp</td><td class="score-1">Some flexion</td><td class="score-2">Active motion</td></tr>
-            <tr><td><strong>Respiration</strong></td><td class="score-0">Absent</td><td class="score-1">Weak cry</td><td class="score-2">Strong cry</td></tr>
-          </table>
-          <div class="vitals-grid" style="margin-top:8px">
-            <div class="vital-item"><div class="vital-label">Score 7–10</div><div class="vital-value" style="color:var(--mint-dark)">Normal</div></div>
-            <div class="vital-item"><div class="vital-label">Score 4–6</div><div class="vital-value" style="color:#d97706">Moderate</div><div class="vital-note">Stimulate, O₂</div></div>
-            <div class="vital-item"><div class="vital-label">Score 0–3</div><div class="vital-value" style="color:var(--warn)">Severe</div><div class="vital-note">Resuscitate</div></div>
-            <div class="vital-item"><div class="vital-label">If &lt;7 at 5 min</div><div class="vital-value" style="font-size:12px">Repeat q5 min</div><div class="vital-note">Up to 20 min</div></div>
+        <div class="accordion-body" id="acc-infant-assess-body" role="region">
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>APGAR Score (1 &amp; 5 min)</h3>
+            <table class="lab-table">
+              <thead><tr><th>Sign</th><th>0</th><th>1</th><th>2</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A</strong>ppearance</td><td>Blue/pale all over</td><td>Blue extremities</td><td>Pink all over</td></tr>
+                <tr><td><strong>P</strong>ulse</td><td>Absent</td><td>&lt;100 bpm</td><td>≥100 bpm</td></tr>
+                <tr><td><strong>G</strong>rimace</td><td>No response</td><td>Grimace</td><td>Cry/cough/sneeze</td></tr>
+                <tr><td><strong>A</strong>ctivity</td><td>Limp</td><td>Some flexion</td><td>Active motion</td></tr>
+                <tr><td><strong>R</strong>espiration</td><td>Absent</td><td>Weak cry</td><td>Strong cry</td></tr>
+              </tbody>
+            </table>
+            <div class="normal-range"><div class="normal-range-label">Score Interpretation</div><div class="normal-range-value">7–10 = Normal · 4–6 = Some support · 0–3 = Immediate resuscitation</div></div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Vital Sign Norms — Newborn</h3>
+            <table class="lab-table">
+              <thead><tr><th>Vital Sign</th><th>Normal Range</th></tr></thead>
+              <tbody>
+                <tr><td>Heart Rate</td><td>120–160 bpm (sleeping 100 ok)</td></tr>
+                <tr><td>Respiratory Rate</td><td>30–60 breaths/min</td></tr>
+                <tr><td>Temperature</td><td>97.7–99.5°F (axillary)</td></tr>
+                <tr><td>O₂ Saturation</td><td>≥95% on RA after 10 min of life</td></tr>
+                <tr><td>Blood Pressure</td><td>65–85 / 45–55 mmHg</td></tr>
+                <tr><td>Blood glucose</td><td>≥40 mg/dL (first 4h); ≥45 after</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Head-to-Toe Physical Exam</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Head: fontanelles (anterior large, posterior small), molding, caput/cephalhematoma</li>
+              <li>Eyes: sclera clear, no discharge, red reflex present bilaterally</li>
+              <li>Ears: auricle formation, position (top at outer canthus of eye)</li>
+              <li>Mouth: intact palate, Epstein pearls (normal), sucking reflex</li>
+              <li>Clavicles: palpate for fracture (esp. after shoulder dystocia)</li>
+              <li>Chest: equal bilateral breath sounds, no retractions/grunting</li>
+              <li>Abdomen: cord: 2 arteries + 1 vein; soft, no masses</li>
+              <li>Genitalia: normal for gestational age, patent anus</li>
+              <li>Extremities: 10 fingers + toes, equal Moro, grasp reflexes</li>
+              <li>Hips: Ortolani / Barlow maneuver — no clunk/click</li>
+              <li>Skin: color, vernix, lanugo, Mongolian spots (document!)</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--pink-dark)"></span>Reflexes to Assess</h3>
+            <div class="tag-list">
+              <span class="tag" style="background:var(--pink);color:var(--pink-dark);">Rooting</span>
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">Sucking</span>
+              <span class="tag" style="background:var(--lavender);color:var(--lav-dark);">Moro (startle)</span>
+              <span class="tag" style="background:var(--peach);color:var(--peach-dark);">Palmar grasp</span>
+              <span class="tag" style="background:var(--sky);color:var(--sky-dark);">Plantar grasp</span>
+              <span class="tag" style="background:var(--pink);color:var(--pink-dark);">Babinski</span>
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">Stepping</span>
+              <span class="tag" style="background:var(--lavender);color:var(--lav-dark);">Tonic neck (fencing)</span>
+            </div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--lav-dark)"></span>Newborn Screenings</h3>
+            <ul class="checklist" style="color:var(--lav-dark)">
+              <li>Newborn metabolic screen (state PKU card) — at 24h or before discharge</li>
+              <li>Hearing screen (UNHS) — before discharge</li>
+              <li>Critical CHD screen: pulse ox pre/post ductal at 24h+</li>
+              <li>Bilirubin — TCB or serum per protocol</li>
+              <li>Blood glucose per protocol (risk infants)</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Normal Newborn Vitals -->
-      <div class="accordion mint-acc" id="acc-nv">
-        <button class="accordion-header" onclick="toggleAcc('acc-nv')" aria-expanded="false">
-          <span class="acc-icon">💓</span>
-          Normal Newborn Vitals
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-io">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-io')" aria-expanded="false" aria-controls="acc-io-body">
+          <span class="acc-icon" style="background:var(--sky);">💧</span>
+          <span>Intake &amp; Output (I&amp;Os)</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <div class="vitals-grid">
-            <div class="vital-item"><div class="vital-label">Heart Rate</div><div class="vital-value">100–160</div><div class="vital-note">bpm</div></div>
-            <div class="vital-item"><div class="vital-label">Resp Rate</div><div class="vital-value">30–60</div><div class="vital-note">breaths/min</div></div>
-            <div class="vital-item"><div class="vital-label">Temperature</div><div class="vital-value">97.7–99.5°F</div><div class="vital-note">36.5–37.5°C</div></div>
-            <div class="vital-item"><div class="vital-label">O₂ Sat</div><div class="vital-value">≥95%</div><div class="vital-note">After 10 min</div></div>
-            <div class="vital-item"><div class="vital-label">Blood Glucose</div><div class="vital-value">≥40–45</div><div class="vital-note">mg/dL after birth</div></div>
-            <div class="vital-item"><div class="vital-label">Birth Weight</div><div class="vital-value">2500–4000g</div><div class="vital-note">5.5–8.8 lbs</div></div>
+        <div class="accordion-body" id="acc-io-body" role="region">
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Expected Feeding Intake</h3>
+            <table class="lab-table">
+              <thead><tr><th>Age</th><th>Volume/Feed</th><th>Feeds/Day</th></tr></thead>
+              <tbody>
+                <tr><td>Day 1</td><td>5–10 mL (teaspoon)</td><td>8–12 ×</td></tr>
+                <tr><td>Day 2–3</td><td>15–30 mL</td><td>8–12 ×</td></tr>
+                <tr><td>Day 4–7</td><td>30–60 mL</td><td>8–10 ×</td></tr>
+                <tr><td>2 weeks</td><td>60–90 mL</td><td>8 ×</td></tr>
+                <tr><td>1 month</td><td>90–120 mL</td><td>6–8 ×</td></tr>
+              </tbody>
+            </table>
+            <div class="tip-box"><strong>BF Note:</strong> Colostrum volume is tiny — this is normal! Stomach is marble-sized at birth. Reassure parents.</div>
           </div>
-          <div class="alert-chip" style="margin-top:8px"><span class="chip-icon">⚠️</span>Normal weight loss: up to 10% birth weight in first week. Should regain by 10–14 days.</div>
-        </div>
-      </div>
-
-      <!-- Reflexes -->
-      <div class="accordion mint-acc" id="acc-reflex">
-        <button class="accordion-header" onclick="toggleAcc('acc-reflex')" aria-expanded="false">
-          <span class="acc-icon">🔔</span>
-          Newborn Reflexes
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <table class="acc-table">
-            <tr><th>Reflex</th><th>Stimulus</th><th>Disappears</th></tr>
-            <tr><td><strong>Rooting</strong></td><td>Touch cheek</td><td>3–4 months</td></tr>
-            <tr><td><strong>Sucking</strong></td><td>Object in mouth</td><td>4 months</td></tr>
-            <tr><td><strong>Moro</strong></td><td>Sudden noise/drop</td><td>4–6 months</td></tr>
-            <tr><td><strong>Palmar grasp</strong></td><td>Touch palm</td><td>5–6 months</td></tr>
-            <tr><td><strong>Babinski</strong></td><td>Stroke sole</td><td>12–24 months</td></tr>
-            <tr><td><strong>Stepping</strong></td><td>Sole on surface</td><td>2 months</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <!-- Feeding -->
-      <div class="sub-heading">🍼 Feeding</div>
-      <div class="accordion mint-acc" id="acc-bf">
-        <button class="accordion-header" onclick="toggleAcc('acc-bf')" aria-expanded="false">
-          <span class="acc-icon">🤱</span>
-          Breastfeeding
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Feed 8–12x/24 hrs (every 2–3 hrs)</li>
-            <li>Latch: wide open mouth, lips flanged, chin touching breast</li>
-            <li>Colostrum days 1–3 → transitional milk → mature milk by ~2 wks</li>
-            <li>Signs of adequate intake: 6+ wet diapers/day after day 4, weight gain</li>
-            <li>Hunger cues: rooting, hand to mouth, fussiness (cry = late cue)</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Cradle hold</span>
-            <span class="pill">Football hold</span>
-            <span class="pill">Side-lying</span>
-            <span class="pill">Cross-cradle</span>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Expected Output — Urine</h3>
+            <table class="lab-table">
+              <thead><tr><th>Day of Life</th><th>Expected Wet Diapers</th></tr></thead>
+              <tbody>
+                <tr><td>Day 1</td><td>1 wet diaper</td></tr>
+                <tr><td>Day 2</td><td>2 wet diapers</td></tr>
+                <tr><td>Day 3+</td><td>3+ wet diapers; 6+ by day 6</td></tr>
+              </tbody>
+            </table>
+            <div class="normal-range"><div class="normal-range-label">Urine Output Norm</div><div class="normal-range-value">1–3 mL/kg/hr · pale yellow, odorless</div></div>
+            <div class="alert-box"><strong>⚠ Pink/orange "brick dust":</strong> Urate crystals — normal first 3 days. Persisting or dark yellow = dehydration concern.</div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--peach-dark)"></span>Expected Output — Stool</h3>
+            <table class="lab-table">
+              <thead><tr><th>Day</th><th>Stool Type</th><th>Color</th></tr></thead>
+              <tbody>
+                <tr><td>1–2</td><td>Meconium (thick, sticky)</td><td>Black/dark green</td></tr>
+                <tr><td>3–4</td><td>Transitional</td><td>Brown-green</td></tr>
+                <tr><td>4–7</td><td>Formula: formed</td><td>Yellow-tan</td></tr>
+                <tr><td>4–7</td><td>BF: seedy, loose</td><td>Mustardy yellow</td></tr>
+              </tbody>
+            </table>
+            <div class="alert-box"><strong>⚠ No meconium in 48h</strong> → assess for Hirschsprung's disease or imperforate anus.</div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Weight Changes</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Expected weight loss: up to 7–10% birth weight in first 3–5 days</li>
+              <li>&gt;10% loss = evaluate feeding, consider supplementation</li>
+              <li>Should regain birth weight by day 10–14</li>
+              <li>Gaining ~20–30 g/day after transitional loss</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <div class="accordion mint-acc" id="acc-ff">
-        <button class="accordion-header" onclick="toggleAcc('acc-ff')" aria-expanded="false">
-          <span class="acc-icon">🍼</span>
-          Formula Feeding
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+      <div class="accordion" id="acc-infant-care">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-infant-care')" aria-expanded="false" aria-controls="acc-infant-care-body">
+          <span class="acc-icon" style="background:var(--peach);">🌙</span>
+          <span>General Infant Care</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Every 3–4 hrs; 1–3 oz/feed in first weeks</li>
-            <li>20 kcal/oz standard formula</li>
-            <li>Discard unused formula within 1 hr of feeding</li>
-            <li>No honey before age 1 (botulism risk)</li>
-            <li>Responsive/paced bottle feeding recommended</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Newborn Care -->
-      <div class="sub-heading">🩹 Newborn Care</div>
-      <div class="accordion mint-acc" id="acc-meds">
-        <button class="accordion-header" onclick="toggleAcc('acc-meds')" aria-expanded="false">
-          <span class="acc-icon">💉</span>
-          Routine Newborn Medications
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <table class="acc-table">
-            <tr><th>Med</th><th>Purpose</th><th>Route</th></tr>
-            <tr><td><strong>Vitamin K</strong></td><td>Prevent hemorrhagic disease</td><td>IM</td></tr>
-            <tr><td><strong>Erythromycin</strong></td><td>Ophthalmia neonatorum prophylaxis</td><td>Ophthalmic oint</td></tr>
-            <tr><td><strong>Hep B vaccine</strong></td><td>Hepatitis B prevention</td><td>IM</td></tr>
-          </table>
-          <div class="alert-chip" style="margin-top:8px"><span class="chip-icon">⚠️</span>Hep B IG given within 12 hrs if mother is HBsAg positive.</div>
-        </div>
-      </div>
-
-      <div class="accordion mint-acc" id="acc-jaundice">
-        <button class="accordion-header" onclick="toggleAcc('acc-jaundice')" aria-expanded="false">
-          <span class="acc-icon">🟡</span>
-          Jaundice / Hyperbilirubinemia
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <ul class="acc-list">
-            <li>Physiologic jaundice: appears after 24 hrs, peaks day 3–5</li>
-            <li>Pathologic: appears within 24 hrs — investigate (hemolysis?)</li>
-            <li>Kramer's rule: jaundice progresses head → toe</li>
-            <li>Treatment: phototherapy; ensure adequate feeding/hydration</li>
-            <li>Cover eyes during phototherapy; monitor temp</li>
-          </ul>
-          <div class="alert-chip"><span class="chip-icon">⚠️</span>Bilirubin ≥25 mg/dL or neuro symptoms → exchange transfusion risk.</div>
-        </div>
-      </div>
-
-      <div class="accordion mint-acc" id="acc-safe-sleep">
-        <button class="accordion-header" onclick="toggleAcc('acc-safe-sleep')" aria-expanded="false">
-          <span class="acc-icon">😴</span>
-          Safe Sleep (ABCs)
-          <svg class="acc-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
-        </button>
-        <div class="accordion-body">
-          <div class="mnemonic-grid" style="margin-bottom:8px">
-            <div class="mnemonic-item"><span class="mnemonic-letter" style="color:var(--mint-dark)">A</span><span class="mnemonic-word">Alone — no bed-sharing</span></div>
-            <div class="mnemonic-item"><span class="mnemonic-letter" style="color:var(--mint-dark)">B</span><span class="mnemonic-word">Back — supine only</span></div>
-            <div class="mnemonic-item"><span class="mnemonic-letter" style="color:var(--mint-dark)">C</span><span class="mnemonic-word">Crib — firm, flat surface</span></div>
+        <div class="accordion-body" id="acc-infant-care-body" role="region">
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--peach-dark)"></span>Safe Sleep (AAP Guidelines)</h3>
+            <ul class="checklist" style="color:var(--peach-dark)">
+              <li>Back to sleep, EVERY time — supine position</li>
+              <li>Firm, flat sleep surface (approved crib/bassinet only)</li>
+              <li>Room-sharing (not bed-sharing) for ≥6 months</li>
+              <li>No soft objects, pillows, bumpers, or loose bedding</li>
+              <li>Keep room temp comfortable — avoid overheating</li>
+              <li>Pacifier at sleep time (after BF established)</li>
+              <li>No smoking, alcohol, or drug exposure environment</li>
+            </ul>
+            <div class="alert-box"><strong>⚠ SIDS Risk Reduction:</strong> "Back to sleep, tummy to play." Document safe sleep teaching every shift.</div>
           </div>
-          <ul class="acc-list">
-            <li>No soft bedding, bumpers, pillows, or loose items</li>
-            <li>Room-sharing (not bed-sharing) recommended for 6–12 months</li>
-            <li>Pacifier use after breastfeeding established may reduce SIDS risk</li>
-            <li>Avoid overheating; keep room 68–72°F</li>
-          </ul>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Cord Care</h3>
+            <ul class="checklist" style="color:var(--mint-dark)">
+              <li>Keep stump clean and dry</li>
+              <li>Fold diaper below cord stump to air-dry</li>
+              <li>Sponge baths only until cord falls off (1–3 weeks)</li>
+              <li>Normal: dries → shrinks → falls off; may have mild odor</li>
+              <li>Abnormal: redness extending onto abdomen, foul smell, bleeding, discharge → report</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--lav-dark)"></span>Circumcision Care (if applicable)</h3>
+            <ul class="checklist" style="color:var(--lav-dark)">
+              <li>Yellow exudate on glans = normal healing (fibrin)</li>
+              <li>Apply petroleum jelly to gauze with each diaper change × 24h</li>
+              <li>Monitor for: bleeding &gt;2 tsp, no urine × 12h, signs of infection</li>
+              <li>Plastibell: ring falls off in 5–8 days; do not pull</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--sky-dark)"></span>Jaundice / Hyperbilirubinemia</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Physiologic jaundice: appears day 2–3, peaks day 3–5, resolves by day 14</li>
+              <li>Pathologic: appears &lt;24h of life → investigate immediately</li>
+              <li>Assess cephalocaudal progression (face → chest → abdomen → legs)</li>
+              <li>Treatment: phototherapy (bili lights); hydration; rarely exchange transfusion</li>
+              <li>BF jaundice: increase feeds → 8–12×/day to increase stooling</li>
+            </ul>
+            <div class="normal-range"><div class="normal-range-label">Bilirubin threshold (term, healthy)</div><div class="normal-range-value">Use Bhutani nomogram — action based on age in hours + risk factors</div></div>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--pink-dark)"></span>Thermoregulation</h3>
+            <ul class="checklist" style="color:var(--pink-dark)">
+              <li>Newborns cannot shiver — prone to heat loss</li>
+              <li>4 mechanisms of heat loss: Evaporation, Radiation, Conduction, Convection</li>
+              <li>Warm, dry delivery room; dry infant immediately after birth</li>
+              <li>Skin-to-skin with mom = best thermoregulation</li>
+              <li>Hat on head — largest area of heat loss</li>
+              <li>Target axillary temp: 97.7–99.5°F</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <h3><span class="dot" style="background:var(--mint-dark)"></span>Routine Medications at Birth</h3>
+            <div class="tag-list">
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">💉 Erythromycin eye ointment</span>
+              <span class="tag" style="background:var(--peach);color:var(--peach-dark);">💉 Vitamin K 1 mg IM</span>
+              <span class="tag" style="background:var(--sky);color:var(--sky-dark);">🛡 Hep B vaccine (if consent)</span>
+            </div>
+          </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ═══════════════ DIRECTORY PANEL ═══════════════ -->
-    <section id="panel-directory" class="panel" role="tabpanel" aria-labelledby="tab-directory">
-
-      <div class="section-hero lav">
-        <div class="cat-section">
-          <!-- Cute cat SVG -->
-          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="62" rx="26" ry="22" fill="#f3e8ff"/>
-            <path d="M26 55 Q24 38 34 32 Q28 20 36 18 Q42 30 50 30 Q58 30 64 18 Q72 20 66 32 Q76 38 74 55" fill="#e9d5ff"/>
-            <circle cx="50" cy="45" r="18" fill="#f3e8ff"/>
-            <path d="M36 18 Q38 8 42 10 Q44 20 50 20 Q56 20 58 10 Q62 8 64 18" fill="#c084fc"/>
-            <circle cx="44" cy="43" r="3" fill="#7e22ce"/>
-            <circle cx="56" cy="43" r="3" fill="#7e22ce"/>
-            <circle cx="45" cy="42" r="1" fill="white"/>
-            <circle cx="57" cy="42" r="1" fill="white"/>
-            <ellipse cx="50" cy="48" rx="3" ry="2" fill="#f9a8d4"/>
-            <path d="M47 51 Q50 54 53 51" stroke="#7e22ce" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M38 46 Q32 44 28 46" stroke="#c084fc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M38 48 Q32 47 29 49" stroke="#c084fc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M62 46 Q68 44 72 46" stroke="#c084fc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M62 48 Q68 47 71 49" stroke="#c084fc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <path d="M72 82 Q85 76 83 65 Q82 57 77 58" stroke="#e1bee7" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
+    <section class="tab-panel" id="panel-directory" role="tabpanel" aria-labelledby="tab-directory">
+      <div class="cat-float" aria-hidden="true">
+        <svg width="100" height="95" viewBox="0 0 100 95" fill="none" class="cat">
+          <ellipse cx="50" cy="72" rx="24" ry="18" fill="#ede7f6"/>
+          <path d="M34 60 L50 70 L66 60 L63 58 L50 68 L37 58 Z" fill="#d1c4e9"/>
+          <path d="M38 60 L50 70" stroke="#b39ddb" stroke-width="2" fill="none"/>
+          <path d="M62 60 L50 70" stroke="#b39ddb" stroke-width="2" fill="none"/>
+          <rect x="41" y="67" width="18" height="12" rx="3" fill="white" stroke="#b39ddb" stroke-width="1"/>
+          <line x1="43" y1="70.5" x2="57" y2="70.5" stroke="#9575cd" stroke-width="1"/>
+          <line x1="43" y1="73" x2="54" y2="73" stroke="#9575cd" stroke-width="0.8"/>
+          <line x1="43" y1="75.5" x2="52" y2="75.5" stroke="#9575cd" stroke-width="0.8"/>
+          <rect x="18" y="62" width="12" height="20" rx="4" fill="#ce93d8"/>
+          <rect x="20" y="65" width="8" height="10" rx="1" fill="#f3e5f5"/>
+          <circle cx="24" cy="78" r="2" fill="#f3e5f5"/>
+          <ellipse cx="50" cy="42" rx="20" ry="18" fill="#f3e5f5"/>
+          <polygon points="31,28 34,17 40,28" fill="#f3e5f5"/>
+          <polygon points="32.5,27 34.5,19 39,27" fill="#e1bee7"/>
+          <polygon points="60,28 66,17 69,28" fill="#f3e5f5"/>
+          <polygon points="61,27 66,19 67.5,27" fill="#e1bee7"/>
+          <circle cx="44" cy="43" r="6" stroke="#9575cd" stroke-width="1.8" fill="none"/>
+          <circle cx="57" cy="43" r="6" stroke="#9575cd" stroke-width="1.8" fill="none"/>
+          <line x1="50" y1="43" x2="51" y2="43" stroke="#9575cd" stroke-width="1.8"/>
+          <line x1="38" y1="43" x2="35" y2="41" stroke="#9575cd" stroke-width="1.8"/>
+          <line x1="63" y1="43" x2="66" y2="41" stroke="#9575cd" stroke-width="1.8"/>
+          <ellipse cx="44" cy="43.5" rx="2.5" ry="2.5" fill="white"/>
+          <ellipse cx="57" cy="43.5" rx="2.5" ry="2.5" fill="white"/>
+          <circle cx="44.5" cy="43.5" r="1.5" fill="#5c3d8f"/>
+          <circle cx="57.5" cy="43.5" r="1.5" fill="#5c3d8f"/>
+          <ellipse cx="38" cy="49" rx="3.5" ry="2" fill="#e1bee7" opacity="0.8"/>
+          <ellipse cx="62" cy="49" rx="3.5" ry="2" fill="#e1bee7" opacity="0.8"/>
+          <ellipse cx="50" cy="50" rx="2" ry="1.2" fill="#ce93d8"/>
+          <path d="M47 52 Q50 55 53 52" stroke="#ce93d8" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <line x1="29" y1="48" x2="42" y2="49.5" stroke="#c0a0d0" stroke-width="0.8"/>
+          <line x1="29" y1="51" x2="42" y2="51" stroke="#c0a0d0" stroke-width="0.8"/>
+          <line x1="58" y1="49.5" x2="71" y2="48" stroke="#c0a0d0" stroke-width="0.8"/>
+          <line x1="58" y1="51" x2="71" y2="51" stroke="#c0a0d0" stroke-width="0.8"/>
+          <ellipse cx="28" cy="80" rx="7" ry="5" fill="#f3e5f5"/>
+          <ellipse cx="72" cy="80" rx="7" ry="5" fill="#f3e5f5"/>
+          <path d="M72 82 Q85 76 83 65 Q82 57 77 58" stroke="#e1bee7" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        </svg>
       </div>
-
       <div class="section-cat-header">
         <h2>Directory</h2>
-        <span class="cat-badge" style="background:var(--lav-soft);color:var(--lav-deep);">📞 Contacts</span>
+        <span class="cat-badge" style="background:var(--lav-mid);color:var(--lav-dark);">📞 Contacts</span>
       </div>
-
       <div class="dir-intro">
-        <div style="font-size:28px">📋</div>
-        <p class="dir-intro-text">Add your unit's numbers, extensions, and key contacts below. Customize it for your floor!</p>
+        <div style="font-size:32px">📋</div>
+        <p class="dir-intro-text">Add your unit's numbers, extensions, and key contacts below. This is your personal reference — customize it for your floor!</p>
       </div>
-
-      <!-- Unit Numbers -->
       <div class="dir-card">
-        <div class="dir-card-head">
-          <span style="font-size:16px">🏥</span>
-          <span class="dir-card-head-title">Unit &amp; Department Numbers</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Nurses' Station</div><div class="dir-entry-role">Main unit desk</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Charge Nurse</div><div class="dir-entry-role">Shift supervisor</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Labor &amp; Delivery</div><div class="dir-entry-role">L&amp;D unit direct</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Mother-Baby Unit</div><div class="dir-entry-role">Postpartum unit</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">NICU</div><div class="dir-entry-role">Neonatal ICU</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">OR / C-Section Suite</div><div class="dir-entry-role">Surgical suite</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
+        <div class="dir-card-head"><span style="font-size:16px">🏥</span><span class="dir-card-head-title">Unit &amp; Department Numbers</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Nurses' Station</div><div class="dir-entry-role">Main unit desk</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Charge Nurse</div><div class="dir-entry-role">Shift supervisor</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Labor &amp; Delivery</div><div class="dir-entry-role">L&amp;D unit direct</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Mother-Baby Unit</div><div class="dir-entry-role">Postpartum unit</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">NICU</div><div class="dir-entry-role">Neonatal ICU</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">OR / C-Section Suite</div><div class="dir-entry-role">Surgical suite</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
       </div>
-
-      <!-- Providers -->
       <div class="dir-card">
-        <div class="dir-card-head">
-          <span style="font-size:16px">👨‍⚕️</span>
-          <span class="dir-card-head-title">Providers &amp; Specialists</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">OB Attending</div><div class="dir-entry-role">On-call OB physician</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">OB Resident</div><div class="dir-entry-role">Resident on call</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Neonatologist</div><div class="dir-entry-role">Newborn physician</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Anesthesia</div><div class="dir-entry-role">Epidural / spinal</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">MFM / Perinatology</div><div class="dir-entry-role">High-risk OB consult</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
+        <div class="dir-card-head"><span style="font-size:16px">👨‍⚕️</span><span class="dir-card-head-title">Providers &amp; Specialists</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">OB Attending</div><div class="dir-entry-role">On-call OB physician</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">OB Resident</div><div class="dir-entry-role">Resident on call</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Neonatologist</div><div class="dir-entry-role">Newborn physician</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Anesthesia</div><div class="dir-entry-role">Epidural / spinal</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">MFM / Perinatology</div><div class="dir-entry-role">High-risk OB consult</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
       </div>
-
-      <!-- Ancillary Services -->
       <div class="dir-card">
-        <div class="dir-card-head">
-          <span style="font-size:16px">🤝</span>
-          <span class="dir-card-head-title">Ancillary &amp; Support Services</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Lactation Consultant</div><div class="dir-entry-role">IBCLC inpatient</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Social Work</div><div class="dir-entry-role">Psych/social support</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Pharmacy</div><div class="dir-entry-role">Unit pharmacist</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Lab / Phlebotomy</div><div class="dir-entry-role">Specimen draw</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Radiology</div><div class="dir-entry-role">Imaging orders</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Blood Bank</div><div class="dir-entry-role">Transfusion services</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Chaplain / Pastoral</div><div class="dir-entry-role">Spiritual support</div></div>
-          <span class="dir-entry-num dir-placeholder">Ext. ____</span>
-        </div>
+        <div class="dir-card-head"><span style="font-size:16px">🤝</span><span class="dir-card-head-title">Ancillary &amp; Support Services</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Lactation Consultant</div><div class="dir-entry-role">IBCLC inpatient</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Social Work</div><div class="dir-entry-role">Psych/social support</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Pharmacy</div><div class="dir-entry-role">Unit pharmacist</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Lab / Phlebotomy</div><div class="dir-entry-role">Specimen draw</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Radiology</div><div class="dir-entry-role">Imaging orders</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Blood Bank</div><div class="dir-entry-role">Transfusion services</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Chaplain / Pastoral</div><div class="dir-entry-role">Spiritual support</div></div><span class="dir-entry-num dir-placeholder">Ext. ____</span></div>
       </div>
-
-      <!-- Emergency -->
-      <div class="dir-card" style="border-color:#fed7aa;">
-        <div class="dir-card-head" style="background:#fff7ed;border-bottom-color:#fed7aa;">
-          <span style="font-size:16px">🚨</span>
-          <span class="dir-card-head-title" style="color:#c2410c;">Emergency &amp; Rapid Response</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Code Blue</div><div class="dir-entry-role">Adult cardiac arrest</div></div>
-          <span class="dir-entry-num" style="background:#fff7ed;color:#c2410c;">____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Code Pink</div><div class="dir-entry-role">Infant abduction</div></div>
-          <span class="dir-entry-num" style="background:#fff7ed;color:#c2410c;">____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Rapid Response Team</div><div class="dir-entry-role">RRT / MET team</div></div>
-          <span class="dir-entry-num" style="background:#fff7ed;color:#c2410c;">____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Security</div><div class="dir-entry-role">Hospital security</div></div>
-          <span class="dir-entry-num" style="background:#fff7ed;color:#c2410c;">____</span>
-        </div>
-        <div class="dir-entry">
-          <div><div class="dir-entry-name">Poison Control</div><div class="dir-entry-role">National hotline</div></div>
-          <span class="dir-entry-num" style="background:#fff7ed;color:#c2410c;">800-222-1222</span>
-        </div>
+      <div class="dir-card">
+        <div class="dir-card-head" style="background:#fff3e0;"><span style="font-size:16px">🚨</span><span class="dir-card-head-title" style="color:#bf360c;">Emergency &amp; Rapid Response</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Code Blue</div><div class="dir-entry-role">Adult cardiac arrest</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Code Pink</div><div class="dir-entry-role">Infant abduction</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Rapid Response Team</div><div class="dir-entry-role">RRT / MET team</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Security</div><div class="dir-entry-role">Hospital security</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Poison Control</div><div class="dir-entry-role">National hotline</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">800-222-1222</span></div>
       </div>
-
     </section>
 
   </main>
 
-  <!-- TAB BAR -->
   <nav class="tab-bar" role="tablist" aria-label="Main sections">
-    <button class="tab-btn active" role="tab" id="tab-maternal"
-      aria-selected="true" aria-controls="panel-maternal"
-      onclick="switchTab('maternal')" tabindex="0">
+    <button class="tab-btn active" role="tab" id="tab-maternal" aria-selected="true" aria-controls="panel-maternal" onclick="switchTab('maternal')" tabindex="0">
       <span class="tab-icon-wrap" aria-hidden="true">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
           <ellipse cx="13" cy="16" rx="7" ry="6" stroke="currentColor" stroke-width="2"/>
@@ -1086,10 +787,7 @@
       </span>
       <span class="tab-label">Maternal</span>
     </button>
-
-    <button class="tab-btn mint-tab" role="tab" id="tab-infant"
-      aria-selected="false" aria-controls="panel-infant"
-      onclick="switchTab('infant')" tabindex="-1">
+    <button class="tab-btn mint-tab" role="tab" id="tab-infant" aria-selected="false" aria-controls="panel-infant" onclick="switchTab('infant')" tabindex="-1">
       <span class="tab-icon-wrap" aria-hidden="true">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
           <ellipse cx="13" cy="13" rx="7" ry="8" stroke="currentColor" stroke-width="2"/>
@@ -1101,10 +799,7 @@
       </span>
       <span class="tab-label">Infant</span>
     </button>
-
-    <button class="tab-btn lav-tab" role="tab" id="tab-directory"
-      aria-selected="false" aria-controls="panel-directory"
-      onclick="switchTab('directory')" tabindex="-1">
+    <button class="tab-btn lav-tab" role="tab" id="tab-directory" aria-selected="false" aria-controls="panel-directory" onclick="switchTab('directory')" tabindex="-1">
       <span class="tab-icon-wrap" aria-hidden="true">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
           <rect x="4" y="3" width="18" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
@@ -1132,16 +827,14 @@ function switchTab(name) {
   });
   document.getElementById('main-content').scrollTop = 0;
 }
-
 function toggleAcc(id) {
   const acc  = document.getElementById(id);
   const btn  = acc.querySelector('.accordion-header');
   const body = acc.querySelector('.accordion-body');
-  acc.classList.toggle('open');
-  const open = acc.classList.contains('open');
+  const open = acc.classList.toggle('open');
   btn.setAttribute('aria-expanded', String(open));
+  if (open) body.style.paddingTop = '12px';
 }
-
 document.querySelectorAll('.tab-btn').forEach((btn, i, all) => {
   btn.addEventListener('keydown', e => {
     let idx = i;
@@ -1156,5 +849,6 @@ document.querySelectorAll('.tab-btn').forEach((btn, i, all) => {
   });
 });
 </script>
+
 </body>
 </html>
