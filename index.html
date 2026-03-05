@@ -104,62 +104,84 @@ body{min-height:100%;display:flex;justify-content:center;align-items:flex-start;
 .callout-steps li .step-num{width:18px;height:18px;border-radius:50%;background:var(--lav-dark);color:white;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .cat-float{display:flex;justify-content:center;margin-bottom:10px;}
 svg.cat{overflow:visible;}
-/* Report Sheet Styles */
+/* Report sheet styles */
 .report-intro{background:var(--teal);border:1.5px solid var(--teal-mid);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
 .report-intro-text{font-size:12px;font-weight:600;color:var(--teal-dark);line-height:1.5;}
 .print-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:var(--teal-dark);color:white;font-family:var(--font-head);font-size:14px;font-weight:800;border:none;border-radius:var(--r-sm);cursor:pointer;margin-bottom:14px;letter-spacing:0.3px;transition:opacity 0.15s;}
 .print-btn:hover{opacity:0.88;}
-.shift-toggle{display:flex;background:var(--white);border:1.5px solid var(--teal-mid);border-radius:var(--r-sm);overflow:hidden;margin-bottom:14px;}
-.shift-btn{flex:1;padding:9px 6px;font-family:var(--font-head);font-size:13px;font-weight:800;border:none;background:none;cursor:pointer;color:var(--text-muted);transition:all 0.18s;}
-.shift-btn.active{background:var(--teal-dark);color:white;}
-.sheet-wrap{display:none;}
-.sheet-wrap.active{display:block;}
-.brain-sheet{background:white;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px;font-family:'Courier New',monospace;font-size:10.5px;color:#111;}
-.bs-header{background:#e0f2f1;padding:8px 10px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;border-bottom:1.5px solid var(--teal-mid);}
-.bs-field{display:flex;flex-direction:column;gap:2px;}
-.bs-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal-dark);font-family:var(--font-head);}
-.bs-line{border-bottom:1px solid #aaa;min-height:16px;padding:0 2px;}
-.bs-body{padding:8px 10px;}
-.bs-row{display:grid;gap:4px;margin-bottom:6px;}
-.bs-row-2{grid-template-columns:1fr 1fr;}
-.bs-row-3{grid-template-columns:1fr 1fr 1fr;}
-.bs-row-4{grid-template-columns:1fr 1fr 1fr 1fr;}
-.bs-row-5{grid-template-columns:2fr 1fr 1fr 1fr 1fr;}
-.bs-section-title{font-family:var(--font-head);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.6px;color:var(--teal-dark);background:#e0f2f1;padding:4px 8px;margin:6px -10px;border-top:1px solid var(--teal-mid);border-bottom:1px solid var(--teal-mid);}
-.bs-checklist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px 6px;margin-top:4px;}
-.bs-check{display:flex;align-items:center;gap:4px;font-size:9.5px;}
-.bs-check::before{content:'☐';font-size:11px;flex-shrink:0;}
-.bs-vs-col{border:1px solid #ccc;border-radius:4px;padding:4px 6px;}
-.bs-vs-label{font-size:8px;font-weight:700;color:var(--teal-dark);font-family:var(--font-head);text-transform:uppercase;margin-bottom:3px;}
-.bs-vs-row{display:flex;justify-content:space-between;font-size:9px;padding:2px 0;border-bottom:1px dashed #eee;}
-.bs-vs-row:last-child{border-bottom:none;}
-.bs-vs-val{border-bottom:1px solid #bbb;min-width:40px;display:inline-block;}
-.bs-baby-section{background:#f9fffe;border:1px solid var(--teal-mid);border-radius:6px;padding:8px;margin-top:6px;}
-.bs-time-col{border:1px solid #ddd;border-radius:4px;margin-bottom:4px;}
-.bs-time-header{background:var(--teal-dark);color:white;font-family:var(--font-head);font-size:9px;font-weight:800;padding:3px 6px;text-align:center;}
-.bs-time-slot{display:flex;border-bottom:1px solid #eee;min-height:20px;}
-.bs-time-slot:last-child{border-bottom:none;}
-.bs-time-slot-label{background:#f0fafa;font-size:9px;font-weight:700;font-family:var(--font-head);color:var(--teal-dark);padding:2px 5px;min-width:36px;display:flex;align-items:center;border-right:1px solid #ddd;flex-shrink:0;}
-.bs-time-slot-note{flex:1;padding:2px 4px;}
+/* CSS-only radio toggle for sheets */
+.shift-radio-wrap input[type=radio]{display:none;}
+.shift-toggle-labels{display:flex;background:white;border:1.5px solid #80cbc4;border-radius:10px;overflow:hidden;margin-bottom:12px;}
+.shift-lbl{flex:1;padding:9px 6px;text-align:center;font-family:var(--font-head);font-size:13px;font-weight:800;color:#8a7a9a;cursor:pointer;transition:all 0.18s;}
+#radio-day:checked ~ .shift-toggle-labels label[for=radio-day]{background:#00695c;color:white;}
+#radio-night:checked ~ .shift-toggle-labels label[for=radio-night]{background:#283593;color:white;}
+.sheet-day-content{display:none;}
+.sheet-night-content{display:none;}
+#radio-day:checked ~ .sheet-day-content{display:block;}
+#radio-night:checked ~ .sheet-night-content{display:block;}
+/* Brain sheet form styles */
+.resource-bar{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;background:#e0f2f1;border:1.5px solid #80cbc4;border-radius:8px;padding:6px 10px;margin-bottom:10px;}
+.res-field label{font-size:7.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.6px;color:#00695c;display:block;margin-bottom:2px;}
+.res-field .line{border-bottom:1px solid #999;min-height:16px;}
+.patient-card{background:white;border:1.5px solid #b2dfdb;border-radius:10px;margin-bottom:4px;overflow:hidden;page-break-inside:avoid;font-family:'Segoe UI',Arial,sans-serif;}
+.patient-card.night{border-color:#9fa8da;}
+.patient-header{background:#e0f2f1;padding:7px 10px;display:grid;grid-template-columns:60px 1fr 1fr 1fr;gap:6px;border-bottom:1.5px solid #b2dfdb;}
+.night .patient-header{background:#e8eaf6;border-bottom-color:#9fa8da;}
+.ph-field label{font-size:7.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:#00695c;display:block;margin-bottom:2px;}
+.night .ph-field label{color:#283593;}
+.ph-field .line{border-bottom:1px solid #aaa;min-height:15px;font-size:10px;}
+.card-body{padding:8px 10px;}
+.bs-row{display:grid;gap:6px;margin-bottom:6px;}
+.c2{grid-template-columns:1fr 1fr;}
+.c3{grid-template-columns:1fr 1fr 1fr;}
+.c4{grid-template-columns:1fr 1fr 1fr 1fr;}
+.c5{grid-template-columns:2fr 1fr 1fr 1fr 1fr;}
+.f label{font-size:7px;font-weight:800;text-transform:uppercase;letter-spacing:0.4px;color:#555;display:block;margin-bottom:1px;}
+.f .ln{border-bottom:1px solid #bbb;min-height:14px;font-size:9.5px;}
+.f .ln-tall{border-bottom:1px solid #bbb;min-height:26px;}
+.bs-section{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:0.7px;color:#00695c;background:#e0f2f1;padding:3px 8px;margin:6px -10px;border-top:1px solid #b2dfdb;border-bottom:1px solid #b2dfdb;}
+.night .bs-section{color:#283593;background:#e8eaf6;border-color:#9fa8da;}
+.chk-grid{display:grid;gap:2px 6px;margin-top:3px;}
+.chk{font-size:9px;font-weight:600;display:flex;align-items:center;gap:4px;}
+.chk::before{content:'☐';font-size:11px;flex-shrink:0;}
+.baby-box{background:#f9fffe;border:1px solid #80cbc4;border-radius:6px;padding:8px;margin-top:4px;}
+.night .baby-box{border-color:#9fa8da;background:#f8f9ff;}
+.vs-box{border:1px solid #b2dfdb;border-radius:5px;padding:5px 6px;font-size:9px;}
+.vs-box label{font-size:7px;font-weight:800;color:#00695c;text-transform:uppercase;display:block;margin-bottom:3px;}
+.vs-r{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed #e0f2f1;}
+.vs-r:last-child{border-bottom:none;}
+.vs-v{border-bottom:1px solid #aaa;min-width:28px;display:inline-block;}
+.vax-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+.time-section{background:white;border:1.5px solid #b2dfdb;border-top:none;border-radius:0 0 10px 10px;padding:8px 10px;margin-top:-4px;margin-bottom:10px;}
+.night .time-section{border-color:#9fa8da;}
+.time-label{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:#00695c;margin-bottom:5px;}
+.night .time-label{color:#283593;}
+.time-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;}
+.time-col-box{border:1px solid #ddd;border-radius:5px;overflow:hidden;}
+.time-col-head{background:#00695c;color:white;font-size:8.5px;font-weight:800;padding:3px 6px;text-align:center;}
+.time-slot{display:flex;border-bottom:1px solid #eee;min-height:20px;}
+.time-slot:last-child{border-bottom:none;}
+.ts-lbl{background:#f5fffe;font-size:8.5px;font-weight:800;color:#00695c;padding:2px 4px;min-width:34px;display:flex;align-items:center;border-right:1px solid #e0f2f1;flex-shrink:0;}
+.ts-note{flex:1;padding:2px 4px;}
+.pt-divider{text-align:center;font-size:10px;font-weight:800;color:#00695c;margin:6px 0 8px;letter-spacing:1px;}
 @media print{
   body{padding:0;background:white;}
   .phone{box-shadow:none;border-radius:0;max-width:100%;min-height:unset;}
-  .app-header,.tab-bar,.tab-panel:not(.active){display:none!important;}
-  .tab-panel.active{display:block;padding:8px;}
-  .print-btn,.shift-toggle,.report-intro{display:none!important;}
-  .sheet-wrap{display:block!important;}
-  .brain-sheet{break-inside:avoid;margin-bottom:8px;border:1px solid #999;page-break-after:always;}
-  .brain-sheet:last-child{page-break-after:auto;}
-  @page{margin:0.4in;}
+  .app-header,.tab-bar{display:none!important;}
+  .tab-panel:not(.active){display:none!important;}
+  .section-cat-header,.report-intro,.shift-radio-wrap>input,.shift-toggle-labels,.print-btn{display:none!important;}
+  .sheet-day-content,.sheet-night-content{display:block!important;}
+  .patient-card{page-break-inside:avoid;margin-bottom:6px;}
+  @page{margin:0.35in;size:letter;}
 }
 </style>
 </head>
 <body>
-<div class="phone" role="application">
+<div class="phone">
 
   <header class="app-header">
     <div aria-hidden="true">
-      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" class="cat">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
         <ellipse cx="26" cy="36" rx="14" ry="12" fill="#fce4ec"/>
         <ellipse cx="26" cy="36" rx="12" ry="10" fill="#b2dfdb"/>
         <ellipse cx="26" cy="22" rx="11" ry="10" fill="#fce4ec"/>
@@ -186,9 +208,9 @@ svg.cat{overflow:visible;}
   <main class="content" id="main-content" tabindex="-1">
 
     <!-- ══ MATERNAL TAB ══ -->
-    <section class="tab-panel active" id="panel-maternal" role="tabpanel">
+    <section class="tab-panel active" id="panel-maternal">
       <div class="cat-float" aria-hidden="true">
-        <svg width="110" height="110" viewBox="0 0 110 110" fill="none" class="cat">
+        <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
           <ellipse cx="55" cy="78" rx="28" ry="24" fill="#fafafa"/>
           <ellipse cx="55" cy="78" rx="24" ry="20" fill="#e8f5e9"/>
           <ellipse cx="55" cy="46" rx="22" ry="20" fill="#fce4ec"/>
@@ -204,8 +226,8 @@ svg.cat{overflow:visible;}
         <h2>Maternal Health</h2>
         <span class="cat-badge" style="background:var(--pink-mid);color:var(--pink-dark);">🌸 Mom</span>
       </div>
-      <div class="accordion" id="acc-maternal-assess">
-        <button class="accordion-header" onclick="toggleAcc('acc-maternal-assess')" aria-expanded="false">
+      <div class="accordion" id="acc-bubble">
+        <button class="accordion-header" onclick="toggleAcc('acc-bubble')" aria-expanded="false">
           <span class="acc-icon" style="background:var(--pink);">🩺</span><span>Maternal Assessment (BUBBLE-HE)</span>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -221,9 +243,583 @@ svg.cat{overflow:visible;}
           <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>B — Bladder</h3>
             <ul class="checklist" style="color:var(--sky-dark)"><li>Voiding adequately (≥150 mL per void)</li><li>Bladder not distended above symphysis</li><li>U/O ≥30 mL/hr (post-Foley)</li><li>Pain/burning with urination</li></ul></div>
           <div class="info-block"><h3><span class="dot" style="background:var(--lav-dark)"></span>L — Lochia</h3>
-            <ul class="checklist" style="color:var(--lav-dark)"><li>Color: Rubra (red,1–3d) → Serosa (pink/brown,4–10d) → Alba (cream,10–14d)</li><li>Amount: scant/light/moderate/heavy/excessive</li><li>Odor: foul = infection concern</li><li>Clots: &gt;golf ball size = report</li></ul></div>
+            <ul class="checklist" style="color:var(--lav-dark)"><li>Rubra (red,1–3d) → Serosa (pink/brown,4–10d) → Alba (cream,10–14d)</li><li>Amount: scant/light/moderate/heavy/excessive</li><li>Foul odor = infection concern</li><li>Clots &gt;golf ball = report</li></ul></div>
           <div class="info-block"><h3><span class="dot" style="background:#e65100"></span>E — Episiotomy / Perineum</h3>
-            <ul class="checklist" style="color:#e65100"><li>REEDA: Redness, Edema, Ecchymosis, Discharge, Approximation</li><li>Ice pack first 24 hrs, sitz bath after</li><li>Intact sutures (if present)</li><li>Hemorrhoids noted</li></ul></div>
+            <ul class="checklist" style="color:#e65100"><li>REEDA: Redness, Edema, Ecchymosis, Discharge, Approximation</li><li>Ice pack first 24h; sitz bath after</li><li>Intact sutures (if present)</li><li>Hemorrhoids noted</li></ul></div>
           <div class="info-block"><h3><span class="dot" style="background:var(--pink-dark)"></span>H — Homans / Lower Extremities</h3>
             <ul class="checklist" style="color:var(--pink-dark)"><li>Calf pain on dorsiflexion (Homans sign — limited sensitivity)</li><li>Leg edema, warmth, erythema</li><li>DVT risk: early ambulation, SCDs</li></ul></div>
-          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></spa
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>E — Emotional / Education</h3>
+            <ul class="checklist" style="color:var(--mint-dark)"><li>Edinburgh Postnatal Depression Scale (EPDS)</li><li>Baby blues vs. PPD distinction</li><li>Support system, bonding observed</li><li>Discharge education completed</li></ul></div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-ppc">
+        <button class="accordion-header" onclick="toggleAcc('acc-ppc')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--peach);">💊</span><span>Postpartum Care</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="info-block"><h3><span class="dot" style="background:var(--peach-dark)"></span>Pain Management</h3>
+            <ul class="checklist" style="color:var(--peach-dark)"><li>Ibuprofen 600 mg PO q6h (preferred)</li><li>Acetaminophen 650–1000 mg PO q6h PRN</li><li>Ice perineum first 24h; sitz bath after</li><li>Tucks pads / Dermoplast spray</li><li>Afterpains: worse with multiparas + breastfeeding</li></ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>Routine Medications</h3>
+            <div class="tag-list"><span class="tag" style="background:var(--mint);color:var(--mint-dark);">💊 Prenatal vitamin</span><span class="tag" style="background:var(--pink);color:var(--pink-dark);">🩸 Iron supplement</span><span class="tag" style="background:var(--lavender);color:var(--lav-dark);">💉 Pitocin IV</span><span class="tag" style="background:var(--peach);color:var(--peach-dark);">🟡 Stool softener</span><span class="tag" style="background:var(--sky);color:var(--sky-dark);">🛡 Rhogam (Rh neg)</span><span class="tag" style="background:var(--pink);color:var(--pink-dark);">💉 Rubella (non-immune)</span></div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>Hemorrhage Prevention</h3>
+            <ul class="checklist" style="color:var(--sky-dark)"><li>Fundal massage if boggy</li><li>Oxytocin (Pitocin) — standard uterotonic</li><li>Methergine — NOT with HTN</li><li>Hemabate — NOT with asthma</li><li>Monitor CBC, report Hgb &lt;8 g/dL</li></ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--lav-dark)"></span>Discharge Teaching</h3>
+            <ul class="checklist" style="color:var(--lav-dark)"><li>Pelvic rest × 6 weeks</li><li>No heavy lifting (&gt;10 lb) × 4–6 weeks</li><li>Fever &gt;100.4°F (38°C), foul lochia, wound opening → call OB</li><li>Signs of PPD; 24/7 support line provided</li><li>OB follow-up: 3 wks C/S or 6 wks vaginal</li><li>Contraception counseling</li></ul></div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-labs">
+        <button class="accordion-header" onclick="toggleAcc('acc-labs')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--mint);">🧪</span><span>Frequent Labs</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <table class="lab-table">
+            <thead><tr><th>Lab</th><th>Normal Range</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>Hemoglobin</td><td>12–16 g/dL</td><td>↓ expected PP; &lt;8 = transfusion discuss</td></tr>
+              <tr><td>Hematocrit</td><td>37–47%</td><td>Drops ~3–4 pts per 500 mL blood loss</td></tr>
+              <tr><td>WBC</td><td>5–15 K/µL (PP up to 30)</td><td>Physiologically elevated post-delivery</td></tr>
+              <tr><td>Platelets</td><td>150–400 K/µL</td><td>Monitor in PIH/HELLP</td></tr>
+              <tr><td>Blood type/Rh</td><td>—</td><td>Rhogam if Rh(-) within 72h</td></tr>
+              <tr><td>Rubella titer</td><td>≥1:8 immune</td><td>Vaccinate non-immune before discharge</td></tr>
+              <tr><td>GBS status</td><td>—</td><td>Collected 35–37 wks; guides ABX</td></tr>
+              <tr><td>Mag level</td><td>4–7 mEq/L</td><td>Monitor RR, DTRs, UO on MgSO₄</td></tr>
+              <tr><td>LFTs/LDH</td><td>ALT 7–45; AST 10–40</td><td>HELLP surveillance</td></tr>
+            </tbody>
+          </table>
+          <div class="alert-box"><strong>⚠ MgSO₄ Toxicity:</strong> RR &lt;12, UO &lt;25 mL/hr, absent DTRs → hold Mag, give Calcium gluconate.</div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-bf">
+        <button class="accordion-header" onclick="toggleAcc('acc-bf')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--lavender);">🤱</span><span>Breastfeeding Resources</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="info-block"><h3><span class="dot" style="background:var(--lav-dark)"></span>LATCH Score</h3>
+            <table class="lab-table">
+              <thead><tr><th>Letter</th><th>Criteria</th><th>Score 0–2</th></tr></thead>
+              <tbody>
+                <tr><td><strong>L</strong></td><td>Latch</td><td>0=sleepy;1=tries w/help;2=latches&amp;sucks</td></tr>
+                <tr><td><strong>A</strong></td><td>Audible swallowing</td><td>0=none;1=a few;2=spontaneous</td></tr>
+                <tr><td><strong>T</strong></td><td>Type of nipple</td><td>0=inverted;1=flat;2=protruding</td></tr>
+                <tr><td><strong>C</strong></td><td>Comfort</td><td>0=engorged;1=cracked;2=comfortable</td></tr>
+                <tr><td><strong>H</strong></td><td>Hold/positioning</td><td>0=full assist;1=min assist;2=no assist</td></tr>
+              </tbody>
+            </table>
+            <div class="normal-range"><div class="normal-range-label">Target</div><div class="normal-range-value">≥7/10 — Good; &lt;5 = consult lactation</div></div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--pink-dark)"></span>Key Teaching</h3>
+            <ul class="checklist" style="color:var(--pink-dark)"><li>Feed every 1.5–3h, 8–12×/day newborn</li><li>Alternate breasts; fully empty one side first</li><li>Nipple pain is NOT normal; reassess latch</li><li>Mastitis: flu-like + unilateral breast warmth/redness</li></ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>Colostrum → Milk</h3>
+            <div class="tag-list"><span class="tag" style="background:#fff3e0;color:#e65100;">Day 1–3: Colostrum</span><span class="tag" style="background:var(--mint);color:var(--mint-dark);">Day 3–5: Transitional</span><span class="tag" style="background:var(--sky);color:var(--sky-dark);">Day 7–10: Mature milk</span></div></div>
+          <div class="tip-box"><strong>Tip:</strong> Document LATCH each shift. Refer to lactation if &lt;5 or mother requests.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ INFANT TAB ══ -->
+    <section class="tab-panel" id="panel-infant">
+      <div class="cat-float" aria-hidden="true">
+        <svg width="110" height="100" viewBox="0 0 110 100" fill="none">
+          <ellipse cx="55" cy="78" rx="30" ry="18" fill="#b2dfdb"/>
+          <ellipse cx="55" cy="48" rx="22" ry="20" fill="#fff8e1"/>
+          <polygon points="34,32 38,20 44,32" fill="#fff8e1"/><polygon points="35.5,31 38.5,22 43,31" fill="#ffe0b2"/>
+          <polygon points="66,32 72,20 76,32" fill="#fff8e1"/><polygon points="67,31 72,22 74.5,31" fill="#ffe0b2"/>
+          <path d="M44 48 Q47 45 50 48" stroke="#5c3d2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M60 48 Q63 45 66 48" stroke="#5c3d2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="55" cy="55" rx="2" ry="1.3" fill="#ffb74d"/>
+          <path d="M52 57.5 Q55 60.5 58 57.5" stroke="#ffb74d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="section-cat-header">
+        <h2>Infant Health</h2>
+        <span class="cat-badge" style="background:var(--mint-mid);color:var(--mint-dark);">🍼 Baby</span>
+      </div>
+      <div class="accordion" id="acc-apgar">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-apgar')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--mint);">👶</span><span>Newborn Assessment</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>APGAR Score (1 &amp; 5 min)</h3>
+            <table class="lab-table">
+              <thead><tr><th>Sign</th><th>0</th><th>1</th><th>2</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A</strong>ppearance</td><td>Blue/pale</td><td>Blue extremities</td><td>Pink all over</td></tr>
+                <tr><td><strong>P</strong>ulse</td><td>Absent</td><td>&lt;100 bpm</td><td>≥100 bpm</td></tr>
+                <tr><td><strong>G</strong>rimace</td><td>No response</td><td>Grimace</td><td>Cry/cough/sneeze</td></tr>
+                <tr><td><strong>A</strong>ctivity</td><td>Limp</td><td>Some flexion</td><td>Active motion</td></tr>
+                <tr><td><strong>R</strong>espiration</td><td>Absent</td><td>Weak cry</td><td>Strong cry</td></tr>
+              </tbody>
+            </table>
+            <div class="normal-range"><div class="normal-range-label">Score</div><div class="normal-range-value">7–10=Normal · 4–6=Some support · 0–3=Resuscitation</div></div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>Vital Sign Norms</h3>
+            <table class="lab-table">
+              <thead><tr><th>Vital Sign</th><th>Normal Range</th></tr></thead>
+              <tbody>
+                <tr><td>Heart Rate</td><td>120–160 bpm (sleeping 100 ok)</td></tr>
+                <tr><td>Respiratory Rate</td><td>30–60 breaths/min</td></tr>
+                <tr><td>Temperature</td><td>97.7–99.5°F (36.5–37.5°C) axillary</td></tr>
+                <tr><td>O₂ Saturation</td><td>≥95% on RA after 10 min of life</td></tr>
+                <tr><td>Blood Pressure</td><td>65–85 / 45–55 mmHg</td></tr>
+                <tr><td>Blood glucose</td><td>≥40 mg/dL (first 4h); ≥45 after</td></tr>
+              </tbody>
+            </table></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>Head-to-Toe</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Head: fontanelles, molding, caput/cephalhematoma</li>
+              <li>Eyes: sclera clear, red reflex bilateral</li>
+              <li>Mouth: intact palate, Epstein pearls (normal), sucking reflex</li>
+              <li>Clavicles: palpate for fracture (esp. shoulder dystocia)</li>
+              <li>Chest: equal breath sounds, no retractions/grunting</li>
+              <li>Abdomen: cord 2 arteries + 1 vein; soft, no masses</li>
+              <li>Genitalia: normal for GA, patent anus</li>
+              <li>Hips: Ortolani/Barlow — no clunk/click</li>
+              <li>Skin: color, vernix, Mongolian spots (document!)</li>
+            </ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--lav-dark)"></span>Newborn Screenings</h3>
+            <ul class="checklist" style="color:var(--lav-dark)">
+              <li>Metabolic screen (PKU card) — at 24h or before discharge</li>
+              <li>Hearing screen (UNHS) — before discharge</li>
+              <li>Critical CHD: pulse ox pre/post ductal at 24h+</li>
+              <li>Bilirubin — TCB or serum per protocol</li>
+            </ul></div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-io">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-io')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--sky);">💧</span><span>Intake &amp; Output (I&amp;Os)</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>Expected Feeding Intake</h3>
+            <table class="lab-table">
+              <thead><tr><th>Age</th><th>Volume/Feed</th><th>Feeds/Day</th></tr></thead>
+              <tbody>
+                <tr><td>Day 1</td><td>5–10 mL</td><td>8–12×</td></tr>
+                <tr><td>Day 2–3</td><td>15–30 mL</td><td>8–12×</td></tr>
+                <tr><td>Day 4–7</td><td>30–60 mL</td><td>8–10×</td></tr>
+                <tr><td>2 weeks</td><td>60–90 mL</td><td>8×</td></tr>
+                <tr><td>1 month</td><td>90–120 mL</td><td>6–8×</td></tr>
+              </tbody>
+            </table>
+            <div class="tip-box"><strong>BF Note:</strong> Colostrum volume is tiny — normal! Stomach is marble-sized at birth.</div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>Expected Urine Output</h3>
+            <table class="lab-table">
+              <thead><tr><th>Day</th><th>Wet Diapers</th></tr></thead>
+              <tbody>
+                <tr><td>Day 1</td><td>1 wet diaper</td></tr>
+                <tr><td>Day 2</td><td>2 wet diapers</td></tr>
+                <tr><td>Day 3+</td><td>3+; 6+ by day 6</td></tr>
+              </tbody>
+            </table>
+            <div class="alert-box"><strong>⚠ Pink "brick dust":</strong> Urate crystals — normal first 3 days. Persisting = dehydration concern.</div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--peach-dark)"></span>Expected Stool</h3>
+            <table class="lab-table">
+              <thead><tr><th>Day</th><th>Type</th><th>Color</th></tr></thead>
+              <tbody>
+                <tr><td>1–2</td><td>Meconium</td><td>Black/dark green</td></tr>
+                <tr><td>3–4</td><td>Transitional</td><td>Brown-green</td></tr>
+                <tr><td>4–7</td><td>Formula: formed</td><td>Yellow-tan</td></tr>
+                <tr><td>4–7</td><td>BF: seedy/loose</td><td>Mustardy yellow</td></tr>
+              </tbody>
+            </table>
+            <div class="alert-box"><strong>⚠ No meconium in 48h</strong> → assess for Hirschsprung's/imperforate anus.</div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>Weight Changes</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Expected loss: up to 7–10% birth weight in first 3–5 days</li>
+              <li>&gt;10% loss = evaluate feeding, consider supplementation</li>
+              <li>Regain birth weight by day 10–14</li>
+              <li>Gaining ~20–30 g/day after transitional loss</li>
+            </ul></div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-icare">
+        <button class="accordion-header mint" onclick="toggleAcc('acc-icare')" aria-expanded="false">
+          <span class="acc-icon" style="background:var(--peach);">🌙</span><span>General Infant Care</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="info-block"><h3><span class="dot" style="background:var(--peach-dark)"></span>Safe Sleep (AAP)</h3>
+            <ul class="checklist" style="color:var(--peach-dark)">
+              <li>Back to sleep, EVERY time — supine</li>
+              <li>Firm, flat surface (approved crib/bassinet only)</li>
+              <li>Room-sharing (not bed-sharing) ≥6 months</li>
+              <li>No soft objects, pillows, bumpers, loose bedding</li>
+              <li>Pacifier at sleep time (after BF established)</li>
+            </ul>
+            <div class="alert-box"><strong>⚠ SIDS:</strong> "Back to sleep, tummy to play." Document safe sleep teaching every shift.</div></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--sky-dark)"></span>Jaundice</h3>
+            <ul class="checklist" style="color:var(--sky-dark)">
+              <li>Physiologic: appears day 2–3, peaks day 3–5, resolves by day 14</li>
+              <li>Pathologic: appears &lt;24h → investigate immediately</li>
+              <li>Cephalocaudal progression: face → chest → abdomen → legs</li>
+              <li>Treatment: phototherapy, hydration</li>
+            </ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--pink-dark)"></span>Thermoregulation</h3>
+            <ul class="checklist" style="color:var(--pink-dark)">
+              <li>Newborns cannot shiver — prone to heat loss</li>
+              <li>4 mechanisms: Evaporation, Radiation, Conduction, Convection</li>
+              <li>Skin-to-skin = best thermoregulation</li>
+              <li>Target axillary: 97.7–99.5°F (36.5–37.5°C)</li>
+            </ul></div>
+          <div class="info-block"><h3><span class="dot" style="background:var(--mint-dark)"></span>Routine Meds at Birth</h3>
+            <div class="tag-list">
+              <span class="tag" style="background:var(--mint);color:var(--mint-dark);">💉 Erythromycin eye ointment</span>
+              <span class="tag" style="background:var(--peach);color:var(--peach-dark);">💉 Vitamin K 1 mg IM</span>
+              <span class="tag" style="background:var(--sky);color:var(--sky-dark);">🛡 Hep B vaccine (if consent)</span>
+            </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DIRECTORY TAB ══ -->
+    <section class="tab-panel" id="panel-directory">
+      <div class="section-cat-header" style="margin-top:8px;">
+        <h2>Directory</h2>
+        <span class="cat-badge" style="background:var(--lav-mid);color:var(--lav-dark);">📞 Unit 26 MBU</span>
+      </div>
+      <div class="dir-card">
+        <div class="dir-card-head"><span style="font-size:16px">🏥</span><span class="dir-card-head-title">Unit 26 — Mother Baby Unit</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">MBU Charge Nurse Phone</div><div class="dir-entry-role">Unit 26 direct line</div></div><span class="dir-entry-num">443-849-2505</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Front Desk Printer</div><div class="dir-entry-role">Print code</div></div><span class="dir-entry-num">2501</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Breakroom Code</div><div class="dir-entry-role">Door keypad</div></div><span class="dir-entry-num">3-5-1</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Cabinet Code</div><div class="dir-entry-role">Supply cabinet</div></div><span class="dir-entry-num">6-7-0-1</span></div>
+        <div class="dir-section-divider"><div class="dir-section-divider-title">⏰ Electronic Timekeeping</div></div>
+        <div class="timekeeping-block">
+          <div class="tk-title">🌅 Day Shift</div>
+          <div class="tk-row"><span>Clock IN window</span><span class="tk-badge tk-green">0654 – 0700</span></div>
+          <div class="tk-row"><span>Clock OUT no earlier than</span><span class="tk-badge tk-green">1824</span></div>
+          <div class="tk-row"><span>Late if clocking in at or after</span><span class="tk-badge tk-red">0701 ☹</span></div>
+        </div>
+        <div class="timekeeping-block">
+          <div class="tk-title">🌙 Night Shift</div>
+          <div class="tk-row"><span>Clock IN window</span><span class="tk-badge tk-green">1854 – 1900</span></div>
+          <div class="tk-row"><span>Clock OUT no earlier than</span><span class="tk-badge tk-green">0624</span></div>
+          <div class="tk-row"><span>Late if clocking in at or after</span><span class="tk-badge tk-red">1901 ☹</span></div>
+        </div>
+        <div class="dir-section-divider"><div class="dir-section-divider-title">📵 Unable to Report for Work</div></div>
+        <div class="timekeeping-block">
+          <div class="tk-title">Call-Out Procedure</div>
+          <ul class="callout-steps">
+            <li><span class="step-num">1</span><span>Call <strong>Staffing Office</strong> — 443-849-2384</span></li>
+            <li><span class="step-num">2</span><span>Call <strong>Charge Nurse</strong> — 443-849-2505</span></li>
+          </ul>
+          <div class="alert-box" style="margin-top:8px;"><strong>⚠ Minimum notice:</strong> At least <strong>2.5 hours</strong> before shift starts.</div>
+        </div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-card-head"><span style="font-size:16px">👨‍⚕️</span><span class="dir-card-head-title">Providers &amp; Specialists</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">OB Attending</div><div class="dir-entry-role">On-call OB physician</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">OB Resident</div><div class="dir-entry-role">Resident on call</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Neonatologist</div><div class="dir-entry-role">Newborn physician</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Anesthesia</div><div class="dir-entry-role">Epidural / spinal</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">MFM / Perinatology</div><div class="dir-entry-role">High-risk OB consult</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-card-head"><span style="font-size:16px">🤝</span><span class="dir-card-head-title">Ancillary &amp; Support</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Lactation Consultant</div><div class="dir-entry-role">IBCLC inpatient</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Social Work</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Pharmacy</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Lab / Phlebotomy</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Blood Bank</div></div><span class="dir-entry-num" style="color:var(--text-muted);font-size:12px;">Ext. ____</span></div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-card-head" style="background:#fff3e0;"><span style="font-size:16px">🚨</span><span class="dir-card-head-title" style="color:#bf360c;">Emergency &amp; Rapid Response</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Code Blue</div><div class="dir-entry-role">Adult cardiac arrest</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Code Pink</div><div class="dir-entry-role">Infant abduction</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Rapid Response Team</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Security</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">____</span></div>
+        <div class="dir-entry"><div><div class="dir-entry-name">Poison Control</div></div><span class="dir-entry-num" style="background:#fff3e0;color:#bf360c;">800-222-1222</span></div>
+      </div>
+    </section>
+
+    <!-- ══ REPORT SHEETS TAB ══ -->
+    <section class="tab-panel" id="panel-sheets">
+      <div class="section-cat-header" style="margin-top:8px;">
+        <h2>Report Sheets</h2>
+        <span class="cat-badge" style="background:var(--teal-mid);color:var(--teal-dark);">🖨 Print</span>
+      </div>
+      <div class="report-intro">
+        <div style="font-size:28px">📋</div>
+        <p class="report-intro-text">Select your shift then tap <strong>Print</strong>. Toggle switches between Day and Night view.</p>
+      </div>
+      <div class="shift-radio-wrap">
+        <input type="radio" name="shift" id="radio-day" checked>
+        <input type="radio" name="shift" id="radio-night">
+        <div class="shift-toggle-labels">
+          <label for="radio-day" class="shift-lbl">🌅 Day Shift</label>
+          <label for="radio-night" class="shift-lbl">🌙 Night Shift</label>
+        </div>
+        <button class="print-btn" onclick="window.print()">🖨 Print Report Sheet</button>
+
+        <!-- ═══ DAY SHIFT CONTENT ═══ -->
+        <div class="sheet-day-content">
+          <div class="resource-bar">
+            <div class="res-field"><label>Resource</label><div class="line"></div></div>
+            <div class="res-field"><label>Lactation</label><div class="line"></div></div>
+            <div class="res-field"><label>Nursery</label><div class="line"></div></div>
+            <div class="res-field"><label>Charge</label><div class="line"></div></div>
+          </div>
+          <!-- Patient 1 Day -->
+          <div class="patient-card">
+            <div class="patient-header">
+              <div class="ph-field"><label>Rm #</label><div class="line"></div></div>
+              <div class="ph-field"><label>Name</label><div class="line"></div></div>
+              <div class="ph-field"><label>OB</label><div class="line"></div></div>
+              <div class="ph-field"><label>Ped</label><div class="line"></div></div>
+            </div>
+            <div class="card-body">
+              <div class="bs-row c4"><div class="f"><label>Delivery Date/Time</label><div class="ln"></div></div><div class="f"><label>G__ P__ C/S or VAG</label><div class="ln"></div></div><div class="f"><label>MRSA: +/-</label><div class="ln"></div></div><div class="f"><label>Mom Blood Type / Rhogam ☐</label><div class="ln"></div></div></div>
+              <div class="bs-row c5" style="margin-top:3px;"><div class="f"><label>Rubella: Imm/Non-Imm</label><div class="ln"></div></div><div class="f"><label>Hep B:+/-</label><div class="ln"></div></div><div class="f"><label>RPR:R/NR</label><div class="ln"></div></div><div class="f"><label>GBS:+/-</label><div class="ln"></div></div><div class="f"><label>Abx:Y/N</label><div class="ln"></div></div></div>
+              <div class="bs-row c3" style="margin-top:3px;"><div class="f"><label>Allergies / Anesthesia</label><div class="ln"></div></div><div class="f"><label>ROM / Fluid</label><div class="ln"></div></div><div class="f"><label>QBL / IV</label><div class="ln"></div></div></div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div class="f"><label>MOB History / Tx</label><div class="ln-tall"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;"><div class="f"><label>WBC</label><div class="ln"></div></div><div class="f"><label>Hgb</label><div class="ln"></div></div><div class="f"><label>Hct</label><div class="ln"></div></div><div class="f"><label>Plt</label><div class="ln"></div></div></div>
+              </div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div><div class="f"><label>Pain Meds</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">TDAP</span><span class="chk">FLU</span><span class="chk">MMR</span><span class="chk">PNA</span></div></div>
+                <div><div class="f"><label>Foley / Straight Cath</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">Void #1</span><span class="chk">Void #2</span></div></div>
+              </div>
+              <div class="bs-section">Mom Assessment &amp; Tasks</div>
+              <div class="bs-row c2">
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Assessment</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span></div></div>
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Chart &amp; Orders</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Epic Check</span><span class="chk">Hard Copies</span><span class="chk">PPD</span><span class="chk">DC Orders</span><span class="chk">DC Teaching</span><span class="chk">DC Staples</span><span class="chk">MRSA Swab</span></div></div>
+              </div>
+              <div class="bs-section">Baby</div>
+              <div class="baby-box">
+                <div class="bs-row c4" style="margin-bottom:4px;"><div class="f"><label>M/F</label><div class="ln"></div></div><div class="f"><label>GA</label><div class="ln"></div></div><div class="f"><label>Wgt Loss %</label><div class="ln"></div></div><div class="f"><label>Baby Blood Type / Coombs</label><div class="ln"></div></div></div>
+                <div class="bs-row c3" style="margin-bottom:5px;"><div class="f"><label>Apgars __/__/__</label><div class="ln"></div></div><div class="f"><label>LPI/SGA/AGA/LGA</label><div class="ln"></div></div><div class="f"><label>EOS</label><div class="ln"></div></div></div>
+                <div class="bs-row c2">
+                  <div><div class="vs-box"><label>VS × 2</label><div class="vs-r"><span>T:</span><span class="vs-v"></span><span>T:</span><span class="vs-v"></span></div><div class="vs-r"><span>HR:</span><span class="vs-v"></span><span>HR:</span><span class="vs-v"></span></div><div class="vs-r"><span>RR:</span><span class="vs-v"></span><span>RR:</span><span class="vs-v"></span></div></div><div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">Eyes</span><span class="chk">Vit K</span><span class="chk">Hep B</span><span class="chk">Circ:Y/N</span></div></div>
+                  <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Feeding &amp; Output</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">Feed/Diaper Log</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span><span class="chk">Latch</span><span class="chk">Void</span><span class="chk">Stool</span><span class="chk">Breast</span><span class="chk">Pumping</span></div><div class="f" style="margin-top:3px;"><label>Formula</label><div class="ln"></div></div><div class="f" style="margin-top:2px;"><label>Accuchek Time</label><div class="ln"></div></div></div>
+                </div>
+                <div class="bs-row c2" style="margin-top:4px;"><div class="f"><label>TCB</label><div class="ln"></div></div><div class="f"><label>TSB</label><div class="ln"></div></div></div>
+                <div class="chk-grid" style="grid-template-columns:repeat(5,1fr);margin-top:4px;"><span class="chk">Bath</span><span class="chk">Prints</span><span class="chk">PKU</span><span class="chk">Heart Screen P/F</span><span class="chk">Hearing P/F</span><span class="chk">Car Seat</span><span class="chk">CS Papers</span><span class="chk">Birth Cert</span><span class="chk">Cord Clamp</span><span class="chk">Bands</span></div>
+                <div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">DC Orders</span><span class="chk">DC Teaching</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="time-section">
+            <div class="time-label">⏰ Day Shift Timeline — Patient 1</div>
+            <div class="time-cols">
+              <div class="time-col-box"><div class="time-col-head">0700–1100</div><div class="time-slot"><div class="ts-lbl">0700</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">0800</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">0900</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1100</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head">1200–1600</div><div class="time-slot"><div class="ts-lbl">1200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1300</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1400</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1500</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1600</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head">VS 1600 + Notes</div><div class="time-slot"><div class="ts-lbl">1700</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1800</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1900</div><div class="ts-note"></div></div><div class="time-slot" style="min-height:32px;"><div class="ts-lbl">Notes</div><div class="ts-note"></div></div></div>
+            </div>
+          </div>
+          <div class="pt-divider">— — — Patient 2 — — —</div>
+          <!-- Patient 2 Day -->
+          <div class="patient-card">
+            <div class="patient-header">
+              <div class="ph-field"><label>Rm #</label><div class="line"></div></div>
+              <div class="ph-field"><label>Name</label><div class="line"></div></div>
+              <div class="ph-field"><label>OB</label><div class="line"></div></div>
+              <div class="ph-field"><label>Ped</label><div class="line"></div></div>
+            </div>
+            <div class="card-body">
+              <div class="bs-row c4"><div class="f"><label>Delivery Date/Time</label><div class="ln"></div></div><div class="f"><label>G__ P__ C/S or VAG</label><div class="ln"></div></div><div class="f"><label>MRSA: +/-</label><div class="ln"></div></div><div class="f"><label>Mom Blood Type / Rhogam ☐</label><div class="ln"></div></div></div>
+              <div class="bs-row c5" style="margin-top:3px;"><div class="f"><label>Rubella: Imm/Non-Imm</label><div class="ln"></div></div><div class="f"><label>Hep B:+/-</label><div class="ln"></div></div><div class="f"><label>RPR:R/NR</label><div class="ln"></div></div><div class="f"><label>GBS:+/-</label><div class="ln"></div></div><div class="f"><label>Abx:Y/N</label><div class="ln"></div></div></div>
+              <div class="bs-row c3" style="margin-top:3px;"><div class="f"><label>Allergies / Anesthesia</label><div class="ln"></div></div><div class="f"><label>ROM / Fluid</label><div class="ln"></div></div><div class="f"><label>QBL / IV</label><div class="ln"></div></div></div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div class="f"><label>MOB History / Tx</label><div class="ln-tall"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;"><div class="f"><label>WBC</label><div class="ln"></div></div><div class="f"><label>Hgb</label><div class="ln"></div></div><div class="f"><label>Hct</label><div class="ln"></div></div><div class="f"><label>Plt</label><div class="ln"></div></div></div>
+              </div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div><div class="f"><label>Pain Meds</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">TDAP</span><span class="chk">FLU</span><span class="chk">MMR</span><span class="chk">PNA</span></div></div>
+                <div><div class="f"><label>Foley / Straight Cath</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">Void #1</span><span class="chk">Void #2</span></div></div>
+              </div>
+              <div class="bs-section">Mom Assessment &amp; Tasks</div>
+              <div class="bs-row c2">
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Assessment</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span></div></div>
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Chart &amp; Orders</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Epic Check</span><span class="chk">Hard Copies</span><span class="chk">PPD</span><span class="chk">DC Orders</span><span class="chk">DC Teaching</span><span class="chk">DC Staples</span><span class="chk">MRSA Swab</span></div></div>
+              </div>
+              <div class="bs-section">Baby</div>
+              <div class="baby-box">
+                <div class="bs-row c4" style="margin-bottom:4px;"><div class="f"><label>M/F</label><div class="ln"></div></div><div class="f"><label>GA</label><div class="ln"></div></div><div class="f"><label>Wgt Loss %</label><div class="ln"></div></div><div class="f"><label>Baby Blood Type / Coombs</label><div class="ln"></div></div></div>
+                <div class="bs-row c3" style="margin-bottom:5px;"><div class="f"><label>Apgars __/__/__</label><div class="ln"></div></div><div class="f"><label>LPI/SGA/AGA/LGA</label><div class="ln"></div></div><div class="f"><label>EOS</label><div class="ln"></div></div></div>
+                <div class="bs-row c2">
+                  <div><div class="vs-box"><label>VS × 2</label><div class="vs-r"><span>T:</span><span class="vs-v"></span><span>T:</span><span class="vs-v"></span></div><div class="vs-r"><span>HR:</span><span class="vs-v"></span><span>HR:</span><span class="vs-v"></span></div><div class="vs-r"><span>RR:</span><span class="vs-v"></span><span>RR:</span><span class="vs-v"></span></div></div><div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">Eyes</span><span class="chk">Vit K</span><span class="chk">Hep B</span><span class="chk">Circ:Y/N</span></div></div>
+                  <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Feeding &amp; Output</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">Feed/Diaper Log</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span><span class="chk">Latch</span><span class="chk">Void</span><span class="chk">Stool</span><span class="chk">Breast</span><span class="chk">Pumping</span></div><div class="f" style="margin-top:3px;"><label>Formula</label><div class="ln"></div></div><div class="f" style="margin-top:2px;"><label>Accuchek Time</label><div class="ln"></div></div></div>
+                </div>
+                <div class="bs-row c2" style="margin-top:4px;"><div class="f"><label>TCB</label><div class="ln"></div></div><div class="f"><label>TSB</label><div class="ln"></div></div></div>
+                <div class="chk-grid" style="grid-template-columns:repeat(5,1fr);margin-top:4px;"><span class="chk">Bath</span><span class="chk">Prints</span><span class="chk">PKU</span><span class="chk">Heart Screen P/F</span><span class="chk">Hearing P/F</span><span class="chk">Car Seat</span><span class="chk">CS Papers</span><span class="chk">Birth Cert</span><span class="chk">Cord Clamp</span><span class="chk">Bands</span></div>
+                <div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">DC Orders</span><span class="chk">DC Teaching</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="time-section">
+            <div class="time-label">⏰ Day Shift Timeline — Patient 2</div>
+            <div class="time-cols">
+              <div class="time-col-box"><div class="time-col-head">0700–1100</div><div class="time-slot"><div class="ts-lbl">0700</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">0800</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">0900</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1100</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head">1200–1600</div><div class="time-slot"><div class="ts-lbl">1200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1300</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1400</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1500</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1600</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head">VS 1600 + Notes</div><div class="time-slot"><div class="ts-lbl">1700</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1800</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl">1900</div><div class="ts-note"></div></div><div class="time-slot" style="min-height:32px;"><div class="ts-lbl">Notes</div><div class="ts-note"></div></div></div>
+            </div>
+          </div>
+        </div><!-- end sheet-day-content -->
+
+        <!-- ═══ NIGHT SHIFT CONTENT ═══ -->
+        <div class="sheet-night-content">
+          <div class="resource-bar" style="background:#e8eaf6;border-color:#9fa8da;">
+            <div class="res-field"><label style="color:#283593;">Resource</label><div class="line"></div></div>
+            <div class="res-field"><label style="color:#283593;">Lactation</label><div class="line"></div></div>
+            <div class="res-field"><label style="color:#283593;">Nursery</label><div class="line"></div></div>
+            <div class="res-field"><label style="color:#283593;">Charge</label><div class="line"></div></div>
+          </div>
+          <!-- Patient 1 Night -->
+          <div class="patient-card night">
+            <div class="patient-header">
+              <div class="ph-field"><label>Rm #</label><div class="line"></div></div>
+              <div class="ph-field"><label>Name</label><div class="line"></div></div>
+              <div class="ph-field"><label>OB</label><div class="line"></div></div>
+              <div class="ph-field"><label>Ped</label><div class="line"></div></div>
+            </div>
+            <div class="card-body">
+              <div class="bs-row c4"><div class="f"><label>Delivery Date/Time</label><div class="ln"></div></div><div class="f"><label>G__ P__ C/S or VAG</label><div class="ln"></div></div><div class="f"><label>MRSA: +/-</label><div class="ln"></div></div><div class="f"><label>Mom Blood Type / Rhogam ☐</label><div class="ln"></div></div></div>
+              <div class="bs-row c5" style="margin-top:3px;"><div class="f"><label>Rubella: Imm/Non-Imm</label><div class="ln"></div></div><div class="f"><label>Hep B:+/-</label><div class="ln"></div></div><div class="f"><label>RPR:R/NR</label><div class="ln"></div></div><div class="f"><label>GBS:+/-</label><div class="ln"></div></div><div class="f"><label>Abx:Y/N</label><div class="ln"></div></div></div>
+              <div class="bs-row c3" style="margin-top:3px;"><div class="f"><label>Allergies / Anesthesia</label><div class="ln"></div></div><div class="f"><label>ROM / Fluid</label><div class="ln"></div></div><div class="f"><label>QBL / IV</label><div class="ln"></div></div></div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div class="f"><label>MOB History / Tx</label><div class="ln-tall"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;"><div class="f"><label>WBC</label><div class="ln"></div></div><div class="f"><label>Hgb</label><div class="ln"></div></div><div class="f"><label>Hct</label><div class="ln"></div></div><div class="f"><label>Plt</label><div class="ln"></div></div></div>
+              </div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div><div class="f"><label>Pain Meds</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">TDAP</span><span class="chk">FLU</span><span class="chk">MMR</span><span class="chk">PNA</span></div></div>
+                <div><div class="f"><label>Foley / Straight Cath</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">Void #1</span><span class="chk">Void #2</span></div></div>
+              </div>
+              <div class="bs-section night">Mom Assessment &amp; Tasks</div>
+              <div class="bs-row c2">
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Assessment</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span></div></div>
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Chart &amp; Orders</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Epic Check</span><span class="chk">Hard Copies</span><span class="chk">PPD</span><span class="chk">DC Orders</span><span class="chk">DC Teaching</span><span class="chk">DC Staples</span><span class="chk">MRSA Swab</span></div></div>
+              </div>
+              <div class="bs-section night">Baby</div>
+              <div class="baby-box night">
+                <div class="bs-row c4" style="margin-bottom:4px;"><div class="f"><label>M/F</label><div class="ln"></div></div><div class="f"><label>GA</label><div class="ln"></div></div><div class="f"><label>Wgt Loss %</label><div class="ln"></div></div><div class="f"><label>Baby Blood Type / Coombs</label><div class="ln"></div></div></div>
+                <div class="bs-row c3" style="margin-bottom:5px;"><div class="f"><label>Apgars __/__/__</label><div class="ln"></div></div><div class="f"><label>LPI/SGA/AGA/LGA</label><div class="ln"></div></div><div class="f"><label>EOS</label><div class="ln"></div></div></div>
+                <div class="bs-row c2">
+                  <div><div class="vs-box" style="border-color:#9fa8da;"><label style="color:#283593;">VS × 2</label><div class="vs-r"><span>T:</span><span class="vs-v"></span><span>T:</span><span class="vs-v"></span></div><div class="vs-r"><span>HR:</span><span class="vs-v"></span><span>HR:</span><span class="vs-v"></span></div><div class="vs-r"><span>RR:</span><span class="vs-v"></span><span>RR:</span><span class="vs-v"></span></div></div><div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">Eyes</span><span class="chk">Vit K</span><span class="chk">Hep B</span><span class="chk">Circ:Y/N</span></div></div>
+                  <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Feeding &amp; Output</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">Feed/Diaper Log</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span><span class="chk">Latch</span><span class="chk">Void</span><span class="chk">Stool</span><span class="chk">Breast</span><span class="chk">Pumping</span></div><div class="f" style="margin-top:3px;"><label>Formula</label><div class="ln"></div></div><div class="f" style="margin-top:2px;"><label>Accuchek Time</label><div class="ln"></div></div></div>
+                </div>
+                <div class="bs-row c2" style="margin-top:4px;"><div class="f"><label>TCB</label><div class="ln"></div></div><div class="f"><label>TSB</label><div class="ln"></div></div></div>
+                <div class="chk-grid" style="grid-template-columns:repeat(5,1fr);margin-top:4px;"><span class="chk">Bath</span><span class="chk">Prints</span><span class="chk">PKU</span><span class="chk">Heart Screen P/F</span><span class="chk">Hearing P/F</span><span class="chk">Car Seat</span><span class="chk">CS Papers</span><span class="chk">Birth Cert</span><span class="chk">Cord Clamp</span><span class="chk">Bands</span></div>
+                <div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">DC Orders</span><span class="chk">DC Teaching</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="time-section night" style="border-color:#9fa8da;">
+            <div class="time-label">🌙 Night Shift Timeline — Patient 1</div>
+            <div class="time-cols">
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">1900–2300</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">1900</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2100</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2300</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">0000–0300</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0100</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0300</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">VS 0400 + Notes</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0400</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0500</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0600</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0700</div><div class="ts-note"></div></div><div class="time-slot" style="min-height:32px;"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">Notes</div><div class="ts-note"></div></div></div>
+            </div>
+          </div>
+          <div class="pt-divider" style="color:#283593;">— — — Patient 2 — — —</div>
+          <!-- Patient 2 Night -->
+          <div class="patient-card night">
+            <div class="patient-header">
+              <div class="ph-field"><label>Rm #</label><div class="line"></div></div>
+              <div class="ph-field"><label>Name</label><div class="line"></div></div>
+              <div class="ph-field"><label>OB</label><div class="line"></div></div>
+              <div class="ph-field"><label>Ped</label><div class="line"></div></div>
+            </div>
+            <div class="card-body">
+              <div class="bs-row c4"><div class="f"><label>Delivery Date/Time</label><div class="ln"></div></div><div class="f"><label>G__ P__ C/S or VAG</label><div class="ln"></div></div><div class="f"><label>MRSA: +/-</label><div class="ln"></div></div><div class="f"><label>Mom Blood Type / Rhogam ☐</label><div class="ln"></div></div></div>
+              <div class="bs-row c5" style="margin-top:3px;"><div class="f"><label>Rubella: Imm/Non-Imm</label><div class="ln"></div></div><div class="f"><label>Hep B:+/-</label><div class="ln"></div></div><div class="f"><label>RPR:R/NR</label><div class="ln"></div></div><div class="f"><label>GBS:+/-</label><div class="ln"></div></div><div class="f"><label>Abx:Y/N</label><div class="ln"></div></div></div>
+              <div class="bs-row c3" style="margin-top:3px;"><div class="f"><label>Allergies / Anesthesia</label><div class="ln"></div></div><div class="f"><label>ROM / Fluid</label><div class="ln"></div></div><div class="f"><label>QBL / IV</label><div class="ln"></div></div></div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div class="f"><label>MOB History / Tx</label><div class="ln-tall"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;"><div class="f"><label>WBC</label><div class="ln"></div></div><div class="f"><label>Hgb</label><div class="ln"></div></div><div class="f"><label>Hct</label><div class="ln"></div></div><div class="f"><label>Plt</label><div class="ln"></div></div></div>
+              </div>
+              <div class="bs-row c2" style="margin-top:3px;">
+                <div><div class="f"><label>Pain Meds</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">TDAP</span><span class="chk">FLU</span><span class="chk">MMR</span><span class="chk">PNA</span></div></div>
+                <div><div class="f"><label>Foley / Straight Cath</label><div class="ln-tall"></div></div><div class="vax-row"><span class="chk">Void #1</span><span class="chk">Void #2</span></div></div>
+              </div>
+              <div class="bs-section night">Mom Assessment &amp; Tasks</div>
+              <div class="bs-row c2">
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Assessment</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span></div></div>
+                <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Chart &amp; Orders</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Epic Check</span><span class="chk">Hard Copies</span><span class="chk">PPD</span><span class="chk">DC Orders</span><span class="chk">DC Teaching</span><span class="chk">DC Staples</span><span class="chk">MRSA Swab</span></div></div>
+              </div>
+              <div class="bs-section night">Baby</div>
+              <div class="baby-box night">
+                <div class="bs-row c4" style="margin-bottom:4px;"><div class="f"><label>M/F</label><div class="ln"></div></div><div class="f"><label>GA</label><div class="ln"></div></div><div class="f"><label>Wgt Loss %</label><div class="ln"></div></div><div class="f"><label>Baby Blood Type / Coombs</label><div class="ln"></div></div></div>
+                <div class="bs-row c3" style="margin-bottom:5px;"><div class="f"><label>Apgars __/__/__</label><div class="ln"></div></div><div class="f"><label>LPI/SGA/AGA/LGA</label><div class="ln"></div></div><div class="f"><label>EOS</label><div class="ln"></div></div></div>
+                <div class="bs-row c2">
+                  <div><div class="vs-box" style="border-color:#9fa8da;"><label style="color:#283593;">VS × 2</label><div class="vs-r"><span>T:</span><span class="vs-v"></span><span>T:</span><span class="vs-v"></span></div><div class="vs-r"><span>HR:</span><span class="vs-v"></span><span>HR:</span><span class="vs-v"></span></div><div class="vs-r"><span>RR:</span><span class="vs-v"></span><span>RR:</span><span class="vs-v"></span></div></div><div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">Eyes</span><span class="chk">Vit K</span><span class="chk">Hep B</span><span class="chk">Circ:Y/N</span></div></div>
+                  <div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px;">Feeding &amp; Output</div><div class="chk-grid" style="grid-template-columns:1fr 1fr;"><span class="chk">Chart Assess</span><span class="chk">Feed/Diaper Log</span><span class="chk">OS</span><span class="chk">Admit</span><span class="chk">DC</span><span class="chk">Latch</span><span class="chk">Void</span><span class="chk">Stool</span><span class="chk">Breast</span><span class="chk">Pumping</span></div><div class="f" style="margin-top:3px;"><label>Formula</label><div class="ln"></div></div><div class="f" style="margin-top:2px;"><label>Accuchek Time</label><div class="ln"></div></div></div>
+                </div>
+                <div class="bs-row c2" style="margin-top:4px;"><div class="f"><label>TCB</label><div class="ln"></div></div><div class="f"><label>TSB</label><div class="ln"></div></div></div>
+                <div class="chk-grid" style="grid-template-columns:repeat(5,1fr);margin-top:4px;"><span class="chk">Bath</span><span class="chk">Prints</span><span class="chk">PKU</span><span class="chk">Heart Screen P/F</span><span class="chk">Hearing P/F</span><span class="chk">Car Seat</span><span class="chk">CS Papers</span><span class="chk">Birth Cert</span><span class="chk">Cord Clamp</span><span class="chk">Bands</span></div>
+                <div class="chk-grid" style="grid-template-columns:1fr 1fr;margin-top:4px;"><span class="chk">DC Orders</span><span class="chk">DC Teaching</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="time-section night" style="border-color:#9fa8da;">
+            <div class="time-label">🌙 Night Shift Timeline — Patient 2</div>
+            <div class="time-cols">
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">1900–2300</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">1900</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2100</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">2300</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">0000–0300</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0000</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0100</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0200</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0300</div><div class="ts-note"></div></div></div>
+              <div class="time-col-box"><div class="time-col-head" style="background:#283593;">VS 0400 + Notes</div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0400</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0500</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0600</div><div class="ts-note"></div></div><div class="time-slot"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">0700</div><div class="ts-note"></div></div><div class="time-slot" style="min-height:32px;"><div class="ts-lbl" style="color:#283593;background:#f5f5ff;border-color:#e8eaf6;">Notes</div><div class="ts-note"></div></div></div>
+            </div>
+          </div>
+        </div><!-- end sheet-night-content -->
+      </div><!-- end shift-radio-wrap -->
+    </section>
+
+  </main>
+
+  <nav class="tab-bar" role="tablist">
+    <button class="tab-btn active" role="tab" id="tab-maternal" aria-selected="true" onclick="switchTab('maternal')" tabindex="0">
+      <span class="tab-icon-wrap"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><ellipse cx="13" cy="16" rx="7" ry="6" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M9 18 Q13 22 17 18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span>
+      <span class="tab-label">Maternal</span>
+    </button>
+    <button class="tab-btn mint-tab" role="tab" id="tab-infant" aria-selected="false" onclick="switchTab('infant')" tabindex="-1">
+      <span class="tab-icon-wrap"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><ellipse cx="13" cy="13" rx="7" ry="8" stroke="currentColor" stroke-width="2"/><circle cx="10.5" cy="13" r="1.5" fill="currentColor"/><circle cx="15.5" cy="13" r="1.5" fill="currentColor"/><path d="M11 16.5 Q13 18 15 16.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg></span>
+      <span class="tab-label">Infant</span>
+    </button>
+    <button class="tab-btn lav-tab" role="tab" id="tab-directory" aria-selected="false" onclick="switchTab('directory')" tabindex="-1">
+      <span class="tab-icon-wrap"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><rect x="4" y="3" width="18" height="20" rx="3" stroke="currentColor" stroke-width="2"/><line x1="8" y1="9" x2="18" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="13" x2="18" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="17" x2="14" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      <span class="tab-label">Directory</span>
+    </button>
+    <button class="tab-btn teal-tab" role="tab" id="tab-sheets" aria-selected="false" onclick="switchTab('sheets')" tabindex="-1">
+      <span class="tab-icon-wrap"><svg width="24" height="24" viewBox="0 0 26 26" fill="none"><rect x="3" y="2" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/><line x1="6" y1="7" x2="14" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="10" x2="14" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="13" x2="11" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="13" y="14" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="18" y1="17" x2="18" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="19" x2="20" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      <span class="tab-label">Sheets</span>
+    </button>
+  </nav>
+
+</div>
+<script>
+function switchTab(name) {
+  ['maternal','infant','directory','sheets'].forEach(t => {
+    const btn   = document.getElementById('tab-'+t);
+    const panel = document.getElementById('panel-'+t);
+    const active = (t === name);
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-selected', String(active));
+    btn.setAttribute('tabindex', active ? '0' : '-1');
+    panel.classList.toggle('active', active);
+  });
+  document.getElementById('main-content').scrollTop = 0;
+}
+function toggleAcc(id) {
+  const acc = document.getElementById(id);
+  const btn = acc.querySelector('.accordion-header');
+  const open = acc.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(open));
+}
+document.querySelectorAll('.tab-btn').forEach((btn, i, all) => {
+  btn.addEventListener('keydown', e => {
+    let idx = i;
+    if (e.key==='ArrowRight') idx=(i+1)%all.length;
+    else if (e.key==='ArrowLeft') idx=(i-1+all.length)%all.length;
+    else if (e.key==='Home') idx=0;
+    else if (e.key==='End') idx=all.length-1;
+    else return;
+    e.preventDefault();
+    all[idx].click();
+    all[idx].focus();
+  });
+});
+</script>
+</body>
+</html>
