@@ -205,6 +205,24 @@ details[open] .chev{transform:rotate(180deg);}
 .tsn{flex:1;padding:2px 3px;}
 .ptd{text-align:center;font-size:9.5px;font-weight:800;color:var(--teal-dark);margin:5px 0 7px;letter-spacing:1px;}
 
+/* ── NEONATAL HYPOGLYCEMIA STYLES ── */
+.hgb-banner{background:linear-gradient(135deg,#388e3c,#2e7d32);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.hgb-banner-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:.3px;}
+.hgb-banner-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,.88);margin-top:1px;}
+.hgb-sx-grid{display:flex;flex-direction:column;gap:5px;margin-top:6px;}
+.hgb-sx{display:flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:7px 9px;}
+.hgb-sx span:first-child{font-size:16px;flex-shrink:0;margin-top:1px;}
+.hgb-sx-title{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:#e65100;}
+.hgb-sx-sub{font-size:10.5px;font-weight:600;color:#b45309;margin-top:1px;}
+.hgb-disclaimer{display:flex;align-items:flex-start;gap:8px;background:#e8eaf6;border:2px solid #9fa8da;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:12px;font-weight:600;color:#283593;line-height:1.5;}
+.hgb-disclaimer span:first-child{font-size:18px;flex-shrink:0;}
+.hgb-d10{background:#e3f2fd;border:1.5px solid #90caf9;border-radius:10px;overflow:hidden;margin-top:6px;}
+.hgb-d10-row{display:flex;justify-content:space-between;align-items:center;padding:8px 11px;border-bottom:1px solid #90caf9;gap:8px;}
+.hgb-d10-row:last-child{border-bottom:none;}
+.hgb-d10-label{font-size:11px;font-weight:800;color:#0d47a1;}
+.hgb-d10-val{font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:800;color:var(--tx);text-align:right;}
+/* ── END HYPOGLYCEMIA STYLES ── */
+
 /* ── MATERNAL HTN / HELLP STYLES ── */
 .htn-spectrum{background:var(--white);border:1.5px solid #ef9a9a;border-radius:12px;padding:10px 12px;margin-bottom:4px;}
 .htn-spec-title{font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:#880e4f;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;}
@@ -965,6 +983,157 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </details>
 <!-- ═══ END BILIRUBIN PROTOCOL ═══ -->
+
+<!-- ═══ NEONATAL HYPOGLYCEMIA ═══ -->
+<details class="m">
+<summary><span class="ai" style="background:#e8f5e9;" aria-hidden="true">🍬</span>Neonatal Hypoglycemia<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<div class="ab">
+
+<!-- Banner -->
+<div class="hgb-banner" role="note">
+  <span aria-hidden="true" style="font-size:24px;flex-shrink:0;">🍬</span>
+  <div>
+    <div class="hgb-banner-title">Neonatal Hypoglycemia</div>
+    <div class="hgb-banner-sub">Screen early · Feed promptly · Escalate when needed</div>
+  </div>
+</div>
+
+<!-- Risk Factors -->
+<div class="ib">
+<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>At-Risk Infants — Screen These Babies</h3>
+<div class="tags">
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">IDM (Infant of Diabetic Mother)</span>
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">LGA (&gt;4000g)</span>
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">SGA / IUGR</span>
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">Late preterm (34–36⁶⁄₇ wks)</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Cold stress / hypothermia</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Poor feeding / weak suck</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Maternal beta blockers / insulin</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Perinatal asphyxia / low Apgar</span>
+  <span class="tag" style="background:#ffebee;color:#c62828;">Polycythemia</span>
+  <span class="tag" style="background:#ffebee;color:#c62828;">Sepsis / infection</span>
+</div>
+</div>
+
+<!-- Glucose Thresholds -->
+<div class="ib">
+<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>Blood Glucose Goals by Age</h3>
+<table class="tbl"><thead><tr><th scope="col">Age</th><th scope="col">Goal BG</th><th scope="col">Action if Below</th></tr></thead><tbody>
+<tr><td>0–4 hours</td><td style="color:#2e7d32;font-weight:800;">≥40 mg/dL</td><td>Feed, recheck in 30–60 min</td></tr>
+<tr><td>4–24 hours</td><td style="color:#2e7d32;font-weight:800;">≥45 mg/dL</td><td>Feed, recheck; notify if not improving</td></tr>
+<tr><td>&gt;24 hours</td><td style="color:#2e7d32;font-weight:800;">≥50 mg/dL</td><td>Notify provider; consider IV</td></tr>
+</tbody></table>
+<div class="tip"><strong>Screening timing:</strong> Check BG before first feed, then q30 min × 2, then q1–3h per protocol until two consecutive values in goal range.</div>
+</div>
+
+<!-- Symptoms -->
+<div class="ib">
+<h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>Signs &amp; Symptoms to Watch</h3>
+<div class="hgb-sx-grid">
+  <div class="hgb-sx"><span aria-hidden="true">😴</span><div><div class="hgb-sx-title">Lethargy / poor tone</div><div class="hgb-sx-sub">difficult to rouse, floppy</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">🤲</span><div><div class="hgb-sx-title">Jitteriness / tremors</div><div class="hgb-sx-sub">fine tremor of extremities</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">🍼</span><div><div class="hgb-sx-title">Poor feeding / weak suck</div><div class="hgb-sx-sub">not latching, feeding poorly</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">😮‍💨</span><div><div class="hgb-sx-title">Apnea / irregular breathing</div><div class="hgb-sx-sub">pauses &gt;20 sec, color change</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">😰</span><div><div class="hgb-sx-title">Diaphoresis</div><div class="hgb-sx-sub">sweating, pallor, mottling</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">🌡</span><div><div class="hgb-sx-title">Hypothermia</div><div class="hgb-sx-sub">temp instability drives BG down</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">😫</span><div><div class="hgb-sx-title">High-pitched cry</div><div class="hgb-sx-sub">irritability, inconsolable</div></div></div>
+  <div class="hgb-sx"><span aria-hidden="true">⚡</span><div><div class="hgb-sx-title">Seizure activity</div><div class="hgb-sx-sub">tonic/clonic movements — URGENT</div></div></div>
+</div>
+<div class="alrt" role="note"><strong>⚠ Symptomatic hypoglycemia</strong> requires IV treatment regardless of BG value — do not wait to feed. Notify provider immediately.</div>
+</div>
+
+<!-- Staged Response -->
+<div class="ib">
+<h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>Staged Nursing Response</h3>
+<div class="hgb-disclaimer" role="note">
+  <span aria-hidden="true">🏥</span>
+  <span><strong>Hospital-dependent:</strong> Thresholds and treatment steps vary by institution. Always follow your hospital's specific hypoglycemia protocol and provider orders. The ranges below are general clinical guidance only.</span>
+</div>
+
+<div class="pph-stage s1" role="region" aria-label="Mild hypoglycemia 40 to 50" style="border-color:#81c784;background:#f1f8e9;">
+  <div class="pph-sh" style="background:#66bb6a;"><span class="pph-stg-lbl">Mild</span><span class="pph-stg-desc">BG 40–50 mg/dL · asymptomatic</span></div>
+  <div class="pph-body"><ol class="pph-steps">
+    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">1</span>Feed NOW — breast or formula, document intake</li>
+    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">2</span>Recheck BG 30 min after feeding</li>
+    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">3</span>Keep baby warm — cold stress worsens hypoglycemia</li>
+    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">4</span>Notify provider if not improving after feed</li>
+    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">5</span>Document value, time, feeding, and repeat BG result</li>
+  </ol>
+  <div class="pph-meds" style="margin-top:6px;">
+    <span class="pph-med" style="background:#e8f5e9;color:#1b5e20;border-color:#81c784;">Breastfeed or formula feed</span>
+    <span class="pph-med" style="background:#e8f5e9;color:#1b5e20;border-color:#81c784;">Skin-to-skin for warmth</span>
+  </div>
+  </div>
+</div>
+
+<div class="pph-stage s2" role="region" aria-label="Moderate hypoglycemia 25 to 40" style="border-color:#f57c00;background:#fff3e0;">
+  <div class="pph-sh" style="background:#f57c00;"><span class="pph-stg-lbl">Moderate</span><span class="pph-stg-desc">BG 25–40 mg/dL</span></div>
+  <div class="pph-body"><ol class="pph-steps">
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">1</span>Notify provider immediately</li>
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">2</span>Feed NOW if baby has adequate suck and is alert</li>
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">3</span>Recheck BG 20–30 min after feeding</li>
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">4</span>Prepare for possible IV access per provider order</li>
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">5</span>Consider Dextrose gel (if ordered and per protocol)</li>
+    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">6</span>Keep warm; monitor for worsening symptoms</li>
+  </ol>
+  <div class="pph-meds" style="margin-top:6px;">
+    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">Feed if able</span>
+    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">Dextrose gel per order</span>
+    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">IV access if ordered</span>
+  </div>
+  </div>
+</div>
+
+<div class="pph-stage s3" role="region" aria-label="Severe hypoglycemia below 25 or symptomatic">
+  <div class="pph-sh"><span class="pph-stg-lbl">Severe / Symptomatic</span><span class="pph-stg-desc">BG &lt;25 OR any symptoms</span></div>
+  <div class="pph-body"><ol class="pph-steps">
+    <li><span class="pph-num" aria-hidden="true">1</span>Call provider STAT — do not delay for feeding</li>
+    <li><span class="pph-num" aria-hidden="true">2</span>Establish IV access immediately</li>
+    <li><span class="pph-num" aria-hidden="true">3</span>D10W mini-bolus: 2 mL/kg IV over 5 min (per order)</li>
+    <li><span class="pph-num" aria-hidden="true">4</span>Start D10W continuous infusion per provider order</li>
+    <li><span class="pph-num" aria-hidden="true">5</span>Recheck BG 15–30 min after bolus</li>
+    <li><span class="pph-num" aria-hidden="true">6</span>NICU consult if not responding or seizure activity</li>
+    <li><span class="pph-num" aria-hidden="true">7</span>Continuous monitoring — temp, HR, RR, O₂ sat</li>
+  </ol>
+  <div class="pph-meds" style="margin-top:6px;">
+    <span class="pph-med">D10W 2 mL/kg IV bolus</span>
+    <span class="pph-med">D10W continuous infusion</span>
+    <span class="pph-med">NICU consult</span>
+  </div>
+  <div class="pph-note"><strong>⚠ Never give D50W</strong> to a neonate — causes rebound hypoglycemia and vascular damage. D10W only.</div>
+  </div>
+</div>
+</div>
+
+<!-- D10W Reference -->
+<div class="ib">
+<h3><span class="dot" style="background:#0d47a1" aria-hidden="true"></span>D10W Quick Reference</h3>
+<div class="hgb-d10">
+  <div class="hgb-d10-row"><div class="hgb-d10-label">Mini-bolus dose</div><div class="hgb-d10-val">2 mL/kg IV over 5 min</div></div>
+  <div class="hgb-d10-row"><div class="hgb-d10-label">Maintenance rate</div><div class="hgb-d10-val">80 mL/kg/day (GIR ~5.5 mg/kg/min)</div></div>
+  <div class="hgb-d10-row"><div class="hgb-d10-label">Recheck after bolus</div><div class="hgb-d10-val">15–30 min</div></div>
+  <div class="hgb-d10-row"><div class="hgb-d10-label">Goal after treatment</div><div class="hgb-d10-val">≥50 mg/dL × 2 consecutive checks</div></div>
+  <div class="hgb-d10-row"><div class="hgb-d10-label">Wean IV when</div><div class="hgb-d10-val">BG stable on feeds; wean gradually</div></div>
+</div>
+<div class="alrt" role="note"><strong>⚠ Never use D50W</strong> in neonates. D10W is standard. Confirm concentration and dose with provider and pharmacy before administering.</div>
+</div>
+
+<!-- Parent Teaching -->
+<div class="ib">
+<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>Parent Teaching Points</h3>
+<ul class="cl" style="color:#2e7d32;">
+  <li>Feed early and often — first feed within 30–60 min of birth for at-risk babies</li>
+  <li>Wake baby to feed every 2–3 hours — do not let at-risk babies sleep through feeds</li>
+  <li>Skin-to-skin helps regulate baby's temperature and blood sugar</li>
+  <li>Signs to report: baby won't wake, shaking/jitteriness, blue color, poor feeding</li>
+  <li>Heel sticks are routine checks — not a sign something is wrong</li>
+  <li>Blood sugar usually stabilizes within 24–48 hours as baby feeds well</li>
+</ul>
+</div>
+
+</div>
+</details>
+<!-- ═══ END NEONATAL HYPOGLYCEMIA ═══ -->
 
 </div>
 
