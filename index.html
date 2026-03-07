@@ -205,6 +205,31 @@ details[open] .chev{transform:rotate(180deg);}
 .tsn{flex:1;padding:2px 3px;}
 .ptd{text-align:center;font-size:9.5px;font-weight:800;color:var(--teal-dark);margin:5px 0 7px;letter-spacing:1px;}
 
+/* ── MATERNAL HTN / HELLP STYLES ── */
+.htn-spectrum{background:var(--white);border:1.5px solid #ef9a9a;border-radius:12px;padding:10px 12px;margin-bottom:4px;}
+.htn-spec-title{font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:#880e4f;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;}
+.htn-spec-row{display:flex;flex-direction:column;gap:3px;}
+.htn-spec-box{border:2px solid;border-radius:8px;padding:8px 11px;display:flex;align-items:center;gap:10px;}
+.htn-spec-label{font-family:'Nunito',sans-serif;font-size:12px;font-weight:900;line-height:1.2;flex-shrink:0;min-width:115px;}
+.htn-spec-sub{font-size:10.5px;font-weight:600;line-height:1.4;opacity:.9;}
+.htn-spec-arrow{text-align:center;font-size:14px;color:#880e4f;line-height:1;padding:1px 0;}
+.htn-features{display:flex;flex-direction:column;gap:5px;margin-top:6px;}
+.htn-feat{display:flex;align-items:flex-start;gap:8px;background:#fff5f5;border:1px solid #ffcdd2;border-radius:8px;padding:7px 9px;}
+.htn-feat-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.htn-feat-title{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:#7f1d1d;}
+.htn-feat-sub{font-size:11px;font-weight:600;color:#991b1b;margin-top:1px;}
+.hellp-grid{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.hellp-cell{border:2px solid;border-radius:10px;padding:9px 11px;}
+.hellp-letter{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:#880e4f;line-height:1;}
+.hellp-word{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--tx);margin-top:2px;}
+.hellp-detail{font-size:11px;font-weight:600;color:var(--txm);margin-top:3px;line-height:1.4;}
+.htn-mag{background:#ede7f6;border:1.5px solid var(--lav-mid);border-radius:10px;overflow:hidden;margin-top:6px;}
+.htn-mag-row{display:flex;justify-content:space-between;align-items:center;padding:8px 11px;border-bottom:1px solid var(--lav-mid);}
+.htn-mag-row:last-child{border-bottom:none;}
+.htn-mag-label{font-size:11px;font-weight:800;color:var(--lav-dark);}
+.htn-mag-val{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--tx);}
+/* ── END HTN STYLES ── */
+
 /* ── BILIRUBIN PROTOCOL STYLES ── */
 .bili-banner{background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .bili-banner-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:.3px;}
@@ -535,6 +560,146 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </details>
 <!-- ═══ END PPH FLOWSHEET ═══ -->
+
+<!-- ═══ MATERNAL HTN / HELLP ═══ -->
+<details>
+<summary><span class="ai" style="background:#fce4ec;" aria-hidden="true">🩺</span><span style="color:#880e4f;">Maternal HTN &amp; HELLP</span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<div class="ab">
+<div class="htn-spectrum" role="note" aria-label="Hypertensive disorder spectrum">
+  <div class="htn-spec-title">Hypertensive Disorder Spectrum</div>
+  <div class="htn-spec-row">
+    <div class="htn-spec-box" style="background:#fff9c4;border-color:#f9a825;color:#92400e;"><div class="htn-spec-label">Gestational HTN</div><div class="htn-spec-sub">BP ≥140/90<br>No proteinuria<br>No severe features</div></div>
+    <div class="htn-spec-arrow" aria-hidden="true">↓</div>
+    <div class="htn-spec-box" style="background:#ffe0b2;border-color:#ef6c00;color:#7c2d12;"><div class="htn-spec-label">Preeclampsia</div><div class="htn-spec-sub">BP ≥140/90<br>+ proteinuria OR<br>severe features</div></div>
+    <div class="htn-spec-arrow" aria-hidden="true">↓</div>
+    <div class="htn-spec-box" style="background:#ffcdd2;border-color:#d32f2f;color:#7f1d1d;"><div class="htn-spec-label">Severe Features</div><div class="htn-spec-sub">BP ≥160/110<br>or end-organ<br>involvement</div></div>
+    <div class="htn-spec-arrow" aria-hidden="true">↓</div>
+    <div class="htn-spec-box" style="background:#880e4f;border-color:#4a0072;color:#fff;"><div class="htn-spec-label">Eclampsia/HELLP</div><div class="htn-spec-sub">Seizures or<br>H+EL+LP labs<br>= EMERGENCY</div></div>
+  </div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#880e4f" aria-hidden="true"></span>BP Diagnostic Thresholds</h3>
+<table class="tbl"><thead><tr><th scope="col">Category</th><th scope="col">Systolic</th><th scope="col">Diastolic</th><th scope="col">Action</th></tr></thead><tbody>
+<tr><td>Normal</td><td>&lt;120</td><td>&lt;80</td><td>Routine monitoring</td></tr>
+<tr><td style="color:#e65100;font-weight:800;">Mild HTN</td><td style="color:#e65100;">≥140</td><td style="color:#e65100;">≥90</td><td>Notify provider; repeat in 15 min</td></tr>
+<tr><td style="color:#c62828;font-weight:800;">Severe HTN</td><td style="color:#c62828;">≥160</td><td style="color:#c62828;">≥110</td><td style="color:#c62828;font-weight:700;">Treat within 30–60 min</td></tr>
+</tbody></table>
+<div class="alrt" role="note"><strong>⚠ Two severe readings</strong> 15 min apart = severe hypertension requiring urgent antihypertensive treatment. Document both readings with exact times.</div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#c62828" aria-hidden="true"></span>Severe Features of Preeclampsia</h3>
+<div class="htn-features">
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🫀</span><div><div class="htn-feat-title">BP ≥160/110</div><div class="htn-feat-sub">on two occasions ≥4h apart</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🧠</span><div><div class="htn-feat-title">Severe headache</div><div class="htn-feat-sub">new onset, unresponsive to acetaminophen</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">👁</span><div><div class="htn-feat-title">Visual disturbances</div><div class="htn-feat-sub">blurred vision, photophobia, scotoma</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🫁</span><div><div class="htn-feat-title">Pulmonary edema</div><div class="htn-feat-sub">dyspnea, O₂ sat dropping</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🫃</span><div><div class="htn-feat-title">RUQ / epigastric pain</div><div class="htn-feat-sub">liver capsule distension — HELLP warning</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🩸</span><div><div class="htn-feat-title">Platelets &lt;100,000</div><div class="htn-feat-sub">thrombocytopenia → bleeding risk</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🧪</span><div><div class="htn-feat-title">Creatinine &gt;1.1 mg/dL</div><div class="htn-feat-sub">or doubling from baseline</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🔬</span><div><div class="htn-feat-title">Elevated liver enzymes</div><div class="htn-feat-sub">AST/ALT &gt;2× upper limit of normal</div></div></div>
+</div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#880e4f" aria-hidden="true"></span>HELLP Syndrome</h3>
+<div class="hellp-grid">
+  <div class="hellp-cell" style="background:#ffebee;border-color:#ef9a9a;"><div class="hellp-letter">H</div><div class="hellp-word">Hemolysis</div><div class="hellp-detail">Abnormal smear · LDH &gt;600 · Bili &gt;1.2 mg/dL · Low Hgb</div></div>
+  <div class="hellp-cell" style="background:#fff3e0;border-color:#ffb74d;"><div class="hellp-letter">EL</div><div class="hellp-word">Elevated Liver Enzymes</div><div class="hellp-detail">AST &gt;70 U/L · ALT elevated · RUQ pain is classic</div></div>
+  <div class="hellp-cell" style="background:#fce4ec;border-color:#f48fb1;"><div class="hellp-letter">LP</div><div class="hellp-word">Low Platelets</div><div class="hellp-detail">Plt &lt;100,000 · Severe: &lt;50,000 · DIC risk</div></div>
+</div>
+<div class="alrt" role="note"><strong>⚠ HELLP can occur WITHOUT hypertension or proteinuria.</strong> RUQ pain + nausea + malaise postpartum = get labs NOW. Can present up to 7 days postpartum.</div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#880e4f" aria-hidden="true"></span>Key Labs to Monitor</h3>
+<table class="tbl"><thead><tr><th scope="col">Lab</th><th scope="col">Normal</th><th scope="col">Concerning</th><th scope="col">Critical</th></tr></thead><tbody>
+<tr><td>Platelets</td><td>&gt;150,000</td><td>&lt;100,000</td><td style="color:#c62828;font-weight:800;">&lt;50,000</td></tr>
+<tr><td>AST</td><td>&lt;40 U/L</td><td>&gt;70 U/L</td><td style="color:#c62828;font-weight:800;">&gt;2× ULN</td></tr>
+<tr><td>ALT</td><td>&lt;56 U/L</td><td>Elevated</td><td style="color:#c62828;font-weight:800;">&gt;2× ULN</td></tr>
+<tr><td>LDH</td><td>&lt;600 U/L</td><td>&gt;600</td><td style="color:#c62828;font-weight:800;">&gt;1400</td></tr>
+<tr><td>Creatinine</td><td>&lt;1.1 mg/dL</td><td>&gt;1.1</td><td style="color:#c62828;font-weight:800;">Doubling</td></tr>
+<tr><td>Mag Level</td><td>1.7–2.2</td><td>Therapeutic 4–7</td><td style="color:#c62828;font-weight:800;">&gt;9 = toxicity</td></tr>
+</tbody></table>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#4527a0" aria-hidden="true"></span>Magnesium Sulfate Protocol</h3>
+<div class="htn-mag">
+  <div class="htn-mag-row"><div class="htn-mag-label">Loading Dose</div><div class="htn-mag-val">4–6 g IV over 15–20 min</div></div>
+  <div class="htn-mag-row"><div class="htn-mag-label">Maintenance</div><div class="htn-mag-val">1–2 g/hr IV continuous</div></div>
+  <div class="htn-mag-row"><div class="htn-mag-label">Therapeutic level</div><div class="htn-mag-val">4–7 mEq/L</div></div>
+  <div class="htn-mag-row"><div class="htn-mag-label">Duration</div><div class="htn-mag-val">24–48h postpartum</div></div>
+</div>
+<div class="htn-features" style="margin-top:10px;">
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🫁</span><div><div class="htn-feat-title">Respiratory Rate</div><div class="htn-feat-sub">Must be ≥12/min — hold if &lt;12</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">🦵</span><div><div class="htn-feat-title">Deep Tendon Reflexes</div><div class="htn-feat-sub">Must be present — loss = toxicity</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">💧</span><div><div class="htn-feat-title">Urine Output</div><div class="htn-feat-sub">Must be ≥25 mL/hr — hold if below</div></div></div>
+  <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">😴</span><div><div class="htn-feat-title">LOC / Sedation</div><div class="htn-feat-sub">Increasing drowsiness = early toxicity</div></div></div>
+</div>
+<div class="alrt" role="note"><strong>⚠ Antidote:</strong> Calcium gluconate 1 g IV (10 mL of 10% solution) over 3 min. Keep at bedside at ALL times during mag infusion.</div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#c62828" aria-hidden="true"></span>Acute Antihypertensive Medications</h3>
+<table class="tbl"><thead><tr><th scope="col">Drug</th><th scope="col">Dose</th><th scope="col">Route</th><th scope="col">Notes</th></tr></thead><tbody>
+<tr><td><strong>Labetalol</strong></td><td>20 mg IV; repeat 40–80 mg q10 min</td><td>IV</td><td>Avoid in asthma/heart block</td></tr>
+<tr><td><strong>Hydralazine</strong></td><td>5–10 mg IV q20 min</td><td>IV</td><td>Can cause reflex tachycardia</td></tr>
+<tr><td><strong>Nifedipine</strong></td><td>10–20 mg PO q20 min</td><td>PO</td><td>Do NOT use SL form</td></tr>
+</tbody></table>
+<div class="tip"><strong>Goal BP:</strong> 140–155 / 90–105 — do not drop BP too rapidly. Fetal/placental perfusion depends on maternal MAP.</div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#880e4f" aria-hidden="true"></span>Nursing Actions by Severity</h3>
+<div class="pph-stage s1" role="region" aria-label="Mild hypertension actions" style="border-color:#f9a825;background:#fffde7;">
+  <div class="pph-sh" style="background:#f9a825;"><span class="pph-stg-lbl">Mild HTN</span><span class="pph-stg-desc">BP ≥140/90</span></div>
+  <div class="pph-body"><ol class="pph-steps">
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">1</span>Repeat BP in 15 min, same arm, patient at rest</li>
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">2</span>Notify provider — document exact time</li>
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">3</span>Assess: headache, visual changes, RUQ pain, edema</li>
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">4</span>Ensure IV access; review orders</li>
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">5</span>Labs if ordered: CBC, CMP, LFTs, uric acid, urine protein</li>
+    <li><span class="pph-num" style="background:#f9a825;" aria-hidden="true">6</span>Increase BP monitoring frequency</li>
+  </ol></div>
+</div>
+<div class="pph-stage s3" role="region" aria-label="Severe hypertension actions">
+  <div class="pph-sh"><span class="pph-stg-lbl">Severe HTN</span><span class="pph-stg-desc">BP ≥160/110</span></div>
+  <div class="pph-body"><ol class="pph-steps">
+    <li><span class="pph-num" aria-hidden="true">1</span>Call provider IMMEDIATELY — time sensitive emergency</li>
+    <li><span class="pph-num" aria-hidden="true">2</span>Antihypertensive must be given within 30–60 min</li>
+    <li><span class="pph-num" aria-hidden="true">3</span>Large-bore IV × 2; O₂ if sat &lt;95%</li>
+    <li><span class="pph-num" aria-hidden="true">4</span>Continuous BP q5–10 min until stable</li>
+    <li><span class="pph-num" aria-hidden="true">5</span>Foley catheter — strict I&amp;Os; goal UO ≥30 mL/hr</li>
+    <li><span class="pph-num" aria-hidden="true">6</span>Prepare mag sulfate if not already running</li>
+    <li><span class="pph-num" aria-hidden="true">7</span>Seizure precautions: padded rails, suction ready, dim lights</li>
+    <li><span class="pph-num" aria-hidden="true">8</span>Keep room quiet — reduce stimulation</li>
+  </ol></div>
+</div>
+</div>
+<div class="bili-exchange" role="alert" style="background:#fce4ec;border-color:#880e4f;margin-top:12px;">
+  <div class="bili-exchange-hd" style="color:#880e4f;">🚨 Call Provider / Rapid Response NOW if:</div>
+  <ul class="bili-exchange-list">
+    <li>BP ≥160/110 on two readings 15 min apart</li>
+    <li>Sudden severe headache or visual changes (flashing lights, blurred vision)</li>
+    <li>Seizure activity — call code, give mag, protect airway</li>
+    <li>RUQ or epigastric pain with nausea — possible HELLP</li>
+    <li>Pulmonary edema: dyspnea, O₂ sat dropping, frothy sputum</li>
+    <li>Platelets dropping rapidly or &lt;50,000</li>
+    <li>Altered mental status or sudden loss of consciousness</li>
+    <li>Mag toxicity: RR &lt;12, absent DTRs, UO &lt;25 mL/hr</li>
+  </ul>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#880e4f" aria-hidden="true"></span>Eclampsia — If Seizure Occurs</h3>
+<ol class="pph-steps" style="margin-top:6px;">
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">1</span>Call for help — do NOT leave patient</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">2</span>Position left lateral — protect airway, do NOT restrain</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">3</span>O₂ 8–10 L/min via face mask</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">4</span>Give mag sulfate 4–6 g IV loading if not already on it</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">5</span>If already on mag: give additional 2 g IV slow push</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">6</span>Document: time of onset, duration, activity, post-ictal state</li>
+  <li><span class="pph-num" style="background:#880e4f;" aria-hidden="true">7</span>Prepare for emergency delivery if antepartum</li>
+</ol>
+<div class="tip"><strong>Seizure precautions for ALL preeclampsia patients:</strong> padded rails up, suction at bedside, call light within reach, quiet environment.</div>
+</div>
+</div>
+</details>
+<!-- ═══ END MATERNAL HTN / HELLP ═══ -->
 
 </div>
 
