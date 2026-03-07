@@ -205,6 +205,26 @@ details[open] .chev{transform:rotate(180deg);}
 .tsn{flex:1;padding:2px 3px;}
 .ptd{text-align:center;font-size:9.5px;font-weight:800;color:var(--teal-dark);margin:5px 0 7px;letter-spacing:1px;}
 
+/* ── BILIRUBIN PROTOCOL STYLES ── */
+.bili-banner{background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.bili-banner-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:.3px;}
+.bili-banner-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,.88);margin-top:1px;}
+.bili-zone-grid{display:flex;flex-direction:column;gap:4px;margin-top:6px;}
+.bili-zone{border:2px solid;border-radius:8px;padding:7px 10px;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:1px 8px;}
+.bili-zone-area{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:#1c1c1c;}
+.bili-zone-val{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#1c1c1c;text-align:right;grid-row:1;}
+.bili-zone-note{font-size:10.5px;font-weight:600;color:#3d3d3d;grid-column:1/3;}
+.bili-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;}
+.bili-compare-col{border:2px solid;border-radius:10px;padding:9px 10px;}
+.bili-compare-title{font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:900;margin-bottom:6px;}
+.bili-exchange{background:#ffebee;border:2px solid #d32f2f;border-radius:12px;padding:11px 13px;margin-top:12px;}
+.bili-exchange-hd{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#b71c1c;margin-bottom:7px;}
+.bili-exchange-list{list-style:none;padding:0;}
+.bili-exchange-list li{font-size:12px;font-weight:600;color:#7f1d1d;padding:4px 0;border-bottom:1px solid rgba(211,47,47,.15);line-height:1.45;display:flex;gap:7px;}
+.bili-exchange-list li:last-child{border-bottom:none;}
+.bili-exchange-list li::before{content:'⚠';flex-shrink:0;}
+/* ── END BILIRUBIN STYLES ── */
+
 /* ── PPH FLOWSHEET STYLES ── */
 .pph-banner{background:linear-gradient(135deg,#c62828,#b71c1c);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .pph-banner-text{color:#fff;}
@@ -629,6 +649,158 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div></div>
 </div>
 </details>
+
+<!-- ═══ BILIRUBIN PROTOCOL ═══ -->
+<details class="m">
+<summary><span class="ai" style="background:#fff9c4;" aria-hidden="true">🌕</span>Bilirubin Protocol<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<div class="ab">
+
+<!-- Banner -->
+<div class="bili-banner" role="note">
+  <span aria-hidden="true" style="font-size:24px;flex-shrink:0;">🌕</span>
+  <div>
+    <div class="bili-banner-title">Neonatal Hyperbilirubinemia</div>
+    <div class="bili-banner-sub">Monitor · Assess · Escalate · Educate</div>
+  </div>
+</div>
+
+<!-- Cephalocaudal Assessment -->
+<div class="ib">
+<h3><span class="dot" style="background:#f9a825" aria-hidden="true"></span>Cephalocaudal Progression</h3>
+<div class="bili-zone-grid" role="table" aria-label="Bilirubin cephalocaudal zones">
+  <div class="bili-zone" style="background:#fff9c4;border-color:#f9a825;">
+    <div class="bili-zone-area">Face / Head</div>
+    <div class="bili-zone-val">TSB ~5</div>
+    <div class="bili-zone-note">Zone 1 — assess every shift</div>
+  </div>
+  <div class="bili-zone" style="background:#ffe082;border-color:#f59e0b;">
+    <div class="bili-zone-area">Chest / Upper Abdomen</div>
+    <div class="bili-zone-val">TSB ~10</div>
+    <div class="bili-zone-note">Zone 2 — check feeding, hydration</div>
+  </div>
+  <div class="bili-zone" style="background:#ffb300;border-color:#e65100;">
+    <div class="bili-zone-area">Lower Abdomen</div>
+    <div class="bili-zone-val">TSB ~12</div>
+    <div class="bili-zone-note">Zone 3 — get TCB or serum</div>
+  </div>
+  <div class="bili-zone" style="background:#ef6c00;border-color:#bf360c;">
+    <div class="bili-zone-area">Legs / Knees</div>
+    <div class="bili-zone-val">TSB ~15</div>
+    <div class="bili-zone-note">Zone 4 — notify provider NOW</div>
+  </div>
+  <div class="bili-zone" style="background:#d32f2f;border-color:#880e4f;">
+    <div class="bili-zone-area">Palms / Soles</div>
+    <div class="bili-zone-val">TSB &gt;15</div>
+    <div class="bili-zone-note">Zone 5 — urgent escalation</div>
+  </div>
+</div>
+<div class="tip" style="margin-top:8px;"><strong>Note:</strong> Cephalocaudal zones are a clinical guide only — always confirm with TCB or serum TSB. Dark skin tones make visual assessment unreliable.</div>
+</div>
+
+<!-- Phototherapy Thresholds -->
+<div class="ib">
+<h3><span class="dot" style="background:#f9a825" aria-hidden="true"></span>Phototherapy Thresholds (mg/dL)</h3>
+<table class="tbl" aria-label="Phototherapy thresholds by gestational age">
+  <thead><tr>
+    <th scope="col">Gestational Age</th>
+    <th scope="col">Start Phototherapy</th>
+    <th scope="col">Exchange Transfusion</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>≥38 weeks (healthy)</td><td style="color:#e65100;font-weight:800;">≥12 (24h) / ≥15 (48h) / ≥18 (72h+)</td><td style="color:#c62828;font-weight:800;">≥25</td></tr>
+    <tr><td>35–37⁶⁄₇ wks or risk factors</td><td style="color:#e65100;font-weight:800;">Lower by 2–3 mg/dL</td><td style="color:#c62828;font-weight:800;">≥20–22</td></tr>
+    <tr><td>&lt;35 weeks (NICU)</td><td style="color:#e65100;font-weight:800;">Per NICU protocol</td><td style="color:#c62828;font-weight:800;">Per NICU</td></tr>
+  </tbody>
+</table>
+<div class="alrt" role="note" style="margin-top:8px;"><strong>⚠ Pathologic jaundice:</strong> Any jaundice in first 24 hours of life = IMMEDIATE serum bilirubin + notify provider. Do NOT wait for TCB.</div>
+</div>
+
+<!-- TCB vs TSB -->
+<div class="ib">
+<h3><span class="dot" style="background:#f59e0b" aria-hidden="true"></span>TCB vs TSB — When to Escalate</h3>
+<div class="bili-compare">
+  <div class="bili-compare-col" style="background:#fff9c4;border-color:#f9a825;">
+    <div class="bili-compare-title" style="color:#b45309;">📟 TCB (Transcutaneous)</div>
+    <ul class="cl" style="color:#92400e;">
+      <li>Non-invasive screening tool</li>
+      <li>Use for routine monitoring</li>
+      <li>Reliable when &lt;13 mg/dL</li>
+      <li>Less accurate after phototherapy</li>
+    </ul>
+  </div>
+  <div class="bili-compare-col" style="background:#fff3e0;border-color:#ef6c00;">
+    <div class="bili-compare-title" style="color:#c2410c;">🩸 TSB (Serum)</div>
+    <ul class="cl" style="color:#9a3412;">
+      <li>Gold standard — always confirms</li>
+      <li>Use when TCB ≥13 or near threshold</li>
+      <li>Required before starting phototherapy</li>
+      <li>Use after phototherapy stopped</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- Risk Factors -->
+<div class="ib">
+<h3><span class="dot" style="background:#ef6c00" aria-hidden="true"></span>Risk Factors for Severe Hyperbilirubinemia</h3>
+<div class="tags">
+  <span class="tag" style="background:#ffebee;color:#c62828;">ABO incompatibility</span>
+  <span class="tag" style="background:#ffebee;color:#c62828;">Rh incompatibility</span>
+  <span class="tag" style="background:#fff3e0;color:#e65100;">G6PD deficiency</span>
+  <span class="tag" style="background:#fff3e0;color:#e65100;">Cephalohematoma / bruising</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Significant weight loss &gt;10%</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Poor feeding / low intake</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">East Asian / Mediterranean descent</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Sibling with jaundice history</span>
+  <span class="tag" style="background:#fff9c4;color:#b45309;">Gestational age 35–37 wks</span>
+</div>
+</div>
+
+<!-- Phototherapy Care -->
+<div class="ib">
+<h3><span class="dot" style="background:#7c3aed" aria-hidden="true"></span>Phototherapy Care Steps</h3>
+<ol class="pph-steps" style="margin-top:6px;">
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">1</span>Apply eye shields snugly — check q2h for proper fit and skin integrity</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">2</span>Maximize skin exposure — diaper only; remove hat and clothing</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">3</span>Bili light distance per device specs (conventional ~15–20 cm; LED closer)</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">4</span>Reposition q2–4h — supine and prone alternating</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">5</span>Feed q2–3h minimum — adequate intake drives bilirubin excretion</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">6</span>Temp check q4h — bili lights can cause hypo or hyperthermia</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">7</span>Repeat TSB per order (typically q4–6h during active phototherapy)</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">8</span>Brief breaks for feeding/bonding are OK — document off-light time</li>
+  <li><span class="pph-num" style="background:#7c3aed;" aria-hidden="true">9</span>Rebound TSB 12–24h after stopping phototherapy before discharge</li>
+</ol>
+<div class="tip"><strong>Bili blanket (fiberoptic):</strong> Can be used during feeding and kangaroo care — no eye shields needed. Good for outpatient or supplement to overhead light.</div>
+</div>
+
+<!-- Exchange Transfusion -->
+<div class="bili-exchange" role="alert">
+  <div class="bili-exchange-hd"><span aria-hidden="true">🚨</span> Exchange Transfusion — Call NICU NOW if:</div>
+  <ul class="bili-exchange-list">
+    <li>TSB at or above exchange threshold for gestational age (see table above)</li>
+    <li>TSB rising &gt;0.5 mg/dL/hr despite phototherapy</li>
+    <li>Signs of acute bilirubin encephalopathy: lethargy, hypotonia, high-pitched cry, arching (opisthotonus), fever</li>
+    <li>Positive DAT (Coombs) + rapidly rising TSB</li>
+  </ul>
+</div>
+
+<!-- Parent Teaching -->
+<div class="ib">
+<h3><span class="dot" style="background:#00695c" aria-hidden="true"></span>Parent Teaching Points</h3>
+<ul class="cl" style="color:#00695c;">
+  <li>Jaundice is common — appears in ~60% of healthy newborns; most resolves on its own</li>
+  <li>Feed frequently (8–12×/day) — feeds help baby poop out bilirubin</li>
+  <li>Bili lights are safe; brief breaks for feeding and skin-to-skin are encouraged</li>
+  <li>Watch for: baby too sleepy to wake for feeds, yellow past abdomen, high-pitched cry → call provider</li>
+  <li>Avoid direct sunlight through windows — not effective and risks overheating</li>
+  <li>Follow-up: recheck bilirubin within 24–48h after discharge per provider order</li>
+</ul>
+</div>
+
+</div>
+</details>
+<!-- ═══ END BILIRUBIN PROTOCOL ═══ -->
+
 </div>
 
 <!-- DIRECTORY -->
