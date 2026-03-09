@@ -29,12 +29,12 @@
 }
 .skip-link:focus{left:50%;transform:translateX(-50%);}
 
-body{display:flex;justify-content:center;padding:20px 12px 36px;min-height:100vh;
+body{display:flex;justify-content:center;padding:0;min-height:100vh;
   background:radial-gradient(ellipse at 20% 0%,#fce4ec,transparent 55%),
              radial-gradient(ellipse at 80% 10%,#e0f7ef,transparent 50%),#f5eaf5;
   font-family:'Quicksand',sans-serif;color:var(--tx);}
-.phone{width:100%;max-width:430px;background:var(--cream);border-radius:36px;overflow:hidden;
-  display:flex;flex-direction:column;min-height:860px;
+.phone{width:100%;max-width:430px;background:var(--cream);border-radius:0;overflow:hidden;
+  display:flex;flex-direction:column;height:100vh;max-height:100vh;
   box-shadow:0 0 0 1px rgba(200,160,210,.4),0 24px 80px rgba(160,100,180,.25);}
 .app-header{background:linear-gradient(135deg,#fce4ec,#ede7f6 50%,#e0f7ef);
   border-bottom:2px solid var(--pink-mid);padding:16px 18px 12px;
@@ -321,14 +321,14 @@ details[open] .chev{transform:rotate(180deg);}
 .pph-4t-letter{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:#c62828;line-height:1;}
 .pph-4t-word{font-size:11px;font-weight:800;color:var(--tx);margin-top:1px;}
 .pph-4t-examples{font-size:10.5px;font-weight:600;color:var(--txm);margin-top:2px;line-height:1.35;}
-details.pph-detail{border-color:#ef9a9a;box-shadow:0 2px 16px rgba(198,40,40,.15);}
+details.pph-detail{border-color:var(--bd);box-shadow:0 2px 12px rgba(180,140,180,.18);}
 details.pph-detail summary:hover{background:#ffebee;}
-details.pph-detail .ab{border-top-color:#ef9a9a;}
+details.pph-detail .ab{border-top-color:var(--bd);}
 /* ── END PPH STYLES ── */
 @media print{
   body{padding:0;background:#fff;}
   .phone{box-shadow:none;border-radius:0;max-width:100%;min-height:unset;}
-  .app-header,.tab-bar,.skip-link{display:none!important;}
+  .app-header,.tab-bar,.skip-link,#baby-banner{display:none!important;}
   .tab-panel{display:none!important;}
   #sheets{display:block!important;}
   .cat-hd,.si,.srw>input,.srl,.pb{display:none!important;}
@@ -344,20 +344,21 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="phone">
 
 <header class="app-header">
-  <svg width="50" height="50" viewBox="0 0 52 52" fill="none" aria-hidden="true" focusable="false">
-    <ellipse cx="26" cy="36" rx="14" ry="12" fill="#fce4ec"/>
-    <ellipse cx="26" cy="36" rx="12" ry="10" fill="#b2dfdb"/>
-    <ellipse cx="26" cy="22" rx="11" ry="10" fill="#fce4ec"/>
-    <polygon points="15,14 18,7 22,14" fill="#fce4ec"/>
-    <polygon points="16.5,13 18.5,8.5 21,13" fill="#f8bbd0"/>
-    <polygon points="30,14 34,7 37,14" fill="#fce4ec"/>
-    <polygon points="31,13 33.5,8.5 36,13" fill="#f8bbd0"/>
-    <ellipse cx="22.5" cy="23" rx="2.5" ry="2.5" fill="white"/>
-    <ellipse cx="29.5" cy="23" rx="2.5" ry="2.5" fill="white"/>
-    <circle cx="23" cy="23.2" r="1.5" fill="#4a2c6a"/>
-    <circle cx="30" cy="23.2" r="1.5" fill="#4a2c6a"/>
-    <ellipse cx="26" cy="26.5" rx="1.5" ry="1" fill="#f48fb1"/>
-    <path d="M24 28 Q26 30 28 28" stroke="#f48fb1" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <svg width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true" focusable="false">
+    <!-- soft background -->
+    <circle cx="27" cy="27" r="26" fill="#fce4ec"/>
+    <!-- mother head -->
+    <circle cx="27" cy="13" r="7" fill="#ad1457"/>
+    <!-- hair suggestion — simple arc over head -->
+    <path d="M20 13 Q20 6 27 6 Q34 6 34 13" fill="#880e4f"/>
+    <!-- mother body / arms forming a cradle shape -->
+    <path d="M14 28 Q12 36 14 42 Q18 48 27 48 Q36 48 40 42 Q42 36 40 28 Q36 22 27 22 Q18 22 14 28Z" fill="#ad1457"/>
+    <!-- inner arm hollow — negative space cradle -->
+    <ellipse cx="27" cy="38" rx="10" ry="8" fill="#fce4ec"/>
+    <!-- baby: small simple bundle in arms -->
+    <ellipse cx="27" cy="38" rx="7" ry="5.5" fill="#f8bbd0"/>
+    <!-- baby head -->
+    <circle cx="27" cy="31.5" r="5" fill="#ffdab9"/>
   </svg>
   <div>
     <div class="hd-title">Maternal Infant Nursing<br>Resource for Audrey 🌸</div>
@@ -365,13 +366,15 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   </div>
 </header>
 
+
+
 <div class="content" id="main-content">
 
 <!-- MATERNAL -->
 <div class="tab-panel" id="maternal" role="tabpanel" aria-labelledby="tab-maternal">
 <div class="cat-hd"><h2>Maternal Health</h2><span class="bdg" style="background:var(--pink-mid);color:var(--pink-dark);" aria-hidden="true">🌸 Mom</span></div>
 
-<details open>
+<details>
 <summary><span class="ai" style="background:var(--pink);" aria-hidden="true">🩺</span>Maternal Assessment (BUBBLE-HE)<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 <div class="tip"><strong>Mnemonic:</strong> B-U-B-B-L-E-H-E — systematic postpartum assessment</div>
@@ -447,7 +450,7 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 
 <!-- ═══ PPH EMERGENCY FLOWSHEET ═══ -->
 <details class="pph-detail">
-<summary><span class="ai" style="background:#ffebee;" aria-hidden="true">🚨</span><span style="color:#c62828;">PPH Emergency Flowsheet</span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c62828" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<summary><span class="ai" style="background:#ffebee;" aria-hidden="true">🚨</span>PPH Emergency Flowsheet<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 <div class="pph-banner" role="note" aria-label="Critical emergency reference">
   <span aria-hidden="true" style="font-size:28px;flex-shrink:0;">🩸</span>
@@ -581,7 +584,7 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 
 <!-- ═══ MATERNAL HTN / HELLP ═══ -->
 <details>
-<summary><span class="ai" style="background:#fce4ec;" aria-hidden="true">🩺</span><span style="color:#880e4f;">Maternal HTN &amp; HELLP</span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<summary><span class="ai" style="background:#fce4ec;" aria-hidden="true">🩸</span>Maternal HTN &amp; HELLP<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 <div class="htn-spectrum" role="note" aria-label="Hypertensive disorder spectrum">
   <div class="htn-spec-title">Hypertensive Disorder Spectrum</div>
@@ -838,7 +841,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <summary><span class="ai" style="background:#fff9c4;" aria-hidden="true">🌕</span>Bilirubin Protocol<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 
-<!-- Banner -->
 <div class="bili-banner" role="note">
   <span aria-hidden="true" style="font-size:24px;flex-shrink:0;">🌕</span>
   <div>
@@ -847,7 +849,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   </div>
 </div>
 
-<!-- Cephalocaudal Assessment -->
 <div class="ib">
 <h3><span class="dot" style="background:#f9a825" aria-hidden="true"></span>Cephalocaudal Progression</h3>
 <div class="bili-zone-grid" role="table" aria-label="Bilirubin cephalocaudal zones">
@@ -880,7 +881,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="tip" style="margin-top:8px;"><strong>Note:</strong> Cephalocaudal zones are a clinical guide only — always confirm with TCB or serum TSB. Dark skin tones make visual assessment unreliable.</div>
 </div>
 
-<!-- Phototherapy Thresholds -->
 <div class="ib">
 <h3><span class="dot" style="background:#f9a825" aria-hidden="true"></span>Phototherapy Thresholds (mg/dL)</h3>
 <table class="tbl" aria-label="Phototherapy thresholds by gestational age">
@@ -898,7 +898,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="alrt" role="note" style="margin-top:8px;"><strong>⚠ Pathologic jaundice:</strong> Any jaundice in first 24 hours of life = IMMEDIATE serum bilirubin + notify provider. Do NOT wait for TCB.</div>
 </div>
 
-<!-- TCB vs TSB -->
 <div class="ib">
 <h3><span class="dot" style="background:#f59e0b" aria-hidden="true"></span>TCB vs TSB — When to Escalate</h3>
 <div class="bili-compare">
@@ -923,7 +922,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </div>
 
-<!-- Risk Factors -->
 <div class="ib">
 <h3><span class="dot" style="background:#ef6c00" aria-hidden="true"></span>Risk Factors for Severe Hyperbilirubinemia</h3>
 <div class="tags">
@@ -939,7 +937,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </div>
 
-<!-- Phototherapy Care -->
 <div class="ib">
 <h3><span class="dot" style="background:#7c3aed" aria-hidden="true"></span>Phototherapy Care Steps</h3>
 <ol class="pph-steps" style="margin-top:6px;">
@@ -956,7 +953,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="tip"><strong>Bili blanket (fiberoptic):</strong> Can be used during feeding and kangaroo care — no eye shields needed. Good for outpatient or supplement to overhead light.</div>
 </div>
 
-<!-- Exchange Transfusion -->
 <div class="bili-exchange" role="alert">
   <div class="bili-exchange-hd"><span aria-hidden="true">🚨</span> Exchange Transfusion — Call NICU NOW if:</div>
   <ul class="bili-exchange-list">
@@ -967,7 +963,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   </ul>
 </div>
 
-<!-- Parent Teaching -->
 <div class="ib">
 <h3><span class="dot" style="background:#00695c" aria-hidden="true"></span>Parent Teaching Points</h3>
 <ul class="cl" style="color:#00695c;">
@@ -989,7 +984,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <summary><span class="ai" style="background:#e8f5e9;" aria-hidden="true">🍬</span>Neonatal Hypoglycemia<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 
-<!-- Banner -->
 <div class="hgb-banner" role="note">
   <span aria-hidden="true" style="font-size:24px;flex-shrink:0;">🍬</span>
   <div>
@@ -998,7 +992,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   </div>
 </div>
 
-<!-- Risk Factors -->
 <div class="ib">
 <h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>At-Risk Infants — Screen These Babies</h3>
 <div class="tags">
@@ -1015,7 +1008,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </div>
 
-<!-- Glucose Thresholds -->
 <div class="ib">
 <h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>Blood Glucose Goals by Age</h3>
 <table class="tbl"><thead><tr><th scope="col">Age</th><th scope="col">Goal BG</th><th scope="col">Action if Below</th></tr></thead><tbody>
@@ -1026,7 +1018,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="tip"><strong>Screening timing:</strong> Check BG before first feed, then q30 min × 2, then q1–3h per protocol until two consecutive values in goal range.</div>
 </div>
 
-<!-- Symptoms -->
 <div class="ib">
 <h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>Signs &amp; Symptoms to Watch</h3>
 <div class="hgb-sx-grid">
@@ -1042,7 +1033,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="alrt" role="note"><strong>⚠ Symptomatic hypoglycemia</strong> requires IV treatment regardless of BG value — do not wait to feed. Notify provider immediately.</div>
 </div>
 
-<!-- Staged Response -->
 <div class="ib">
 <h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>Staged Nursing Response</h3>
 <div class="hgb-disclaimer" role="note">
@@ -1105,7 +1095,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 </div>
 </div>
 
-<!-- D10W Reference -->
 <div class="ib">
 <h3><span class="dot" style="background:#0d47a1" aria-hidden="true"></span>D10W Quick Reference</h3>
 <div class="hgb-d10">
@@ -1118,7 +1107,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
 <div class="alrt" role="note"><strong>⚠ Never use D50W</strong> in neonates. D10W is standard. Confirm concentration and dose with provider and pharmacy before administering.</div>
 </div>
 
-<!-- Parent Teaching -->
 <div class="ib">
 <h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>Parent Teaching Points</h3>
 <ul class="cl" style="color:#2e7d32;">
@@ -1199,8 +1187,6 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   <label for="rn" class="srll">🌙 Night Shift</label>
 </div>
 <button class="pb" onclick="window.print()">🖨 Print Report Sheet</button>
-
-<!-- DAY SHIFT -->
 <div class="dc2">
 <div class="rb"><div class="rbl"><label>Resource</label><div class="ln"></div></div><div class="rbl"><label>Lactation</label><div class="ln"></div></div><div class="rbl"><label>Nursery</label><div class="ln"></div></div><div class="rbl"><label>Charge</label><div class="ln"></div></div></div>
 <div class="pc"><div class="ph"><div class="phf"><label>Rm #</label><div class="ln"></div></div><div class="phf"><label>Name</label><div class="ln"></div></div><div class="phf"><label>OB</label><div class="ln"></div></div><div class="phf"><label>Ped</label><div class="ln"></div></div></div><div class="cb"><div class="rw c4"><div class="f"><label>Delivery Date/Time</label><div class="ln"></div></div><div class="f"><label>G__ P__ C/S or VAG</label><div class="ln"></div></div><div class="f"><label>MRSA +/-</label><div class="ln"></div></div><div class="f"><label>Mom Blood Type/Rhogam ☐</label><div class="ln"></div></div></div><div class="rw c5"><div class="f"><label>Rubella Imm/Non-Imm</label><div class="ln"></div></div><div class="f"><label>Hep B +/-</label><div class="ln"></div></div><div class="f"><label>RPR R/NR</label><div class="ln"></div></div><div class="f"><label>GBS +/-</label><div class="ln"></div></div><div class="f"><label>Abx Y/N</label><div class="ln"></div></div></div><div class="rw c3"><div class="f"><label>Allergies/Anesthesia</label><div class="ln"></div></div><div class="f"><label>ROM/Fluid</label><div class="ln"></div></div><div class="f"><label>QBL/IV</label><div class="ln"></div></div></div><div class="rw c2"><div class="f"><label>MOB History/Tx</label><div class="lt"></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:3px"><div class="f"><label>WBC</label><div class="ln"></div></div><div class="f"><label>Hgb</label><div class="ln"></div></div><div class="f"><label>Hct</label><div class="ln"></div></div><div class="f"><label>Plt</label><div class="ln"></div></div></div></div><div class="rw c2"><div><div class="f"><label>Pain Meds</label><div class="lt"></div></div><div class="vxr"><span class="ck">TDAP</span><span class="ck">FLU</span><span class="ck">MMR</span><span class="ck">PNA</span></div></div><div><div class="f"><label>Foley/Straight Cath</label><div class="lt"></div></div><div class="vxr"><span class="ck">Void #1</span><span class="ck">Void #2</span></div></div></div><div class="sec">Mom Assessment &amp; Tasks</div><div class="rw c2"><div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px">Assessment</div><div class="cg" style="grid-template-columns:1fr 1fr"><span class="ck">Chart Assess</span><span class="ck">OS</span><span class="ck">Admit</span><span class="ck">DC</span></div></div><div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px">Chart &amp; Orders</div><div class="cg" style="grid-template-columns:1fr 1fr"><span class="ck">Epic Check</span><span class="ck">Hard Copies</span><span class="ck">PPD</span><span class="ck">DC Orders</span><span class="ck">DC Teaching</span><span class="ck">DC Staples</span><span class="ck">MRSA Swab</span></div></div></div><div class="sec">Baby</div><div class="bb"><div class="rw c4"><div class="f"><label>M/F</label><div class="ln"></div></div><div class="f"><label>GA</label><div class="ln"></div></div><div class="f"><label>Wgt Loss %</label><div class="ln"></div></div><div class="f"><label>Baby Blood Type/Coombs</label><div class="ln"></div></div></div><div class="rw c3"><div class="f"><label>Apgars __/__/__</label><div class="ln"></div></div><div class="f"><label>LPI/SGA/AGA/LGA</label><div class="ln"></div></div><div class="f"><label>EOS</label><div class="ln"></div></div></div><div class="rw c2"><div><div class="vs"><label>VS x2</label><div class="vr"><span>T:</span><span class="vv"></span><span>T:</span><span class="vv"></span></div><div class="vr"><span>HR:</span><span class="vv"></span><span>HR:</span><span class="vv"></span></div><div class="vr"><span>RR:</span><span class="vv"></span><span>RR:</span><span class="vv"></span></div></div><div class="cg" style="grid-template-columns:1fr 1fr;margin-top:4px"><span class="ck">Eyes</span><span class="ck">Vit K</span><span class="ck">Hep B</span><span class="ck">Circ Y/N</span></div></div><div><div style="font-size:7px;font-weight:800;color:#555;text-transform:uppercase;margin-bottom:2px">Feeding &amp; Output</div><div class="cg" style="grid-template-columns:1fr 1fr"><span class="ck">Chart Assess</span><span class="ck">Feed/Diaper Log</span><span class="ck">OS</span><span class="ck">Admit</span><span class="ck">DC</span><span class="ck">Latch</span><span class="ck">Void</span><span class="ck">Stool</span><span class="ck">Breast</span><span class="ck">Pumping</span></div><div class="f" style="margin-top:3px"><label>Formula</label><div class="ln"></div></div><div class="f" style="margin-top:2px"><label>Accuchek Time</label><div class="ln"></div></div></div></div><div class="rw c2" style="margin-top:4px"><div class="f"><label>TCB</label><div class="ln"></div></div><div class="f"><label>TSB</label><div class="ln"></div></div></div><div class="cg" style="grid-template-columns:repeat(5,1fr);margin-top:4px"><span class="ck">Bath</span><span class="ck">Prints</span><span class="ck">PKU</span><span class="ck">Heart Screen P/F</span><span class="ck">Hearing P/F</span><span class="ck">Car Seat</span><span class="ck">CS Papers</span><span class="ck">Birth Cert</span><span class="ck">Cord Clamp</span><span class="ck">Bands</span></div><div class="cg" style="grid-template-columns:1fr 1fr;margin-top:3px"><span class="ck">DC Orders</span><span class="ck">DC Teaching</span></div></div></div></div>
@@ -1246,6 +1232,10 @@ details.pph-detail .ab{border-top-color:#ef9a9a;}
   </div>
 </nav>
 
+
+<div style="text-align:center;padding:10px 0 6px;font-family:'Quicksand',sans-serif;font-size:10px;font-weight:600;color:var(--txm);letter-spacing:0.5px;flex-shrink:0;">
+  v1.0 · Unit 26 MBU · 2026
+</div>
 </div>
 
 <script>
@@ -1265,11 +1255,9 @@ function activateTab(tab) {
 
   const panel = document.getElementById(tab.getAttribute('aria-controls'));
   panel.hidden = false;
-  // Scroll panel to top on tab change
   document.querySelector('.content').scrollTop = 0;
 }
 
-// Initialize: show maternal panel
 document.getElementById('maternal').hidden = false;
 
 tabs.forEach(tab => {
