@@ -19,6 +19,7 @@
   --bd:rgba(0,0,0,0.08);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{overflow:hidden;width:100%;}
 
 /* Skip link */
 .skip-link{
@@ -30,11 +31,11 @@
 }
 .skip-link:focus{left:50%;transform:translateX(-50%);}
 
-body{display:flex;justify-content:center;padding:0;min-height:100vh;width:100%;
+body{display:block;padding:0;min-height:100vh;width:100%;overflow:hidden;
   background:radial-gradient(ellipse at 20% 0%,#fce4ec,transparent 55%),
              radial-gradient(ellipse at 80% 10%,#e0f7ef,transparent 50%),#f5eaf5;
   font-family:'Quicksand',sans-serif;color:var(--tx);}
-.phone{width:100%;max-width:100%;background:var(--cream);border-radius:0;overflow:hidden;
+.phone{width:100%;max-width:100%;margin:0 auto;background:var(--cream);border-radius:0;overflow:hidden;
   display:flex;flex-direction:column;height:100vh;max-height:100vh;
   box-shadow:0 0 0 1px rgba(200,160,210,.4),0 24px 80px rgba(160,100,180,.25);}
 .app-header{background:linear-gradient(135deg,#fce4ec,#ede7f6 50%,#e0f7ef);
@@ -749,8 +750,8 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <tr><td>O₂ Saturation</td><td>≥95% on RA after 10 min</td></tr>
 <tr><td>Blood glucose</td><td>≥40 mg/dL (first 4h); ≥45 after</td></tr>
 </tbody></table></div>
-<div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></span>Head-to-Toe</h3>
-  ="color:var(--sky-dark)">
+ span>Head-to-Toe</h3>
+<ul class="cl" style="color:var(--sky-dark)">
 <li>Head: fontanelles, molding, caput/cephalhematoma</li>
 <li>Eyes: sclera clear, red reflex bilateral</li>
 <li>Mouth: intact palate, Epstein pearls ok, sucking reflex</li>
@@ -1277,5 +1278,5 @@ tabs.forEach(tab => {
 });
 </script>
 </body>
-</html>
-<ul class="cl" style
+</html> 
+<div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></
