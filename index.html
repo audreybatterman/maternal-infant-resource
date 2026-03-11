@@ -347,19 +347,12 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 
 <header class="app-header">
   <svg width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true" focusable="false">
-    <!-- soft background -->
     <circle cx="27" cy="27" r="26" fill="#fce4ec"/>
-    <!-- mother head -->
     <circle cx="27" cy="13" r="7" fill="#ad1457"/>
-    <!-- hair suggestion — simple arc over head -->
     <path d="M20 13 Q20 6 27 6 Q34 6 34 13" fill="#880e4f"/>
-    <!-- mother body / arms forming a cradle shape -->
     <path d="M14 28 Q12 36 14 42 Q18 48 27 48 Q36 48 40 42 Q42 36 40 28 Q36 22 27 22 Q18 22 14 28Z" fill="#ad1457"/>
-    <!-- inner arm hollow — negative space cradle -->
     <ellipse cx="27" cy="38" rx="10" ry="8" fill="#fce4ec"/>
-    <!-- baby: small simple bundle in arms -->
     <ellipse cx="27" cy="38" rx="7" ry="5.5" fill="#f8bbd0"/>
-    <!-- baby head -->
     <circle cx="27" cy="31.5" r="5" fill="#ffdab9"/>
   </svg>
   <div>
@@ -368,12 +361,11 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   </div>
 </header>
 
-
-
 <div class="content" id="main-content">
 
-<!-- MATERNAL -->
-<div class="tab-panel" id="maternal" role="tabpanel" aria-labelledby="tab-maternal">
+<!-- ═══ MATERNAL TAB ═══ -->
+<!-- FIX 1: Added hidden attribute — JS will remove it on load, preventing flash -->
+<div class="tab-panel" id="maternal" role="tabpanel" aria-labelledby="tab-maternal" hidden>
 <div class="cat-hd"><h2>Maternal Health</h2><span class="bdg" style="background:var(--pink-mid);color:var(--pink-dark);" aria-hidden="true">🌸 Mom</span></div>
 
 <details>
@@ -446,7 +438,8 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <div class="ib"><h3><span class="dot" style="background:var(--pink-dark)" aria-hidden="true"></span>Key Teaching</h3>
 <ul class="cl" style="color:var(--pink-dark)"><li>Feed every 1.5–3h, 8–12×/day newborn</li><li>Nipple pain is NOT normal; reassess latch</li><li>Mastitis: flu-like + unilateral breast warmth/redness</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>Colostrum → Milk</h3>
-<div class="tags"><span class="tag" style="background:#fff3e0;color:#e65100;">Day 1–3: Colostrum</span><span class="tag" style="background:var(--mint);color:var(--mint-dark);">Day 3–5: Transitional</span><span class="tag" style="background:var(--sky);color:var(--sky-dark);">Day 7–10: Mature</span></div></div>
+<div class="tags"><span class="tag" style="background:#fff3e0;color:#e65100;">Day 1–3: Colostrum</span><span class="tag" style="background:var(--mint);color:var(--mint-dark);">Day 3–5: Transitional</span><span class="tag" style="background:var(--sky);color:var(--sky-dark);">Day 7–10: Mature</span></div>
+<div class="tip"><strong>BF:</strong> Colostrum volume is tiny — normal! Stomach is marble-sized at birth.</div></div>
 </div>
 </details>
 
@@ -726,7 +719,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 
 </div>
 
-<!-- INFANT -->
+<!-- ═══ INFANT TAB ═══ -->
 <div class="tab-panel" id="infant" role="tabpanel" aria-labelledby="tab-infant" hidden>
 <div class="cat-hd"><h2>Infant Health</h2><span class="bdg" style="background:var(--mint-mid);color:var(--mint-dark);" aria-hidden="true">🍼 Baby</span></div>
 
@@ -771,6 +764,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </details>
 
 <details class="m">
+<!-- FIX 2: Corrected unclosed <div class="ib"> — "Expected Feeding" div is now properly closed before "Urine Output" -->
 <summary><span class="ai" style="background:var(--sky);" aria-hidden="true">💧</span>Intake &amp; Output (I&amp;Os)<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 <div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></span>Expected Feeding</h3>
@@ -779,7 +773,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <tr><td>Day 2–3</td><td>15–30 mL</td><td>8–12×</td></tr>
 <tr><td>Day 4–7</td><td>30–60 mL</td><td>8–10×</td></tr>
 <tr><td>2 weeks</td><td>60–90 mL</td><td>8×</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="ib"><h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>Urine Output</h3>
 <table class="tbl"><thead><tr><th scope="col">Day</th><th scope="col">Wet Diapers</th></tr></thead><tbody>
 <tr><td>Day 1</td><td>1 wet diaper</td></tr>
@@ -1126,7 +1120,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 
 </div>
 
-<!-- DIRECTORY -->
+<!-- ═══ DIRECTORY TAB ═══ -->
 <div class="tab-panel" id="directory" role="tabpanel" aria-labelledby="tab-directory" hidden>
 <div class="cat-hd"><h2>Directory</h2><span class="bdg" style="background:var(--lav-mid);color:var(--lav-dark);" aria-hidden="true">📞 Unit 26</span></div>
 <div class="dc">
@@ -1176,7 +1170,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 </div>
 
-<!-- SHEETS -->
+<!-- ═══ SHEETS TAB ═══ -->
 <div class="tab-panel" id="sheets" role="tabpanel" aria-labelledby="tab-sheets" hidden>
 <div class="cat-hd"><h2>Report Sheets</h2><span class="bdg" style="background:var(--teal-mid);color:var(--teal-dark);" aria-hidden="true">🖨 Print</span></div>
 <div class="si" role="note"><div aria-hidden="true" style="font-size:26px">📋</div><p>Select your shift then tap <strong>Print</strong>.</p></div>
@@ -1233,7 +1227,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   </div>
 </nav>
 
-
 <div style="text-align:center;padding:10px 0 6px;font-family:'Quicksand',sans-serif;font-size:10px;font-weight:600;color:var(--txm);letter-spacing:0.5px;flex-shrink:0;">
   v1.0 · Unit 26 MBU · 2026
 </div>
@@ -1259,7 +1252,8 @@ function activateTab(tab) {
   document.querySelector('.content').scrollTop = 0;
 }
 
-document.getElementById('maternal').hidden = false;
+// Show maternal tab on load
+activateTab(tabs[0]);
 
 tabs.forEach(tab => {
   tab.addEventListener('click', () => { activateTab(tab); tab.focus(); });
@@ -1277,5 +1271,4 @@ tabs.forEach(tab => {
 });
 </script>
 </body>
-</html>  
-<div class="tip"><strong>BF:</strong> Colostrum volume is tiny — normal! Stomach is marble-sized at birth.</div></div>
+</html>
