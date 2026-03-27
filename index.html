@@ -21,7 +21,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{overflow-x:hidden;width:100%;}
 
-/* Skip link */
 .skip-link{
   position:absolute;left:-9999px;top:4px;z-index:9999;
   background:#4527a0;color:#fff;padding:8px 16px;
@@ -47,18 +46,15 @@ body{display:flex;justify-content:center;padding:0;min-height:100vh;width:100%;o
 .content::-webkit-scrollbar{width:4px;}
 .content::-webkit-scrollbar-thumb{background:var(--pink-mid);border-radius:4px;}
 
-/* Tab panels — shown/hidden via JS + hidden attribute */
 .tab-panel{display:none!important;padding:14px 14px 24px;}
 .tab-panel:not([hidden]){display:block!important;}
 
-/* Tab bar — buttons, not anchors */
 .tab-bar{height:68px;background:var(--white);border-top:2px solid var(--pink-mid);display:flex;flex-shrink:0;}
 .tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:3px;border:none;background:transparent;color:var(--txm);font-size:9.5px;font-weight:700;
   font-family:'Quicksand',sans-serif;padding:6px 2px;cursor:pointer;position:relative;
   transition:color .15s;-webkit-tap-highlight-color:transparent;}
 .tab-btn svg{width:22px;height:22px;pointer-events:none;}
-/* Solid focus ring — WCAG 2.4.7 */
 .tab-btn:focus-visible{outline:3px solid #4527a0;outline-offset:-3px;border-radius:4px;}
 .tab-btn[aria-selected="true"]{color:var(--pink-dark);}
 .tab-btn[aria-selected="true"].t-inf{color:var(--mint-dark);}
@@ -104,12 +100,10 @@ details[open] .chev{transform:rotate(180deg);}
 .tbl td{font-size:11.5px;font-weight:600;padding:6px 8px;border-bottom:1px solid var(--bd);vertical-align:top;}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:nth-child(even) td{background:#fff9f0;}
-/* Improved contrast for tip/alert text */
 .tip{background:var(--sky);border-left:4px solid var(--sky-dark);border-radius:0 10px 10px 0;padding:9px 12px;margin-top:10px;font-size:12px;font-weight:600;color:#0d3a8a;line-height:1.5;}
 .alrt{background:#fff3e0;border-left:4px solid var(--peach-dark);border-radius:0 10px 10px 0;padding:9px 12px;margin-top:10px;font-size:12px;font-weight:600;color:#bf360c;line-height:1.5;}
 .tip strong,.alrt strong{font-weight:800;}
 
-/* Directory — .drv is a <span>, never a link, no underline possible */
 .dc{background:var(--white);border:1.5px solid var(--bd);border-radius:16px;margin-bottom:10px;overflow:hidden;box-shadow:0 2px 10px rgba(180,140,180,.18);}
 .dh{background:var(--lav);padding:9px 13px;display:flex;align-items:center;gap:8px;}
 .dht{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;color:var(--lav-dark);text-transform:uppercase;letter-spacing:.5px;}
@@ -117,7 +111,6 @@ details[open] .chev{transform:rotate(180deg);}
 .dr:last-child{border-bottom:none;}
 .drn{font-size:12.5px;font-weight:700;}
 .drr{font-size:11px;color:var(--txm);font-weight:600;margin-top:1px;}
-/* Plain badge — no anchor, no underline */
 .drv{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:800;color:var(--lav-dark);
   background:var(--lav);padding:4px 11px;border-radius:20px;flex-shrink:0;
   text-decoration:none;user-select:all;}
@@ -139,11 +132,9 @@ details[open] .chev{transform:rotate(180deg);}
 .pb:focus-visible{outline:3px solid #4527a0;outline-offset:2px;}
 .pb:hover{background:#004d40;}
 
-/* Shift radio — accessible visually-hidden radios with styled labels */
 .srw input[type=radio]{
   position:absolute;opacity:0;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;
 }
-/* Show focus ring on label when radio is focused */
 .srw input[type=radio]:focus-visible + .srl label[for=rd],
 .srw input[type=radio]:focus-visible ~ .srl label[for=rn]{
   outline:3px solid #4527a0;outline-offset:-3px;
@@ -156,7 +147,6 @@ details[open] .chev{transform:rotate(180deg);}
 #rd:checked ~ .dc2{display:block;}
 #rn:checked ~ .nc2{display:block;}
 
-/* Sheets */
 .rb{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:5px;background:#e0f2f1;border:1.5px solid var(--teal-mid);border-radius:8px;padding:6px 9px;margin-bottom:9px;}
 .rb.ng{background:#e8eaf6;border-color:#9fa8da;}
 .rbl label{font-size:7px;font-weight:800;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:2px;}
@@ -223,7 +213,31 @@ details[open] .chev{transform:rotate(180deg);}
 .hgb-d10-row:last-child{border-bottom:none;}
 .hgb-d10-label{font-size:11px;font-weight:800;color:#0d47a1;}
 .hgb-d10-val{font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:800;color:var(--tx);text-align:right;}
-/* ── END HYPOGLYCEMIA STYLES ── */
+
+/* GBMC Hypoglycemia Protocol */
+.gbmc-protocol{border-radius:12px;overflow:hidden;margin-bottom:8px;border:2px solid transparent;}
+.gbmc-protocol.level-ok{border-color:#81c784;background:#f1f8e9;}
+.gbmc-protocol.level-mid{border-color:#f57c00;background:#fff3e0;}
+.gbmc-protocol.level-low{border-color:#d32f2f;background:#ffebee;}
+.gbmc-ph{display:flex;align-items:center;gap:8px;padding:8px 12px;}
+.gbmc-protocol.level-ok .gbmc-ph{background:#66bb6a;}
+.gbmc-protocol.level-mid .gbmc-ph{background:#f57c00;}
+.gbmc-protocol.level-low .gbmc-ph{background:#d32f2f;}
+.gbmc-ph-label{font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.8px;}
+.gbmc-ph-range{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.9);margin-left:auto;}
+.gbmc-body{padding:9px 12px;}
+.gbmc-steps{list-style:none;margin:4px 0 6px;}
+.gbmc-steps li{display:flex;align-items:flex-start;gap:7px;font-size:12px;font-weight:600;padding:4px 0;border-bottom:1px solid rgba(0,0,0,.06);line-height:1.45;color:var(--tx);}
+.gbmc-steps li:last-child{border-bottom:none;}
+.gbmc-num{width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:#fff;}
+.gbmc-protocol.level-ok .gbmc-num{background:#388e3c;}
+.gbmc-protocol.level-mid .gbmc-num{background:#ef6c00;}
+.gbmc-protocol.level-low .gbmc-num{background:#c62828;}
+.gbmc-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.gbmc-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;border:1.5px solid;}
+.gbmc-protocol.level-ok .gbmc-pill{background:#e8f5e9;color:#1b5e20;border-color:#81c784;}
+.gbmc-protocol.level-mid .gbmc-pill{background:#fff3e0;color:#bf360c;border-color:#ffb74d;}
+.gbmc-protocol.level-low .gbmc-pill{background:#ffebee;color:#b71c1c;border-color:#ef9a9a;}
 
 /* ── MATERNAL HTN / HELLP STYLES ── */
 .htn-spectrum{background:var(--white);border:1.5px solid #ef9a9a;border-radius:12px;padding:10px 12px;margin-bottom:4px;}
@@ -248,7 +262,6 @@ details[open] .chev{transform:rotate(180deg);}
 .htn-mag-row:last-child{border-bottom:none;}
 .htn-mag-label{font-size:11px;font-weight:800;color:var(--lav-dark);}
 .htn-mag-val{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--tx);}
-/* ── END HTN STYLES ── */
 
 /* ── BILIRUBIN PROTOCOL STYLES ── */
 .bili-banner{background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
@@ -268,7 +281,6 @@ details[open] .chev{transform:rotate(180deg);}
 .bili-exchange-list li{font-size:12px;font-weight:600;color:#7f1d1d;padding:4px 0;border-bottom:1px solid rgba(211,47,47,.15);line-height:1.45;display:flex;gap:7px;}
 .bili-exchange-list li:last-child{border-bottom:none;}
 .bili-exchange-list li::before{content:'⚠';flex-shrink:0;}
-/* ── END BILIRUBIN STYLES ── */
 
 /* ── PPH FLOWSHEET STYLES ── */
 .pph-banner{background:linear-gradient(135deg,#c62828,#b71c1c);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
@@ -326,7 +338,40 @@ details[open] .chev{transform:rotate(180deg);}
 details.pph-detail{border-color:var(--bd);box-shadow:0 2px 12px rgba(180,140,180,.18);}
 details.pph-detail summary:hover{background:#ffebee;}
 details.pph-detail .ab{border-top-color:var(--bd);}
-/* ── END PPH STYLES ── */
+
+/* ── EKG / CARDIAC STYLES ── */
+.ekg-banner{background:linear-gradient(135deg,#b71c1c,#880e4f);border-radius:10px;padding:10px 13px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.ekg-banner-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:.3px;}
+.ekg-banner-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,.88);margin-top:1px;}
+.ekg-triggers{display:flex;flex-direction:column;gap:5px;margin-top:6px;}
+.ekg-trigger{display:flex;align-items:flex-start;gap:8px;background:#ffebee;border:1.5px solid #ef9a9a;border-radius:8px;padding:8px 10px;}
+.ekg-trigger-icon{font-size:18px;flex-shrink:0;}
+.ekg-trigger-title{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;color:#b71c1c;}
+.ekg-trigger-sub{font-size:11px;font-weight:600;color:#991b1b;margin-top:1px;}
+.ekg-authority{background:#e8eaf6;border:2px solid #9fa8da;border-radius:10px;padding:10px 12px;margin-top:10px;display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:600;color:#283593;line-height:1.5;}
+.ekg-authority span:first-child{font-size:18px;flex-shrink:0;}
+
+/* ── POST-MAG / C-SECTION STYLES ── */
+.mag-box{background:#ede7f6;border:2px solid var(--lav-mid);border-radius:12px;padding:11px 13px;margin-bottom:8px;}
+.mag-box-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:var(--lav-dark);margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.mag-rule{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--lav-mid);}
+.mag-rule:last-child{border-bottom:none;}
+.mag-rule-icon{font-size:15px;flex-shrink:0;}
+.mag-rule-text{font-size:12px;font-weight:700;color:var(--lav-dark);}
+.mag-rule-sub{font-size:11px;font-weight:600;color:var(--txm);margin-top:1px;}
+.csect-box{background:#e8f5e9;border:2px solid #a5d6a7;border-radius:12px;padding:11px 13px;margin-bottom:8px;}
+.csect-box-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#1b5e20;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.csect-step{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #c8e6c9;font-size:12px;font-weight:600;color:#1b5e20;line-height:1.45;}
+.csect-step:last-child{border-bottom:none;}
+.csect-num{width:18px;height:18px;border-radius:50%;background:#2e7d32;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+/* ── BLADDER / VOID STYLES ── */
+.void-box{background:#e3f2fd;border:2px solid #90caf9;border-radius:12px;padding:11px 13px;margin-bottom:8px;}
+.void-box-title{font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#0d47a1;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.void-step{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #bbdefb;font-size:12px;font-weight:600;color:#0d47a1;line-height:1.45;}
+.void-step:last-child{border-bottom:none;}
+.void-num{width:18px;height:18px;border-radius:50%;background:#1565c0;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
 @media print{
   body{padding:0;background:#fff;}
   .phone{box-shadow:none;border-radius:0;max-width:100%;min-height:unset;}
@@ -364,7 +409,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <div class="content" id="main-content">
 
 <!-- ═══ MATERNAL TAB ═══ -->
-<!-- FIX 1: Added hidden attribute — JS will remove it on load, preventing flash -->
 <div class="tab-panel" id="maternal" role="tabpanel" aria-labelledby="tab-maternal" hidden>
 <div class="cat-hd"><h2>Maternal Health</h2><span class="bdg" style="background:var(--pink-mid);color:var(--pink-dark);" aria-hidden="true">🌸 Mom</span></div>
 
@@ -380,7 +424,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <div class="ib"><h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>B — Bowel</h3>
 <ul class="cl" style="color:var(--mint-dark)"><li>Bowel sounds in all 4 quadrants</li><li>Last BM documented; stool softeners ordered?</li><li>Passing flatus; no distension</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></span>B — Bladder</h3>
-<ul class="cl" style="color:var(--sky-dark)"><li>Voiding adequately (≥150 mL per void)</li><li>Bladder not distended above symphysis</li><li>U/O ≥30 mL/hr post-Foley</li></ul></div>
+<ul class="cl" style="color:var(--sky-dark)"><li>Voiding adequately (≥150 mL per void)</li><li>Bladder not distended above symphysis</li><li>U/O ≥30 mL/hr post-Foley</li><li>Must void within <strong>6 hrs</strong> of Foley removal; void <strong>3 times</strong> before DC</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:var(--lav-dark)" aria-hidden="true"></span>L — Lochia</h3>
 <ul class="cl" style="color:var(--lav-dark)"><li>Rubra (red,1–3d) → Serosa (pink,4–10d) → Alba (cream,10–14d)</li><li>Foul odor = infection; clots &gt;golf ball = report</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>E — Episiotomy / Perineum</h3>
@@ -388,9 +432,13 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <div class="ib"><h3><span class="dot" style="background:var(--pink-dark)" aria-hidden="true"></span>H — Homans / Lower Extremities</h3>
 <ul class="cl" style="color:var(--pink-dark)"><li>Calf pain on dorsiflexion; leg edema, warmth, erythema</li><li>DVT risk: early ambulation, SCDs</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>E — Emotional / Education</h3>
-<ul class="cl" style="color:var(--mint-dark)"><li>Edinburgh Postnatal Depression Scale (EPDS)</li><li>Baby blues vs. PPD; support system; DC education complete</li></ul></div>
+<ul class="cl" style="color:var(--mint-dark)"><li>Edinburgh Postnatal Depression Scale (EPDS) — complete at 24 hrs, chart in EPIC</li><li>Baby blues vs. PPD; support system; DC education complete</li></ul></div>
 </div>
 </details>
+
+
+
+
 
 <details>
 <summary><span class="ai" style="background:var(--peach);" aria-hidden="true">💊</span>Postpartum Care<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -403,6 +451,20 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <ul class="cl" style="color:var(--sky-dark)"><li>Fundal massage if boggy; Oxytocin (Pitocin) standard</li><li>Methergine — NOT with HTN; Hemabate — NOT with asthma</li><li>Report Hgb &lt;8 g/dL</li></ul></div>
 <div class="ib"><h3><span class="dot" style="background:var(--lav-dark)" aria-hidden="true"></span>Discharge Teaching</h3>
 <ul class="cl" style="color:var(--lav-dark)"><li>Pelvic rest × 6 weeks; no lifting &gt;10 lb × 4–6 wks</li><li>Fever &gt;100.4°F, foul lochia, wound opening → call OB</li><li>OB follow-up: 3 wks C/S, 6 wks vaginal</li></ul></div>
+<div class="ib"><h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>C-Section Wound Care</h3>
+<ul class="cl" style="color:#1a3a1a;">
+  <li>Gauze dressing comes off after <strong>24 hours</strong> post-op</li>
+  <li>Underneath is the <strong>silver dressing</strong> — leave this intact</li>
+  <li>Circle any drainage on the silver dressing with a marker and document the time — monitor for expansion</li>
+  <li>Assess wound edges: intact, no separation, no signs of infection (redness, warmth, purulent drainage)</li>
+</ul></div>
+<div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></span>Post-Foley Voiding</h3>
+<ul class="cl" style="color:var(--sky-dark);">
+  <li>Mom must void within <strong>6 hours</strong> of Foley catheter removal</li>
+  <li>Must void successfully <strong>3 times</strong> before discharge criteria met</li>
+  <li>Document each void: time, amount (mL), any difficulty or discomfort</li>
+  <li>Unable to void in 6 hrs → assess by palpation/bladder scan, notify provider — may need straight cath</li>
+</ul></div>
 </div>
 </details>
 
@@ -422,6 +484,58 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 <div class="alrt" role="note"><strong>⚠ MgSO₄ Toxicity:</strong> RR &lt;12, UO &lt;25 mL/hr, absent DTRs → hold Mag, give Ca gluconate.</div>
 </div>
 </details>
+
+<!-- ═══ EKG / CARDIAC ASSESSMENT ═══ -->
+<details>
+<summary><span class="ai" style="background:#ffebee;" aria-hidden="true">💓</span>EKG Indications<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+<div class="ab">
+<div class="ekg-banner" role="note">
+  <span aria-hidden="true" style="font-size:24px;flex-shrink:0;">❤️</span>
+  <div>
+    <div class="ekg-banner-title">EKG — When to Order</div>
+    <div class="ekg-banner-sub">You can order and notify provider afterwards</div>
+  </div>
+</div>
+<div class="ib">
+<h3><span class="dot" style="background:#b71c1c" aria-hidden="true"></span>Order EKG for Any of These</h3>
+<div class="ekg-triggers">
+  <div class="ekg-trigger">
+    <span class="ekg-trigger-icon" aria-hidden="true">💗</span>
+    <div>
+      <div class="ekg-trigger-title">Heart Rate &gt; 150 bpm</div>
+      <div class="ekg-trigger-sub">Tachycardia — order EKG, notify provider after</div>
+    </div>
+  </div>
+  <div class="ekg-trigger">
+    <span class="ekg-trigger-icon" aria-hidden="true">😣</span>
+    <div>
+      <div class="ekg-trigger-title">Chest Pain</div>
+      <div class="ekg-trigger-sub">Any complaint of chest pain or pressure — order EKG, notify provider after</div>
+    </div>
+  </div>
+  <div class="ekg-trigger">
+    <span class="ekg-trigger-icon" aria-hidden="true">😵</span>
+    <div>
+      <div class="ekg-trigger-title">Dizziness</div>
+      <div class="ekg-trigger-sub">Lightheadedness, feeling faint, near-syncope — order EKG, notify provider after</div>
+    </div>
+  </div>
+  <div class="ekg-trigger">
+    <span class="ekg-trigger-icon" aria-hidden="true">🔥</span>
+    <div>
+      <div class="ekg-trigger-title">Heartburn / Epigastric Complaints</div>
+      <div class="ekg-trigger-sub">Rule out cardiac etiology — order EKG, notify provider after</div>
+    </div>
+  </div>
+</div>
+<div class="ekg-authority" role="note">
+  <span aria-hidden="true">🩺</span>
+  <span><strong>Nurse authority:</strong> You can independently order the EKG and notify the provider afterwards. Document time of symptom onset, EKG ordered, and provider notification in EPIC.</span>
+</div>
+</div>
+</div>
+</details>
+<!-- ═══ END EKG ═══ -->
 
 <details>
 <summary><span class="ai" style="background:var(--lav);" aria-hidden="true">🤱</span>Breastfeeding Resources<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
@@ -451,14 +565,14 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   <span aria-hidden="true" style="font-size:28px;flex-shrink:0;">🩸</span>
   <div class="pph-banner-text">
     <div class="pph-banner-title">Postpartum Hemorrhage Protocol</div>
-    <div class="pph-banner-sub">EBL &gt;500 mL vaginal · &gt;1000 mL cesarean · or hemodynamically significant loss</div>
+    <div class="pph-banner-sub">EBL &gt;500 mL vaginal · &gt;900 mL cesarean (GBMC) · or hemodynamically significant loss</div>
   </div>
 </div>
 <div class="ib">
 <h3><span class="dot" style="background:#c62828" aria-hidden="true"></span>Critical Thresholds</h3>
 <div class="pph-threshold">
   <div class="pph-thr warn"><div class="pph-thr-val">&gt;500 mL</div><div class="pph-thr-lbl">Vaginal delivery</div></div>
-  <div class="pph-thr danger"><div class="pph-thr-val">&gt;1000 mL</div><div class="pph-thr-lbl">Cesarean delivery</div></div>
+  <div class="pph-thr danger"><div class="pph-thr-val">&gt;900 mL</div><div class="pph-thr-lbl">Cesarean (GBMC)</div></div>
   <div class="pph-thr danger"><div class="pph-thr-val">Hgb &lt;8</div><div class="pph-thr-lbl">Consider transfusion</div></div>
   <div class="pph-thr danger"><div class="pph-thr-val">HR &gt;110</div><div class="pph-thr-lbl">Shock index ≥1.0</div></div>
 </div>
@@ -477,8 +591,8 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 <div class="ib">
 <h3><span class="dot" style="background:#f9a825" aria-hidden="true"></span>Staged Response</h3>
-<div class="pph-stage s1" role="region" aria-label="Stage 1: EBL 500–999 mL">
-  <div class="pph-sh"><span class="pph-stg-lbl">Stage 1</span><span class="pph-stg-desc">EBL 500–999 mL</span></div>
+<div class="pph-stage s1" role="region" aria-label="Stage 1: EBL 500–899 mL">
+  <div class="pph-sh"><span class="pph-stg-lbl">Stage 1</span><span class="pph-stg-desc">EBL 500–899 mL</span></div>
   <div class="pph-body">
     <ol class="pph-steps">
       <li><span class="pph-num" aria-hidden="true">1</span>Call for help — notify charge nurse &amp; OB provider immediately</li>
@@ -575,7 +689,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 </div>
 </details>
-<!-- ═══ END PPH FLOWSHEET ═══ -->
 
 <!-- ═══ MATERNAL HTN / HELLP ═══ -->
 <details>
@@ -650,6 +763,30 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   <div class="htn-feat"><span class="htn-feat-icon" aria-hidden="true">😴</span><div><div class="htn-feat-title">LOC / Sedation</div><div class="htn-feat-sub">Increasing drowsiness = early toxicity</div></div></div>
 </div>
 <div class="alrt" role="note"><strong>⚠ Antidote:</strong> Calcium gluconate 1 g IV (10 mL of 10% solution) over 3 min. Keep at bedside at ALL times during mag infusion.</div>
+<div class="mag-box" role="region" aria-label="Post Magnesium Discharge Rules" style="margin-top:10px;">
+  <div class="mag-box-title"><span aria-hidden="true">🏠</span> Post-Mag Discharge Rules</div>
+  <div class="mag-rule">
+    <span class="mag-rule-icon" aria-hidden="true">🏠</span>
+    <div>
+      <div class="mag-rule-text">Cannot go home for 72 hours after mag</div>
+      <div class="mag-rule-sub">No exceptions — document reason for extended stay</div>
+    </div>
+  </div>
+  <div class="mag-rule">
+    <span class="mag-rule-icon" aria-hidden="true">🩺</span>
+    <div>
+      <div class="mag-rule-text">Blood pressures every 4 hours post-mag</div>
+      <div class="mag-rule-sub">Routine monitoring while inpatient</div>
+    </div>
+  </div>
+  <div class="mag-rule">
+    <span class="mag-rule-icon" aria-hidden="true">⚠️</span>
+    <div>
+      <div class="mag-rule-text">BP ≥ 140 systolic → recheck every 15 minutes</div>
+      <div class="mag-rule-sub">Continue q15 min until below threshold; notify provider if sustained</div>
+    </div>
+  </div>
+</div>
 </div>
 <div class="ib">
 <h3><span class="dot" style="background:#c62828" aria-hidden="true"></span>Acute Antihypertensive Medications</h3>
@@ -764,7 +901,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </details>
 
 <details class="m">
-<!-- FIX 2: Corrected unclosed <div class="ib"> — "Expected Feeding" div is now properly closed before "Urine Output" -->
 <summary><span class="ai" style="background:var(--sky);" aria-hidden="true">💧</span>Intake &amp; Output (I&amp;Os)<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
 <div class="ab">
 <div class="ib"><h3><span class="dot" style="background:var(--sky-dark)" aria-hidden="true"></span>Expected Feeding</h3>
@@ -987,12 +1123,89 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   </div>
 </div>
 
+<!-- ═══ GBMC-SPECIFIC WEIGHT CLASSIFICATION ═══ -->
 <div class="ib">
-<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>At-Risk Infants — Screen These Babies</h3>
+<h3><span class="dot" style="background:#1565c0" aria-hidden="true"></span>GBMC Weight Classification &amp; BG Screening</h3>
+<div style="background:#e3f2fd;border:2px solid #90caf9;border-radius:12px;padding:11px 13px;margin-bottom:8px;">
+  <div style="font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:900;color:#0d47a1;margin-bottom:8px;">📍 GBMC Definitions</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+    <div style="background:#fff;border:2px solid #ef9a9a;border-radius:8px;padding:8px 10px;text-align:center;">
+      <div style="font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#c62828;">SGA</div>
+      <div style="font-size:11px;font-weight:700;color:#b71c1c;margin-top:2px;">&lt; 10th percentile</div>
+      <div style="font-size:10.5px;font-weight:600;color:#9a3412;margin-top:2px;">Requires BG screening</div>
+    </div>
+    <div style="background:#fff;border:2px solid #a5d6a7;border-radius:8px;padding:8px 10px;text-align:center;">
+      <div style="font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;color:#1b5e20;">LGA</div>
+      <div style="font-size:11px;font-weight:700;color:#2e7d32;margin-top:2px;">&gt; 90th percentile</div>
+      <div style="font-size:10.5px;font-weight:600;color:#388e3c;margin-top:2px;">Requires BG screening</div>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:0;"><strong>💡 Tip:</strong> Bring the lab vial in when you go to do blood sugar checks — if the value requires a draw, you won't need to make a second trip.</div>
+</div>
+</div>
+<!-- ═══ END GBMC WEIGHT CLASSIFICATION ═══ -->
+
+<!-- ═══ GBMC HYPOGLYCEMIA PROTOCOL ═══ -->
+<div class="ib">
+<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>GBMC Hypoglycemia Protocol — What to Do</h3>
+<div class="hgb-disclaimer" role="note">
+  <span aria-hidden="true">🏥</span>
+  <span><strong>GBMC-specific:</strong> Always follow your hospital's current protocol and provider orders. These steps reflect GBMC MBU practice.</span>
+</div>
+
+<div class="gbmc-protocol level-ok" role="region" aria-label="BG 45 and above normal">
+  <div class="gbmc-ph"><span class="gbmc-ph-label">✅ Normal</span><span class="gbmc-ph-range">BG ≥ 45 mg/dL</span></div>
+  <div class="gbmc-body">
+    <ul class="gbmc-steps">
+      <li><span class="gbmc-num" aria-hidden="true">•</span>Continue routine BG screening per protocol</li>
+      <li><span class="gbmc-num" aria-hidden="true">•</span>Feed on demand; encourage breast or formula q2–3h</li>
+    </ul>
+  </div>
+</div>
+
+<div class="gbmc-protocol level-mid" role="region" aria-label="BG 40 to 45 borderline">
+  <div class="gbmc-ph"><span class="gbmc-ph-label">⚠️ Borderline</span><span class="gbmc-ph-range">BG 40–45 mg/dL</span></div>
+  <div class="gbmc-body">
+    <ol class="gbmc-steps">
+      <li><span class="gbmc-num" aria-hidden="true">1</span><strong>Draw a lab</strong> (have the vial ready when you go in)</li>
+      <li><span class="gbmc-num" aria-hidden="true">2</span><strong>Feed the baby</strong> — breast or formula immediately</li>
+      <li><span class="gbmc-num" aria-hidden="true">3</span>Recheck BG 1 hour after feeding</li>
+      <li><span class="gbmc-num" aria-hidden="true">4</span>Notify provider if not improving</li>
+    </ol>
+    <div class="gbmc-pills">
+      <span class="gbmc-pill">Draw lab + Feed</span>
+      <span class="gbmc-pill">Recheck in 1 hour</span>
+    </div>
+  </div>
+</div>
+
+<div class="gbmc-protocol level-low" role="region" aria-label="BG below 40 low">
+  <div class="gbmc-ph"><span class="gbmc-ph-label">🚨 Low — Act Now</span><span class="gbmc-ph-range">BG &lt; 40 mg/dL</span></div>
+  <div class="gbmc-body">
+    <ol class="gbmc-steps">
+      <li><span class="gbmc-num" aria-hidden="true">1</span><strong>Send blood to lab</strong> — draw and send specimen immediately</li>
+      <li><span class="gbmc-num" aria-hidden="true">2</span><strong>Gel the baby immediately</strong> — dextrose gel per protocol</li>
+      <li><span class="gbmc-num" aria-hidden="true">3</span><strong>Feed the baby</strong> right after gelling</li>
+      <li><span class="gbmc-num" aria-hidden="true">4</span>Recheck BG <strong>1 hour after feeding</strong></li>
+      <li><span class="gbmc-num" aria-hidden="true">5</span>Notify provider immediately</li>
+      <li><span class="gbmc-num" aria-hidden="true">6</span>If symptomatic or not improving → IV access, D10W bolus per order</li>
+    </ol>
+    <div class="gbmc-pills">
+      <span class="gbmc-pill">Gel → Feed → Recheck 1hr</span>
+      <span class="gbmc-pill">Notify provider</span>
+    </div>
+    <div class="pph-note" style="margin-top:8px;"><strong>⚠ Never give D50W</strong> to a neonate — D10W only. Confirm dose with provider.</div>
+  </div>
+</div>
+</div>
+<!-- ═══ END GBMC PROTOCOL ═══ -->
+
+<div class="ib">
+<h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>At-Risk Infants — Screen These Babies</h3>
 <div class="tags">
   <span class="tag" style="background:#e8f5e9;color:#1b5e20;">IDM (Infant of Diabetic Mother)</span>
-  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">LGA (&gt;4000g)</span>
-  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">SGA / IUGR</span>
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">LGA (&gt;90th %ile at GBMC)</span>
+  <span class="tag" style="background:#e8f5e9;color:#1b5e20;">SGA (&lt;10th %ile at GBMC)</span>
   <span class="tag" style="background:#e8f5e9;color:#1b5e20;">Late preterm (34–36⁶⁄₇ wks)</span>
   <span class="tag" style="background:#fff9c4;color:#b45309;">Cold stress / hypothermia</span>
   <span class="tag" style="background:#fff9c4;color:#b45309;">Poor feeding / weak suck</span>
@@ -1004,7 +1217,7 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 
 <div class="ib">
-<h3><span class="dot" style="background:#2e7d32" aria-hidden="true"></span>Blood Glucose Goals by Age</h3>
+<h3><span class="dot" style="background:var(--mint-dark)" aria-hidden="true"></span>Blood Glucose Goals by Age</h3>
 <table class="tbl"><thead><tr><th scope="col">Age</th><th scope="col">Goal BG</th><th scope="col">Action if Below</th></tr></thead><tbody>
 <tr><td>0–4 hours</td><td style="color:#2e7d32;font-weight:800;">≥40 mg/dL</td><td>Feed, recheck in 30–60 min</td></tr>
 <tr><td>4–24 hours</td><td style="color:#2e7d32;font-weight:800;">≥45 mg/dL</td><td>Feed, recheck; notify if not improving</td></tr>
@@ -1029,68 +1242,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 
 <div class="ib">
-<h3><span class="dot" style="background:#e65100" aria-hidden="true"></span>Staged Nursing Response</h3>
-<div class="hgb-disclaimer" role="note">
-  <span aria-hidden="true">🏥</span>
-  <span><strong>Hospital-dependent:</strong> Thresholds and treatment steps vary by institution. Always follow your hospital's specific hypoglycemia protocol and provider orders. The ranges below are general clinical guidance only.</span>
-</div>
-
-<div class="pph-stage s1" role="region" aria-label="Mild hypoglycemia 40 to 50" style="border-color:#81c784;background:#f1f8e9;">
-  <div class="pph-sh" style="background:#66bb6a;"><span class="pph-stg-lbl">Mild</span><span class="pph-stg-desc">BG 40–50 mg/dL · asymptomatic</span></div>
-  <div class="pph-body"><ol class="pph-steps">
-    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">1</span>Feed NOW — breast or formula, document intake</li>
-    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">2</span>Recheck BG 30 min after feeding</li>
-    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">3</span>Keep baby warm — cold stress worsens hypoglycemia</li>
-    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">4</span>Notify provider if not improving after feed</li>
-    <li><span class="pph-num" style="background:#388e3c;" aria-hidden="true">5</span>Document value, time, feeding, and repeat BG result</li>
-  </ol>
-  <div class="pph-meds" style="margin-top:6px;">
-    <span class="pph-med" style="background:#e8f5e9;color:#1b5e20;border-color:#81c784;">Breastfeed or formula feed</span>
-    <span class="pph-med" style="background:#e8f5e9;color:#1b5e20;border-color:#81c784;">Skin-to-skin for warmth</span>
-  </div>
-  </div>
-</div>
-
-<div class="pph-stage s2" role="region" aria-label="Moderate hypoglycemia 25 to 40" style="border-color:#f57c00;background:#fff3e0;">
-  <div class="pph-sh" style="background:#f57c00;"><span class="pph-stg-lbl">Moderate</span><span class="pph-stg-desc">BG 25–40 mg/dL</span></div>
-  <div class="pph-body"><ol class="pph-steps">
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">1</span>Notify provider immediately</li>
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">2</span>Feed NOW if baby has adequate suck and is alert</li>
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">3</span>Recheck BG 20–30 min after feeding</li>
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">4</span>Prepare for possible IV access per provider order</li>
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">5</span>Consider Dextrose gel (if ordered and per protocol)</li>
-    <li><span class="pph-num" style="background:#ef6c00;" aria-hidden="true">6</span>Keep warm; monitor for worsening symptoms</li>
-  </ol>
-  <div class="pph-meds" style="margin-top:6px;">
-    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">Feed if able</span>
-    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">Dextrose gel per order</span>
-    <span class="pph-med" style="background:#fff3e0;color:#bf360c;border-color:#ffb74d;">IV access if ordered</span>
-  </div>
-  </div>
-</div>
-
-<div class="pph-stage s3" role="region" aria-label="Severe hypoglycemia below 25 or symptomatic">
-  <div class="pph-sh"><span class="pph-stg-lbl">Severe / Symptomatic</span><span class="pph-stg-desc">BG &lt;25 OR any symptoms</span></div>
-  <div class="pph-body"><ol class="pph-steps">
-    <li><span class="pph-num" aria-hidden="true">1</span>Call provider STAT — do not delay for feeding</li>
-    <li><span class="pph-num" aria-hidden="true">2</span>Establish IV access immediately</li>
-    <li><span class="pph-num" aria-hidden="true">3</span>D10W mini-bolus: 2 mL/kg IV over 5 min (per order)</li>
-    <li><span class="pph-num" aria-hidden="true">4</span>Start D10W continuous infusion per provider order</li>
-    <li><span class="pph-num" aria-hidden="true">5</span>Recheck BG 15–30 min after bolus</li>
-    <li><span class="pph-num" aria-hidden="true">6</span>NICU consult if not responding or seizure activity</li>
-    <li><span class="pph-num" aria-hidden="true">7</span>Continuous monitoring — temp, HR, RR, O₂ sat</li>
-  </ol>
-  <div class="pph-meds" style="margin-top:6px;">
-    <span class="pph-med">D10W 2 mL/kg IV bolus</span>
-    <span class="pph-med">D10W continuous infusion</span>
-    <span class="pph-med">NICU consult</span>
-  </div>
-  <div class="pph-note"><strong>⚠ Never give D50W</strong> to a neonate — causes rebound hypoglycemia and vascular damage. D10W only.</div>
-  </div>
-</div>
-</div>
-
-<div class="ib">
 <h3><span class="dot" style="background:#0d47a1" aria-hidden="true"></span>D10W Quick Reference</h3>
 <div class="hgb-d10">
   <div class="hgb-d10-row"><div class="hgb-d10-label">Mini-bolus dose</div><div class="hgb-d10-val">2 mL/kg IV over 5 min</div></div>
@@ -1100,6 +1251,26 @@ details.pph-detail .ab{border-top-color:var(--bd);}
   <div class="hgb-d10-row"><div class="hgb-d10-label">Wean IV when</div><div class="hgb-d10-val">BG stable on feeds; wean gradually</div></div>
 </div>
 <div class="alrt" role="note"><strong>⚠ Never use D50W</strong> in neonates. D10W is standard. Confirm concentration and dose with provider and pharmacy before administering.</div>
+</div>
+
+<div class="ib">
+<h3><span class="dot" style="background:#1565c0" aria-hidden="true"></span>Clearance Criteria — When BG Monitoring Can Stop</h3>
+<div style="background:#e3f2fd;border:2px solid #90caf9;border-radius:12px;padding:11px 13px;margin-bottom:6px;">
+  <div style="font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:900;color:#0d47a1;margin-bottom:8px;">✅ Baby needs at least 3 normal pre-feed blood glucose draws</div>
+  <div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #bbdefb;font-size:12px;font-weight:600;color:#0d47a1;line-height:1.45;">
+    <span style="width:18px;height:18px;border-radius:50%;background:#1565c0;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">1</span>
+    3 consecutive pre-feed BG values in normal range = cleared from screening
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #bbdefb;font-size:12px;font-weight:600;color:#0d47a1;line-height:1.45;">
+    <span style="width:18px;height:18px;border-radius:50%;background:#1565c0;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">2</span>
+    <span><strong>If the 3rd draw is completed before 24 hours of life</strong> — continue BG checks until the full 24-hour mark is reached, even if all values are normal</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:12px;font-weight:600;color:#0d47a1;line-height:1.45;">
+    <span style="width:18px;height:18px;border-radius:50%;background:#1565c0;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">3</span>
+    Document all BG values, feeding times, and clearance in EPIC
+  </div>
+</div>
+<div class="alrt" role="note"><strong>⚠ 24-hour rule:</strong> Three normal draws only clears the baby if 24 hrs of life have passed. If not, keep checking until 24 hrs is complete — do not stop early.</div>
 </div>
 
 <div class="ib">
@@ -1146,27 +1317,40 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </div>
 <div class="dc">
 <div class="dh"><span aria-hidden="true" style="font-size:16px">👨‍⚕️</span><span class="dht">Providers &amp; Specialists</span></div>
-<div class="dr"><div><div class="drn">OB Attending</div><div class="drr">On-call OB physician</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">OB Resident</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Neonatologist</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Anesthesia</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">MFM / Perinatology</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
+<div class="dr"><div><div class="drn">OB Attending</div><div class="drr">On-call OB physician</div></div><span class="drv" aria-label="Ext 6774">6774</span></div>
+<div class="dr"><div><div class="drn">MB Practitioner</div><div class="drr">Mother Baby NP/PA</div></div><span class="drv" aria-label="Ext 6769 or 6965">6769 / 6965</span></div>
+<div class="dr"><div><div class="drn">NBN Practitioners</div><div class="drr">Newborn NP/PA</div></div><span class="drv" aria-label="Ext 3048 and 7658">3048 &amp; 7658</span></div>
+<div class="dr"><div><div class="drn">NICU Attending</div><div class="drr">Neonatologist on call</div></div><span class="drv" aria-label="Ext 3668">3668</span></div>
+</div>
+<div class="dc">
+<div class="dh"><span aria-hidden="true" style="font-size:16px">👶</span><span class="dht">Newborn / Nursery</span></div>
+<div class="dr"><div><div class="drn">NBN Resource Nurse</div><div class="drr">Newborn resource RN</div></div><span class="drv" aria-label="Ext 7452">7452</span></div>
+<div class="dr"><div><div class="drn">NBN Nursery</div><div class="drr">Newborn nursery desk</div></div><span class="drv" aria-label="Ext 2585">2585</span></div>
+<div class="dr"><div><div class="drn">Transition Nurse</div><div class="drr">Transition to newborn care</div></div><span class="drv" aria-label="Ext 7453">7453</span></div>
+<div class="dr"><div><div class="drn">NICU Desk</div><div class="drr">NICU front desk</div></div><span class="drv" aria-label="Ext 2591">2591</span></div>
+<div class="dr"><div><div class="drn">NICU Charge</div><div class="drr">NICU charge nurse</div></div><span class="drv" aria-label="Ext 6849">6849</span></div>
+</div>
+<div class="dc">
+<div class="dh"><span aria-hidden="true" style="font-size:16px">🏥</span><span class="dht">L&amp;D / Admitting</span></div>
+<div class="dr"><div><div class="drn">L&amp;D Desk</div><div class="drr">Labor &amp; Delivery front desk</div></div><span class="drv" aria-label="Ext 2577">2577</span></div>
+<div class="dr"><div><div class="drn">L&amp;D Charge</div><div class="drr">Labor &amp; Delivery charge nurse</div></div><span class="drv" aria-label="Ext 2667">2667</span></div>
+<div class="dr"><div><div class="drn">OB Admitting</div><div class="drr">OB admitting desk</div></div><span class="drv" aria-label="Ext 2597">2597</span></div>
+<div class="dr"><div><div class="drn">Front Desk</div><div class="drr">MBU front desk</div></div><span class="drv" aria-label="Ext 2520">2520</span></div>
 </div>
 <div class="dc">
 <div class="dh"><span aria-hidden="true" style="font-size:16px">🤝</span><span class="dht">Ancillary &amp; Support</span></div>
-<div class="dr"><div><div class="drn">Lactation Consultant</div><div class="drr">IBCLC inpatient</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Social Work</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Pharmacy</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Lab / Phlebotomy</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
-<div class="dr"><div><div class="drn">Blood Bank</div></div><span class="drv" style="background:var(--lav);color:var(--txm);font-size:12px;">Ext. ____</span></div>
+<div class="dr"><div><div class="drn">Lactation Consultant</div><div class="drr">IBCLC inpatient</div></div><span class="drv" aria-label="Ext 7391">7391</span></div>
+<div class="dr"><div><div class="drn">Social Work</div><div class="drr">Social services</div></div><span class="drv" aria-label="Ext 2079 or 2612">2079 / 2612</span></div>
+<div class="dr"><div><div class="drn">Pharmacy</div></div><span class="drv" aria-label="Ext 2771">2771</span></div>
+<div class="dr"><div><div class="drn">Lab / Phlebotomy</div></div><span class="drv" aria-label="Ext 2314">2314</span></div>
+<div class="dr"><div><div class="drn">Blood Bank</div></div><span class="drv" aria-label="Ext 2266">2266</span></div>
 </div>
 <div class="dc">
 <div class="dh" style="background:#fff3e0;"><span aria-hidden="true" style="font-size:16px">🚨</span><span class="dht" style="color:#bf360c;">Emergency &amp; Rapid Response</span></div>
-<div class="dr"><div><div class="drn">Code Blue</div><div class="drr">Adult cardiac arrest</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;">____</span></div>
-<div class="dr"><div><div class="drn">Code Pink</div><div class="drr">Infant abduction</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;">____</span></div>
-<div class="dr"><div><div class="drn">Rapid Response Team</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;">____</span></div>
-<div class="dr"><div><div class="drn">Security</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;">____</span></div>
-<div class="dr"><div><div class="drn">Poison Control</div></div><span class="drv" aria-label="Phone: 800-222-1222" style="background:#fff3e0;color:#bf360c;">800-222-1222</span></div>
+<div class="dr"><div><div class="drn">Code Blue</div><div class="drr">Adult cardiac arrest</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;" aria-label="Ext 2300">2300</span></div>
+<div class="dr"><div><div class="drn">Rapid Response</div><div class="drr">RRT activation</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;" aria-label="Ext 2777">2777</span></div>
+<div class="dr"><div><div class="drn">Security</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;" aria-label="Ext 2222">2222</span></div>
+<div class="dr"><div><div class="drn">Poison Control</div></div><span class="drv" style="background:#fff3e0;color:#bf360c;" aria-label="Phone: 800-222-1222">800-222-1222</span></div>
 </div>
 </div>
 
@@ -1205,7 +1389,6 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 
 </div><!-- end content -->
 
-<!-- Proper ARIA tablist with buttons — no anchor links, no URL hash changes -->
 <nav aria-label="App sections">
   <div class="tab-bar" role="tablist" aria-label="Navigation">
     <button class="tab-btn t-mat" id="tab-maternal" role="tab" aria-selected="true" aria-controls="maternal" tabindex="0">
@@ -1228,12 +1411,11 @@ details.pph-detail .ab{border-top-color:var(--bd);}
 </nav>
 
 <div style="text-align:center;padding:10px 0 6px;font-family:'Quicksand',sans-serif;font-size:10px;font-weight:600;color:var(--txm);letter-spacing:0.5px;flex-shrink:0;">
-  v1.0 · Unit 26 MBU · 2026
+  v1.1 · Unit 26 MBU · 2026
 </div>
 </div>
 
 <script>
-// WCAG 2.1 compliant tablist keyboard pattern
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
@@ -1252,7 +1434,6 @@ function activateTab(tab) {
   document.querySelector('.content').scrollTop = 0;
 }
 
-// Show maternal tab on load
 activateTab(tabs[0]);
 
 tabs.forEach(tab => {
